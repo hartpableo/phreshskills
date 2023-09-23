@@ -13,7 +13,7 @@
     <div class="container max-w-none py-4">
       <nav class="flex items-center justify-between flex-wrap">
         <div class="flex justify-between items-center lg:hidden w-full">
-          <p class="text-white font-bold text-xl block lg:hidden font-secondary">PhreshSkills</p>
+          <p class="text-white font-bold text-xl block lg:hidden font-secondary"><?php echo APP_NAME; ?></p>
           <button
             class="navbar-burger flex items-center py-1 px-2 border rounded text-white border-white hover:text-white hover:border-white">
             <svg class="fill-current h-6 w-6 text-white" viewBox="0 0 20 20"
@@ -24,7 +24,7 @@
           </button>
         </div>
         <div id="main-nav" class="w-full flex-grow lg:flex items-center justify-between lg:w-auto hidden">
-          <p class="text-white font-bold text-xl hidden lg:block font-secondary" aria-hidden="true">PhreshSkills</p>
+          <p class="text-white font-bold text-xl hidden lg:block font-secondary" aria-hidden="true"><?php echo APP_NAME; ?></p>
           <ul class="text-xs lg:flex-grow animated jackinthebox xl:mx-8 text-end pt-3 lg:pt-[0_!important]">
             <li class="block lg:inline-block align-top">
               <a href="#home"

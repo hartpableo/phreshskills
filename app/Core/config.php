@@ -14,6 +14,5 @@ if (!defined($_SERVER['IS_DDEV_PROJECT']) || $_SERVER['IS_DDEV_PROJECT'] == 'fal
 
 define('BASE_PATH', realpath(__DIR__ . '/../../'));
 
-define('APP_NAME', 'Tenant Management System');
-define('APP_DESC', 'A php system for managing or keeping track of tenants in an apartment/rental property.');
-define('COMPANY_NAME', 'Moalboal Hotel & Bar');
+define('APP_NAME', 'Phreshskills');
+define('APP_DESC', 'Hire Fresh Skills Now From the Talents in the Philippines!');

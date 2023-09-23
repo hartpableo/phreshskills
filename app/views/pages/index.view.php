@@ -4,7 +4,7 @@
 
       <h1 
       class="font-secondary text-4xl lg:text-6xl font-bold mb-8"
-      >Welcome to <span class="text-orange-500">Phreshskills</span>!</h1>
+      >Welcome to <span class="text-orange-500"><?php echo APP_NAME; ?></span>!</h1>
       
       <p class="max-w-2xl">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat natus incidunt recusandae, enim quisquam perspiciatis veniam dolore in accusamus officiis!</p>
 
@@ -47,56 +47,40 @@
 
         <h3
           id="title--<?php echo $nameSlug; ?>"
-          class="mb-1 text-2xl font-bold leading-tight text-neutral-800 font-secondary">
-          Hart Pableo
+          class="mb-1 text-2xl font-bold leading-tight font-secondary">
+          <a href="#" class="text-neutral-800 hover:text-orange-500 transition-all"><?php echo $jobseeker['name']; ?></a>
         </h3>
         <p
-          class="mb-3 text-sm font-semibold leading-tight text-neutral-500 text-blue-900">
-          PHP Developer
+          class="mb-3 text-md font-semibold leading-tight text-neutral-500 text-blue-900">
+          <?php echo $jobseeker['position']; ?>
         </p>
         <p
           class="mb-2 text-base leading-tight text-neutral-800">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content...
+          <?php echo excerpt($jobseeker['summary'], 125); ?>
         </p>
+
+        <?php
+          $skills = explode(', ', $jobseeker['skills']);
+          if (!empty($skills)) :
+        ?>
+
         <ul aria-label="Skills" class="flex justify-start items-start flex-wrap gap-1 mb-2">
+          
+          <?php foreach($skills as $skill) : ?>
+          
           <li class="inline-block">
             <a 
               class="p-1 px-2 font-semibold text-xs rounded bg-gray-500 text-neutral-50 hover:bg-blue-700 transition-all" 
               href="#"
-            >PHP</a>
+            ><?php echo ucwords($skill); ?></a>
           </li>
-          <li class="inline-block">
-            <a 
-              class="p-1 px-2 font-semibold text-xs rounded bg-gray-500 text-neutral-50 hover:bg-blue-700 transition-all" 
-              href="#"
-            >SCSS</a>
-          </li>
-          <li class="inline-block">
-            <a 
-              class="p-1 px-2 font-semibold text-xs rounded bg-gray-500 text-neutral-50 hover:bg-blue-700 transition-all" 
-              href="#"
-            >WordPress</a>
-          </li>
-          <li class="inline-block">
-            <a 
-              class="p-1 px-2 font-semibold text-xs rounded bg-gray-500 text-neutral-50 hover:bg-blue-700 transition-all" 
-              href="#"
-            >Git</a>
-          </li>
-          <li class="inline-block">
-            <a 
-              class="p-1 px-2 font-semibold text-xs rounded bg-gray-500 text-neutral-50 hover:bg-blue-700 transition-all" 
-              href="#"
-            >Drupal</a>
-          </li>
-          <li class="inline-block">
-            <a 
-              class="p-1 px-2 font-semibold text-xs rounded bg-gray-500 text-neutral-50 hover:bg-blue-700 transition-all" 
-              href="#"
-            >Bootstrap</a>
-          </li>
+
+          <?php endforeach; ?>
+        
         </ul>
+
+        <?php endif; ?>
+
         <div class="mt-6 flex justify-start items-start flex-wrap gap-x-4 gap-y-2">
           <a
             href="#"

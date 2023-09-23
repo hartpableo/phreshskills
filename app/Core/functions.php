@@ -54,7 +54,7 @@ function assetPath($path_to_file) {
 }
 
 function imagePath($image, $fallback = '') {
-  if (!isset($image) || !strlen($image)) return $fallback ?? "https://placehold.co/75";
+  if (!isset($image) || !strlen($image)) return $fallback ?? "https://picsum.photos/200/200";
   return assetPath("images/{$image}");
 }
 
@@ -85,4 +85,8 @@ function convertDate($value, $format = 'Y-m-d H:i:s') {
 
 function searchIsEmpty() {
   return (bool) (!isset($_GET['search']) || $_GET['search'] === '');
+}
+
+function excerpt($string, $maxLength = 100) {
+  return (strlen($string) > $maxLength) ? substr($string, 0, $maxLength) . '...' : $string;
 }
