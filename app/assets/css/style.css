@@ -89,3 +89,7 @@
   content: "";
   @apply bg-black opacity-40 z-[-1] absolute inset-0 w-full h-full pointer-events-none;
 }
+
+.has-overlay-darker::before {
+  @apply opacity-60;
+}
