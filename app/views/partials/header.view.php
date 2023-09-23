@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="<?php echo assetPath('css/style.css'); ?>">
   <script src="<?php echo assetPath('js/script.js') ?>" defer></script>
 </head>
-<body>
+<body class="min-h-screen font-primary">
   <header class="mb-5 pt-5">
     <div class="container">
       <div class="row">
