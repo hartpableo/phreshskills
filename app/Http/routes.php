@@ -6,6 +6,7 @@ $router = new Router();
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+$dynamicQuery = [];
 
 /**
  * ==================
@@ -13,3 +14,5 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
  * ==================
  */
 $router->get('/', 'Pages/index');
+
+$router->get('/jobseeker/{jobseeker:id}', 'Jobseekers/show');

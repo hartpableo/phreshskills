@@ -1,7 +1,7 @@
 </main>
 
 <section class="mb-3">
-  <div class="has-overlay has-overlay-darker relative max-w-[1536px] bg-fixed bg-cover mx-auto px-3 text-center relative overflow-hidden isolate bg-black py-20 text-white flex flex-col justify-center items-center text-md lg:text-lg" style="background-image: url(<?php echo imagePath('hero-bg.webp'); ?>);">
+  <div class="has-overlay has-overlay-darker bg-center relative max-w-[1536px] bg-fixed bg-cover mx-auto px-3 text-center relative overflow-hidden isolate bg-black py-20 text-white flex flex-col justify-center items-center text-md lg:text-lg" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
     <h2
     class="sr-only"
@@ -12,12 +12,12 @@
     <div class="flex justify-center items-start gap-4 flex-wrap mt-12">
 
       <a 
-      href="#" 
+      href="/frequently-asked-questions" 
       class="transition-all inline-flex justify-center items-center font-bold py-2 px-6 bg-orange-500 border border-solid border-orange-500 hover:border-blue-900 text-white hover:bg-blue-900 text-xl min-w-[12em]"
       >Frequently Asked Questions</a>
 
       <a 
-      href="#" 
+      href="/about-the-developer" 
       class="transition-all inline-flex justify-center items-center font-bold py-2 px-6 bg-transparent border border-solid border-white text-white hover:border-blue-900 hover:bg-blue-900 text-xl min-w-[12em]"
       >About the Developer</a>
 

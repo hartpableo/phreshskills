@@ -14,12 +14,16 @@ DEBUG ? ini_set('display_errors', 1) : ini_set('display_errors', 0);
 
 // Routing
 try {
-  $router->route($uri, $method);
+  
+  $router->route($uri, $method, $dynamicQuery);
+
 } catch (ValidationException $exception) {
+
   Session::flash('errors', $exception->errors);
   Session::flash('old', $exception->old);
   
   redirect($router->prevURL());
+  
 }
 
 // Clear flashed session data

@@ -1,7 +1,7 @@
 <?php get_template_part('header'); ?>
 
 <section id="hero">
-  <div class="has-overlay relative max-w-[1536px] bg-fixed bg-cover mx-auto px-3 text-center relative overflow-hidden isolate bg-black py-20 lg:py-9 text-white min-h-[45vh] md:min-h-[60vh] flex flex-col justify-center items-center text-md lg:text-lg" style="background-image: url(<?php echo imagePath('hero-bg.webp'); ?>);">
+  <div class="has-overlay relative max-w-[1536px] bg-fixed bg-center bg-cover mx-auto px-3 text-center relative overflow-hidden isolate bg-black py-20 lg:py-9 text-white min-h-[35vh] md:min-h-[45vh] flex flex-col justify-center items-center text-md lg:text-lg" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
     <h1 
     class="font-secondary text-4xl lg:text-6xl font-bold mb-8"
@@ -12,12 +12,12 @@
     <div class="flex justify-center items-start gap-4 flex-wrap mt-12">
 
       <a 
-      href="#" 
+      href="/jobs" 
       class="transition-all inline-flex justify-center items-center font-bold py-2 px-6 bg-orange-500 border border-solid border-orange-500 hover:border-blue-900 text-white hover:bg-blue-900 text-xl min-w-[12em]"
       >Start Applying</a>
 
       <a 
-      href="#" 
+      href="/jobs/create" 
       class="transition-all inline-flex justify-center items-center font-bold py-2 px-6 bg-transparent border border-solid border-white text-white hover:border-blue-900 hover:bg-blue-900 text-xl min-w-[12em]"
       >Post Jobs</a>
 
@@ -42,7 +42,7 @@
     <article
     role="article"
     aria-labelledby="title--<?php echo $nameSlug; ?>"
-    class="block rounded-lg bg-blue-100 text-left mb-20 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] p-6">
+    class="block bg-blue-100 text-left mb-20 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] p-6">
 
       <img src="https://picsum.photos/200/200" width="200" height="200" alt="..." 
         class="rounded-full w-[6.6rem] h-[6.6rem] mt-[-4.85rem] mb-3" aria-hidden="true" role="presentation">
@@ -50,7 +50,7 @@
       <h3
         id="title--<?php echo $nameSlug; ?>"
         class="mb-1 text-2xl font-bold leading-tight font-secondary">
-        <a href="#" class="text-neutral-800 hover:text-orange-500 transition-all"><?php echo $jobseeker['name']; ?></a>
+        <a href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>" class="text-neutral-800 hover:text-orange-500 transition-all"><?php echo $jobseeker['name']; ?></a>
       </h3>
       <p
         class="mb-3 text-md font-semibold leading-tight text-neutral-500 text-blue-900">
@@ -68,7 +68,12 @@
 
       <ul aria-label="Skills" class="flex justify-start items-start flex-wrap gap-1 mb-2">
         
-        <?php foreach($skills as $skill) : ?>
+        <?php 
+          /** show only a maximum of 9 skills */
+          $counter = 0;
+          foreach($skills as $skill) : 
+          if ($counter == 9) break;
+        ?>
         
         <li class="inline-block">
           <a 
@@ -77,7 +82,10 @@
           ><?php echo ucwords($skill); ?></a>
         </li>
 
-        <?php endforeach; ?>
+        <?php
+          $counter++;
+          endforeach; 
+        ?>
       
       </ul>
 
@@ -85,9 +93,9 @@
 
       <div class="mt-6 flex justify-start items-start flex-wrap gap-x-4 gap-y-2">
         <a
-          href="#"
+          href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>"
           class="pointer-events-auto inline-block cursor-pointer rounded text-base font-bold leading-normal text-primary text-blue-500 transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 hover:text-orange-500 hover:border-orange-500 transition-all px-2 border-2 border-solid border-blue-500 rounded transition-all">
-          View <span class="sr-only">Hart's </span>Profile
+          View <span class="sr-only"><?php echo $jobseeker['name'] ?>'s </span>Profile
         </a>
       </div>
     </article>
@@ -100,12 +108,12 @@
 
   <?php endif; ?>
 
-  <div class="mt-8 flex gap-x-2 gap-y-3 justify-center items-start flex-wrap">
+  <div class="mt-5 flex gap-x-2 gap-y-3 justify-center items-start flex-wrap">
 
     <a 
     href="#"
     class="inline-flex px-10 py-2 text-xl font-bold text-white bg-blue-900 hover:bg-orange-500 rounded transition-all"
-    >View More <span class="sr-only">Jobseekers</span></a>
+    >View More Jobseekers</a>
 
   </div>
 

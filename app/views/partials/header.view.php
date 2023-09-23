@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="<?php echo APP_DESC ?>">
-  <title><?php echo APP_NAME ?></title>
-  <link rel="stylesheet" href="<?php echo assetPath('css/style.css'); ?>">
-  <script src="<?php echo assetPath('js/script.js') ?>" defer></script>
+  <meta name="description" content="<?php echo (!isHome() && isset($pageDescription)) ? $pageDescription : APP_DESC; ?>">
+  <title><?php echo (!isHome() && isset($pageTitle)) ? "{$pageTitle} | " . APP_NAME : APP_NAME; ?></title>
+  <link rel="stylesheet" href="<?php echo load_asset('css/style.css'); ?>">
+  <script src="<?php echo load_asset('js/script.js') ?>" defer></script>
 </head>
 <body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto]">
   <header role="banner" class="bg-blue-900">
@@ -25,40 +25,40 @@
         </div>
         <div id="main-nav" class="w-full flex-grow lg:flex items-center justify-between lg:w-auto hidden">
           <p class="text-white font-bold text-xl hidden lg:block font-secondary" aria-hidden="true"><?php echo APP_NAME; ?></p>
-          <ul class="text-xs lg:flex-grow animated jackinthebox xl:mx-8 text-end pt-3 lg:pt-[0_!important]">
+          <ul class="text-uppercase lg:flex-grow animated jackinthebox xl:mx-8 text-end pt-3 lg:pt-[0_!important]">
             <li class="block lg:inline-block align-top">
               <a href="#home"
-                class="block text-xs font-bold text-orange-500 hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                class="block text-sm font-bold hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/') ? 'text-orange-500' : 'text-white'; ?>">
                 HOME
               </a>
             </li>
             <li class="block lg:inline-block align-top">
               <a href="#home"
-                class="block text-xs font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                class="block text-sm font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
                 ROAD & STORY
               </a>
             </li>
             <li class="block lg:inline-block align-top">
               <a href="#home"
-                  class="block text-xs font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                  class="block text-sm font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
                   ACCOMMODATION
               </a>
             </li>
             <li class="block lg:inline-block align-top">
               <a href="#home"
-                class="block text-xs font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                class="block text-sm font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
                 TOURS
               </a>
             </li>
             <li class="block lg:inline-block align-top">
               <a href="#home"
-                class="block text-xs font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                class="block text-sm font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
                 CONTACT US
               </a>
             </li>
             <li class="block lg:inline-block align-top">
               <a href="#home"
-                class="block text-xs font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                class="block text-sm font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
                 COMING SOON
               </a>
             </li>

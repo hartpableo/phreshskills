@@ -49,13 +49,13 @@ function get_template_part($template_part, $attributes = []) {
   view("partials/{$template_part}", $attributes);
 }
 
-function assetPath($path_to_file) {
+function load_asset($path_to_file) {
   return ROOT . "/assets/{$path_to_file}";
 }
 
-function imagePath($image, $fallback = '') {
+function image_uri($image, $fallback = '') {
   if (!isset($image) || !strlen($image)) return $fallback ?? "https://picsum.photos/200/200";
-  return assetPath("images/{$image}");
+  return load_asset("images/{$image}");
 }
 
 function auth() {
