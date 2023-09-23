@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="<?php echo assetPath('css/style.css'); ?>">
   <script src="<?php echo assetPath('js/script.js') ?>" defer></script>
 </head>
-<body class="min-h-screen font-primary">
+<body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto]">
   <header class="mb-5 pt-5">
     <div class="container">
       <div class="row">
@@ -39,8 +39,3 @@
     </div>
   </header>
   <main>
-
-  <?php $containerClasses = (urlIs('/') || isset($_GET['search'])) ? 'container py-5' : 'container' ?>
-  
-  <section>
-    <div class="<?php echo $containerClasses ?>">
