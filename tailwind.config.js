@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      "primary": [ "Roboto_Slab" ],
-      "secondary": [ "PT_SANS" ],
+      "primary": [ "PT_SANS" ],
+      "secondary": [ "Roboto_Slab" ],
     }
   },
   plugins: [],

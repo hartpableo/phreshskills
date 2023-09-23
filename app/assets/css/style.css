@@ -82,5 +82,5 @@
 
 /** custom classes */
 .container {
-  @apply py-4 px-2 mx-auto;
+  @apply px-2 mx-auto;
 }
