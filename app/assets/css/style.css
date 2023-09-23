@@ -84,3 +84,8 @@
 .container {
   @apply px-2 mx-auto;
 }
+
+.has-overlay::before {
+  content: "";
+  @apply bg-black opacity-40 z-[-1] absolute inset-0 w-full h-full pointer-events-none;
+}

@@ -12,4 +12,4 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
  * ===== Routes =====
  * ==================
  */
-// $router->get('/login', 'Managers/login')->only('guest');
+$router->get('/', 'Pages/index');

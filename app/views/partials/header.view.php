@@ -5,37 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="<?php echo APP_DESC ?>">
   <title><?php echo APP_NAME ?></title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="<?php echo assetPath('css/style.css'); ?>">
   <script src="<?php echo assetPath('js/script.js') ?>" defer></script>
 </head>
 <body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto]">
-  <header class="mb-5 pt-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6">
-          <?php if (isHome()) : ?>
-          <h1 class="m-0"><?php echo COMPANY_NAME; ?></h1>
-          <?php else : ?>
-          <h1 class="m-0"><a href="/" class="text-decoration-none" aria-label="link to home page"><?php echo COMPANY_NAME; ?></a></h1>
-          <?php endif; ?>
-          <p class="m-0 fw-light"><?php echo APP_NAME; ?></p>
+  <header role="banner" class="bg-blue-900">
+    <div class="container max-w-none py-4">
+      <nav class="flex items-center justify-between flex-wrap">
+        <div class="flex justify-between items-center lg:hidden w-full">
+          <p class="text-white font-bold text-xl block lg:hidden font-secondary">PhreshSkills</p>
+          <button
+            class="navbar-burger flex items-center py-1 px-2 border rounded text-white border-white hover:text-white hover:border-white">
+            <svg class="fill-current h-6 w-6 text-white" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
         </div>
-        <div class="col-12 col-md-6 text-md-end d-flex justify-content-end align-items-center gap-2">
-          <?php if (auth()) : ?>
-            <form action="/manager/logout" method="POST">
-              <input type="hidden" name="_method" value="DELETE">
-              <button type="submit" class="btn btn-secondary btn-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-                  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                </svg>
-                Exit
-              </button>
-            </form>
-          <?php endif; ?>
+        <div id="main-nav" class="w-full flex-grow lg:flex items-center justify-between lg:w-auto hidden">
+          <p class="text-white font-bold text-xl hidden lg:block font-secondary" aria-hidden="true">PhreshSkills</p>
+          <ul class="text-xs lg:flex-grow animated jackinthebox xl:mx-8 text-end pt-3 lg:pt-[0_!important]">
+            <li class="block lg:inline-block align-top">
+              <a href="#home"
+                class="block text-xs font-bold text-orange-500 hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                HOME
+              </a>
+            </li>
+            <li class="block lg:inline-block align-top">
+              <a href="#home"
+                class="block text-xs font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                ROAD & STORY
+              </a>
+            </li>
+            <li class="block lg:inline-block align-top">
+              <a href="#home"
+                  class="block text-xs font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                  ACCOMMODATION
+              </a>
+            </li>
+            <li class="block lg:inline-block align-top">
+              <a href="#home"
+                class="block text-xs font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                TOURS
+              </a>
+            </li>
+            <li class="block lg:inline-block align-top">
+              <a href="#home"
+                class="block text-xs font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                CONTACT US
+              </a>
+            </li>
+            <li class="block lg:inline-block align-top">
+              <a href="#home"
+                class="block text-xs font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
+                COMING SOON
+              </a>
+            </li>
+          </ul>
         </div>
-      </div>
+      </nav>
     </div>
   </header>
   <main>
