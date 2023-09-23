@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/** font face */
+@font-face {
+  font-family: "PT_SANS";
+  src: url(../fonts/PT_Sans/PTSans-Regular.ttf);
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "PT_SANS";
+  src: url(../fonts/PT_Sans/PTSans-Bold.ttf);
+  font-display: swap;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Roboto_Slab";
+  src: url(../fonts/Roboto_Slab/static/RobotoSlab-Thin.ttf);
+  font-display: swap;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Roboto_Slab";
+  src: url(../fonts/Roboto_Slab/static/RobotoSlab-ExtraLight.ttf);
+  font-display: swap;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Roboto_Slab";
+  src: url(../fonts/Roboto_Slab/static/RobotoSlab-Light.ttf);
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Roboto_Slab";
+  src: url(../fonts/Roboto_Slab/static/RobotoSlab-Regular.ttf);
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto_Slab";
+  src: url(../fonts/Roboto_Slab/static/RobotoSlab-Medium.ttf);
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Roboto_Slab";
+  src: url(../fonts/Roboto_Slab/static/RobotoSlab-SemiBold.ttf);
+  font-display: swap;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Roboto_Slab";
+  src: url(../fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf);
+  font-display: swap;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Roboto_Slab";
+  src: url(../fonts/Roboto_Slab/static/RobotoSlab-ExtraBold.ttf);
+  font-display: swap;
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Roboto_Slab";
+  src: url(../fonts/Roboto_Slab/static/RobotoSlab-Black.ttf);
+  font-display: swap;
+  font-weight: 900;
+}
+
+/** custom classes */
+.container {
+  @apply py-4 px-2 mx-auto;
+}
