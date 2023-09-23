@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <link rel="stylesheet" href="../public/assets/css/style.css">
+  <script src="../public/assets/js/script.js" defer></script>
+</head>
+<body class="font-primary">
+
+  <form action="#" method="POST" class="container max-w-md my-5">
+
+    <!-- Text Input -->
+    <div class="mb-4">
+        <label for="name" class="block text-gray-700 font-secondary text-sm">Name</label>
+        <input type="text" id="name" name="name" class="border border-solid rounded-sm border-gray-500 block w-full p-1">
+    </div>
+
+    <!-- Email Input -->
+    <div class="mb-4">
+        <label for="email" class="block text-gray-700 font-secondary text-sm">Email</label>
+        <input type="email" id="email" name="email" class="border border-solid rounded-sm border-gray-500 block w-full p-1">
+        <p class="text-xs text-red-400 font-semibold mt-1">* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, ab.</p>
+    </div>
+
+    <!-- Password Input -->
+    <div class="mb-4">
+        <label for="password" class="block text-gray-700 font-secondary text-sm">Password</label>
+        <input type="password" id="password" name="password" class="border border-solid rounded-sm border-gray-500 block w-full p-1">
+    </div>
+
+    <!-- Checkbox -->
+    <div class="mb-4">
+        <label class="flex items-center">
+            <input type="checkbox" name="subscribe" class="form-checkbox">
+            <span class="ml-2 font-secondary text-sm">Subscribe to newsletter</span>
+        </label>
+    </div>
+
+    <!-- Radio Buttons -->
+    <div class="mb-4">
+        <span class="block text-gray-700 font-secondary text-sm">Select Gender</span>
+        <label class="inline-flex items-center">
+            <input type="radio" name="gender" value="male" class="form-radio">
+            <span class="ml-2">Male</span>
+        </label>
+        <label class="inline-flex items-center ml-6">
+            <input type="radio" name="gender" value="female" class="form-radio">
+            <span class="ml-2">Female</span>
+        </label>
+    </div>
+
+    <!-- Textarea -->
+    <div class="mb-4">
+        <label for="message" class="block text-gray-700 font-secondary text-sm">Message</label>
+        <textarea id="message" name="message" rows="4" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical min-h-[15rem]"></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <div>
+        <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-orange-500 transition-all">Submit</button>
+    </div>
+
+  </form>
+
+</body>
+</html>
