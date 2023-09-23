@@ -1,0 +1,4 @@
+.ddev
+node_modules
+
+/vendor/

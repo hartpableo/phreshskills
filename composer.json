@@ -1,0 +1,17 @@
+{
+    "name": "hartpableo/php-template",
+    "description": "an oop php-based template",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "app/Core",
+            "Http\\": "app/Http"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hart Pableo",
+            "email": "pableoh@gmail.com"
+        }
+    ],
+    "require": {}
+}
