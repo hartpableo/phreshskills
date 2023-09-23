@@ -2,7 +2,7 @@
 
 <section>
   <div class="container">
-    <h1 class="text-8xl">From Jobseekers show view file!</h1>
+    <h1 class="text-8xl">Hello <?php echo $jobseeker['name'] ?>!</h1>
   </div>
 </section>
 

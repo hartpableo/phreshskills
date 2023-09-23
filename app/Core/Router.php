@@ -27,13 +27,16 @@ class Router
     $str = $uri;
     $start = strpos($str, "{");
     $end = strpos($str, "}");
-    $uriSubstring = substr($str, $start + 1, $end - $start - 1);
+    $uriSubstring = substr($str, $start, $end - $start + 1);
+    $cleanUriSubstr = str_replace('/', '', $uriSubstring);
 
     if (!strpos($uriSubstring, ':')) return $queryControl;
     
+    $uriSubstring = str_replace(['{', '}'], '', $uriSubstring);
     $uriSubstrings = explode(':', $uriSubstring);
     $queryControl = [
-      'controllerQuery' => $uriSubstrings[1]
+      'controllerQuery' => $uriSubstrings[1],
+      'custom_parameter' => $cleanUriSubstr
     ];
 
     return $queryControl;
@@ -42,12 +45,12 @@ class Router
   public function get($uri, $controller)
   {
 
-    $checkedUrl = $this->assessUrl($uri);
+    $queryControl = $this->assessUrl($uri);
 
-    if (empty($checkedUrl)) {
+    if (empty($queryControl)) {
       $this->add('GET', $uri, $controller);
     } else {
-      $this->add('GET', $uri, $controller, $checkedUrl['controllerQuery']);
+      $this->add('GET', $uri, $controller, $queryControl);
     }
 
     return $this;
@@ -98,12 +101,24 @@ class Router
 
       } elseif (!empty($route['query'])) {
 
-        $dynamicQuery['reference'] = $route['query'];
+        $savedRoute = $route['uri'];
+        $requestedRoute = $uri;
 
-        $uriArray = explode('/', $uri);
-        foreach ($uriArray as $part) {
-          if (is_numeric($part)) $dynamicQuery['ref_value'] = $part;
-        }
+        $arr1 = explode('/', $savedRoute);
+        $arr2 = explode('/', $requestedRoute);
+
+        $diff1 = array_diff($arr1, $arr2);
+        $diff2 = array_diff($arr2, $arr1);
+
+        $savedParam = implode("/", $diff1);
+        $requestedParam = implode("/", $diff2);
+
+        $savedRoute = str_replace($savedParam, $requestedParam, $savedRoute);
+
+        $dynamicQuery = [
+          'referenced_column' => $route['query']['controllerQuery'],
+          'referenced_column_value' => $requestedParam
+        ];
 
         Middleware::resolve($route['middleware']);
 
