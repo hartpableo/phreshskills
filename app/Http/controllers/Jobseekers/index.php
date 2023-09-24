@@ -8,11 +8,49 @@ $db = App::resolve(Database::class);
 
 /** manage query */
 if (url_has_no_query_strings()) {
+
   $jobseekers = $db->query('select * from jobseekers')->findAll();
+
 } else {
-  $jobseekers = $db->query('select * from jobseekers where lower(name) like :search', [
-    ':search' => '%' . strtolower($_GET['search']) . '%'
-  ])->findAll();
+
+  $params = [];
+  $query = '';
+
+  if (!empty($_GET['skills'])) {
+    $skills = array_map('strtolower', $_GET['skills']);
+
+    $skills_query = array_map(function($key) {
+      return "lower(skills) like :skill{$key}";
+    }, array_keys($skills));
+
+    if (!empty($query)) {
+      $query .= ' or ';
+    }
+
+    $query .= '(' . implode(' or ', $skills_query) . ')';
+
+    $params += array_combine(array_map(function($key) {
+      return ":skill{$key}";
+    }, array_keys($skills)), array_map(function($skill) {
+      return '%' . $skill . '%';
+    }, $skills));
+
+  }
+
+  if (isset($_GET['position']) && strlen($_GET['position'])) {
+    $params[':position'] = '%' . strtolower($_GET['position']) . '%';
+    if (!empty($query)) {
+      $query .= ' and ';
+    }
+    $query .= 'lower(position) like :position';
+  }
+
+  if (!empty($query)) {
+    $jobseekers = $db->query('select * from jobseekers where ' . $query, $params)->findAll();
+  } else {
+    $jobseekers = $db->query('select * from jobseekers')->findAll();
+  }
+
 }
 
 /** get and combine all skills */
@@ -29,6 +67,8 @@ if (!empty($skills)) {
   $all_skills = array_unique($all_skills);
 
 }
+
+// show($jobseekers);
 
 view('jobseekers/index', [
   'jobseekers' => $jobseekers,

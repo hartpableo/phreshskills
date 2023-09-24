@@ -6,7 +6,16 @@
 
   <div class="container">
 
-    <?php get_template_part('jobseekers-search-filter'); ?>
+    <?php get_template_part('jobseekers-search-filter', [
+      'all_skills' => $all_skills
+    ]); ?>
+
+    <?php if ($_GET) : ?>
+    <a 
+      href="<?php echo no_query_strings(); ?>"
+      class="block px-5 py-2 text-sm font-semibold rounded bg-orange-500 max-w-max text-white"
+    >Clear Filters</a>
+    <?php endif; ?>
 
     <?php if (!empty($jobseekers)) : ?>
 

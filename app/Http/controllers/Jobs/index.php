@@ -18,9 +18,6 @@ if (url_has_no_query_strings()) {
     ':company_name' => '%' . strtolower($_GET['company']) . '%'
   ])->findAll();
 
-  // print_r($_GET);
-  // show($jobs);
-  
 }
 
 view('jobs/index', [
