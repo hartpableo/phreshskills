@@ -28,10 +28,8 @@
         aria-labelledby="job--<?php echo "{$titleSlug}-{$job['id']}"; ?>" 
         class="p-6 bg-white border border-gray-200 rounded-lg shadow-lg">
           
-          <p class="block text-xs font-bold text-neutral-500">
-            <a href="<?php echo "/"; ?>">
-              <?php echo $job['company_name']; ?>
-            </a>
+          <p class="block text-sm font-bold text-neutral-500">
+            <?php echo $job['company_name']; ?>
           </p>
 
           <a 
