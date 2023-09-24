@@ -78,7 +78,19 @@
         filterSkillsButton.setAttribute('aria-expanded', false);
       }
 
+      event.stopPropagation();
+
     }, { passive: true })
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      const isInsideDropdown = skillsDropdown.contains(target);
+
+      if (!isInsideDropdown) {
+        skillsDropdown.classList.add('hidden');
+        filterSkillsButton.setAttribute('aria-expanded', false);
+      }
+    }, { passive: true });
 
   }, { passive: true })
 </script>
