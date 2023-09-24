@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Sep 24, 2023 at 02:28 AM
+-- Generation Time: Sep 24, 2023 at 06:46 AM
 -- Server version: 10.4.31-MariaDB-1:10.4.31+maria~ubu2004-log
 -- PHP Version: 8.1.16
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `employers`
+--
+
+CREATE TABLE `employers` (
+  `employer_id` int(11) NOT NULL,
+  `company_name` varchar(1024) NOT NULL,
+  `company_email` varchar(255) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employers`
+--
+
+INSERT INTO `employers` (`employer_id`, `company_name`, `company_email`, `password`) VALUES
+(1, 'Google Inc.', 'recruitment@google.com', '$2y$10$tXI/NUM0C8zGK5E0/nHSvuhSh3U4L1UIsokni4zArkdv8BZRRpmhK'),
+(2, 'Automattic', 'info@automattic.org', '123123123'),
+(3, 'Meta', 'info@meta.com', '121212');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jobs`
 --
 
@@ -33,17 +55,18 @@ CREATE TABLE `jobs` (
   `salary` varchar(255) NOT NULL,
   `skillset` varchar(1024) NOT NULL,
   `description` varchar(8000) NOT NULL,
-  `publisher` int(11) NOT NULL
+  `employer_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `title`, `salary`, `skillset`, `description`, `publisher`) VALUES
+INSERT INTO `jobs` (`id`, `title`, `salary`, `skillset`, `description`, `employer_id`) VALUES
 (1, 'WordPress Plugin Developer', '3', 'wordpress, php, javascript', 'Lorem ipsum dolor sit amet consectetur adipiscing elit iaculis aptent metus turpis hac, porttitor tempor maecenas ullamcorper facilisis penatibus quis felis venenatis scelerisque fusce parturient, suspendisse tortor aenean sapien accumsan donec id faucibus semper sagittis lacus', 1),
-(2, 'Junior Laravel Developer', '8', 'laravel, php, javascript, vuejs', 'Lorem ipsum dolor sit amet consectetur adipiscing elit iaculis aptent metus turpis hac, porttitor tempor maecenas ullamcorper facilisis penatibus quis felis venenatis scelerisque fusce parturient, suspendisse tortor aenean sapien accumsan donec id faucibus semper sagittis lacus!!! sit amet consectetur adipiscing elit iaculis aptent metus turpis hac, porttitor tempor maecenas ullamcorper facilisis penatibus quis felis venenatis scelerisque fusce parturient, suspendisse tortor aenean sapien accumsan done', 1),
-(3, 'React Developer', '9', 'reactjs, tailwindcss, javascript, nodejs', 'Lorem ipsureacasad parturient, suspendisse tortor aenean sapien accumsan donec id faucibus semper sagittis lacus', 2);
+(2, 'Junior Laravel Developer', '8', 'laravel, php, javascript, vuejs', 'Lorem ipsum dolor sit amet consectetur adipiscing elit iaculis aptent metus turpis hac, porttitor tempor maecenas ullamcorper facilisis penatibus quis felis venenatis scelerisque fusce parturient, suspendisse tortor aenean sapien accumsan donec id faucibus semper sagittis lacus!!! sit amet consectetur adipiscing elit iaculis aptent metus turpis hac, porttitor tempor maecenas ullamcorper facilisis penatibus quis felis venenatis scelerisque fusce parturient, suspendisse tortor aenean sapien accumsan done', 2),
+(3, 'React Developer', '9', 'reactjs, tailwindcss, javascript, nodejs', 'Lorem ipsureacasad parturient, suspendisse tortor aenean sapien accumsan donec id faucibus semper sagittis lacus', 3),
+(4, 'Senior Software QA/Tester', '10', 'ui, ci, ux, c#, sql', 'augue est morbi, sagittis nibh eget curabitur sapien phasellus consequat faucibus sodales parturient aliquet tristique, ornare dapibus magnis primis mollis pulvinar blandit vel aptent sem taciti nulla. Nam pretium varius congue montes donec parturient pharetra arcu praesent, dapibus hendrerit primis tempor dictum proin placerat rhoncus class laoreet, facilisis dignissim metus eleifend accumsan porttitor aenean faucibus. Nibh rutrum torquent justo sapien cum viverra ligula condimentum, senectus penatibus fusce auctor libero orci mollis, scelerisque proin quis odio sagittis augue nisl. Mus posuere urna varius massa dictum ante convallis tristique et, taciti congue sociosqu luctus aliquam nisi interdum magnis sapien semper, habitant diam erat fusce purus eget tempor molestie.', 2);
 
 -- --------------------------------------------------------
 
@@ -77,6 +100,12 @@ INSERT INTO `jobseekers` (`id`, `name`, `email`, `summary`, `position`, `profile
 --
 
 --
+-- Indexes for table `employers`
+--
+ALTER TABLE `employers`
+  ADD PRIMARY KEY (`employer_id`);
+
+--
 -- Indexes for table `jobs`
 --
 ALTER TABLE `jobs`
@@ -93,10 +122,16 @@ ALTER TABLE `jobseekers`
 --
 
 --
+-- AUTO_INCREMENT for table `employers`
+--
+ALTER TABLE `employers`
+  MODIFY `employer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `jobseekers`
