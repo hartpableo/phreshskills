@@ -87,8 +87,8 @@ function convertDate($value, $format = 'Y-m-d H:i:s') {
   return date($format, strtotime($value));
 }
 
-function searchIsEmpty() {
-  return (bool) (!isset($_GET['search']) || $_GET['search'] === '');
+function url_has_no_query_strings() {
+  return (bool) (!isset($_GET) || !count($_GET));
 }
 
 function excerpt($string, $maxLength = 100) {

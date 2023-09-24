@@ -5,7 +5,7 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
-if (searchIsEmpty()) {
+if (url_has_no_query_strings()) {
   $tenants = $db->query('select * from tenants')->findAll();
 } else {
   $tenants = $db->query('select * from tenants where lower(name) like :search', [

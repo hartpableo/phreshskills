@@ -7,7 +7,7 @@ use Core\Database;
 $db = App::resolve(Database::class);
 
 /** manage query */
-if (searchIsEmpty()) {
+if (url_has_no_query_strings()) {
   $jobseekers = $db->query('select * from jobseekers')->findAll();
 } else {
   $jobseekers = $db->query('select * from jobseekers where lower(name) like :search', [
