@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="<?php echo load_asset('css/style.css'); ?>">
   <script src="<?php echo load_asset('js/script.js') ?>" defer></script>
 </head>
-<body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto]">
+<body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto] bg-gray-50">
   <header role="banner" class="bg-blue-900">
     <div class="container max-w-none py-4">
       <nav class="flex items-center justify-between flex-wrap">

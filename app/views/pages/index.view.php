@@ -14,7 +14,7 @@
       <a 
       href="/jobs" 
       class="transition-all inline-flex justify-center items-center font-bold py-2 px-6 bg-orange-500 border border-solid border-orange-500 hover:border-blue-900 text-white hover:bg-blue-900 text-xl min-w-[12em]"
-      >Start Applying</a>
+      >View Jobs</a>
 
       <a 
       href="/jobs/create" 
@@ -28,7 +28,7 @@
 
 <section id="jobseekers-list" class="py-20">
 
-  <h2 class="container font-secondary text-6xl mb-20 font-bold text-blue-900">Talents</h2>
+  <h2 class="container font-secondary text-6xl mb-20 font-bold text-blue-900">Jobseekers</h2>
 
   <?php if (!empty($jobseekers)) : ?>
 

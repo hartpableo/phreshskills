@@ -19,9 +19,9 @@
         >Frequently Asked Questions</a>
 
         <a 
-        href="/about-the-developer" 
+        href="mailto:pableoh@gmail.com" 
         class="transition-all inline-flex justify-center items-center font-bold py-2 px-6 bg-transparent border border-solid border-white text-white hover:border-blue-900 hover:bg-blue-900 text-xl min-w-[12em]"
-        >About the Developer</a>
+        >Contact Developer</a>
 
       </div>
 

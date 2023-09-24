@@ -12,6 +12,9 @@ require __DIR__ . '/../app/Core/bootstrap.php';
 // Debug
 DEBUG ? ini_set('display_errors', 1) : ini_set('display_errors', 0);
 
+// Remove query strings if $_GET items are empty
+if ($_GET && empty(array_filter($_GET))) redirect(no_query_strings());
+
 // Routing
 try {
   
