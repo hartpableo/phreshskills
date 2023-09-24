@@ -15,7 +15,7 @@ function dd($stuff) {
   echo "<pre>";
   var_dump($stuff);
   echo "</pre>";
-  die();
+  // die();
 }
 
 function esc($str) {

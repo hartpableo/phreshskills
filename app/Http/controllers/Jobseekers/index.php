@@ -15,6 +15,22 @@ if (url_has_no_query_strings()) {
   ])->findAll();
 }
 
+/** get and combine all skills */
+$all_skills = [];
+$skills = $db->query('select skills from jobseekers')->findAll();
+
+if (!empty($skills)) {
+
+  foreach ($skills as $skill => $skill_values) {
+    $each_skills = explode(', ', $skill_values['skills']);
+    $all_skills = array_merge($all_skills, $each_skills);
+  }
+
+  $all_skills = array_unique($all_skills);
+
+}
+
 view('jobseekers/index', [
-  'jobseekers' => $jobseekers
+  'jobseekers' => $jobseekers,
+  'all_skills' => $all_skills
 ]);

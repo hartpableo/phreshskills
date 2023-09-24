@@ -6,7 +6,7 @@
 
   <div class="container pt-10 pb-16 flex flex-col justify-start items-stretch gap-6">
 
-    <?php get_template_part('search'); ?>
+    <?php get_template_part('jobs-search-filter'); ?>
 
     <?php if ($_GET) : ?>
     

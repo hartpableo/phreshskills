@@ -4,11 +4,14 @@
 
   <h1 class="container font-secondary text-6xl font-bold text-blue-900 mt-10">Jobseekers</h1>
 
-  <div class="container pt-32">
+  <div class="container">
+
+    <?php get_template_part('jobseekers-search-filter'); ?>
+
     <?php if (!empty($jobseekers)) : ?>
 
     <!-- Jobseekers Grid -->
-    <div class="container grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+    <div class="container grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 pt-32">
 
       <?php foreach ($jobseekers as $jobseeker) : ?>
 
