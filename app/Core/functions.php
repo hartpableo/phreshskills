@@ -40,6 +40,10 @@ function urlIs($value) {
   return $_SERVER['REQUEST_URI'] === $value;
 }
 
+function no_query_strings() {
+  return strtok($_SERVER["REQUEST_URI"], '?');
+}
+
 function view($path, $attributes = []) {
   extract($attributes);
   return require base_path("app/views/{$path}.view.php");
