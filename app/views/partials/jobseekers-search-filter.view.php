@@ -1,4 +1,4 @@
-<form method="GET" id="jobseekers-search-filter" class="w-full flex flex-col lg:grid auto-cols-fr grid-cols-4 justify-start items-start gap-x-5 gap-y-3 mt-10">
+<form method="GET" id="jobseekers-search-filter" class="w-full flex flex-col lg:grid auto-cols-fr grid-cols-4 justify-start items-end gap-x-5 gap-y-3 mt-10">
   <div>
     <label for="title-position" class="text-neutral-500 text-sm font-semibold">Search Positions</label>
     <div class="relative">
@@ -19,25 +19,38 @@
 
   <?php if (!empty($all_skills)) : ?>
   <div>
-    <p class="text-neutral-500 text-sm font-semibold">Filter Skills</p>
-     <div class="relative">
-      <?php foreach ($all_skills as $skill) : ?>
+    <p class="text-neutral-500 text-sm font-semibold leading-tight">Filter Skills</p>
 
-        <?php $skill_slug = Core\Slugifier::slugify($skill); ?>
+    <div class="relative">
 
-        <label for="skill--<?php echo $skill_slug; ?>">
-          <input 
-          type="checkbox" 
-          name="skills[]" 
-          id="skill--<?php echo $skill_slug; ?>" 
-          value="<?php echo $skill; ?>"
-          <?php if (isset($_GET['skills']) && in_array(strtolower($skill), $_GET['skills'])) echo 'checked'; ?>
+      <button aria-label="Filter Skills" type="button" data-target="#filter-skills-dropdown" class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 text-neutral-500" aria-expanded="false">- Pick the skills you are looking for -</button>
+
+      <div id="filter-skills-dropdown" class="absolute w-full top-full flex flex-col justify-start items-stretch p-2 rounded-lg bg-white py-3 px-4 shadow-lg border border-solid border-gray-800 max-h-[28.125rem] overflow-hidden overflow-y-scroll hidden">
+
+        <?php foreach ($all_skills as $skill) : ?>
+
+          <?php $skill_slug = Core\Slugifier::slugify($skill); ?>
+
+          <label for="skill--<?php echo $skill_slug; ?>"
+            class="py-2 border-b border-solid border-gray-200 text-neutral-700 hover:text-orange-500 transition-all"
           >
-          <?php echo ucfirst($skill); ?>
-        </label>
+            <input 
+            type="checkbox"
+            class="inline-block align-top mt-1"
+            name="skills[]" 
+            id="skill--<?php echo $skill_slug; ?>" 
+            value="<?php echo $skill; ?>"
+            <?php if (isset($_GET['skills']) && in_array(strtolower($skill), $_GET['skills'])) echo 'checked'; ?>
+            >
+            <span class="align-top inline-block leading-tight ml-2 font-semibold cursor-pointer"><?php echo ucfirst($skill); ?></span>
+          </label>
 
-      <?php endforeach; ?>
+        <?php endforeach; ?>
+
+      </div>
+
     </div>
+
     <?php endif; ?>
 
   </div>
@@ -46,3 +59,26 @@
     <button type="submit" class="w-full font-bold text-white bg-blue-500 hover:bg-orange-500 transition-all focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-md lg:text-xl px-4 py-3">Search</button>
   </div>
 </form>
+
+<script>
+  const filterSkillsButton = document.querySelector('button[data-target="#filter-skills-dropdown"]');
+  const skillsDropdown = document.querySelector(filterSkillsButton.dataset.target);
+
+  document.addEventListener('DOMContentLoaded', () => {
+
+    filterSkillsButton.addEventListener('click', () => {
+
+      let dropdownIsExpanded = filterSkillsButton.getAttribute('aria-expanded') == 'true';
+
+      if (!dropdownIsExpanded) {
+        skillsDropdown.classList.remove('hidden');
+        filterSkillsButton.setAttribute('aria-expanded', true);
+      } else {
+        skillsDropdown.classList.add('hidden');
+        filterSkillsButton.setAttribute('aria-expanded', false);
+      }
+
+    }, { passive: true })
+
+  }, { passive: true })
+</script>

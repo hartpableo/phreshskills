@@ -13,7 +13,7 @@
     <?php if ($_GET) : ?>
     <a 
       href="<?php echo no_query_strings(); ?>"
-      class="block px-5 py-2 text-sm font-semibold rounded bg-orange-500 max-w-max text-white"
+      class="block mt-5 px-5 py-2 text-sm font-semibold rounded bg-orange-500 max-w-max text-white"
     >Clear Filters</a>
     <?php endif; ?>
 
