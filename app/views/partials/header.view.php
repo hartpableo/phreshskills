@@ -13,7 +13,13 @@
     <div class="container max-w-none py-4">
       <nav class="flex items-center justify-between flex-wrap">
         <div class="flex justify-between items-center lg:hidden w-full">
-          <p class="text-white font-bold text-xl block lg:hidden font-secondary"><?php echo APP_NAME; ?></p>
+          <p class="text-white font-bold text-xl block lg:hidden font-secondary">
+            <?php if (isHome('/')) : ?>
+              <?php echo APP_NAME; ?>
+            <?php else : ?>
+              <a href="/"><?php echo APP_NAME; ?></a>
+            <?php endif; ?>
+          </p>
           <button
             class="navbar-burger flex items-center py-1 px-2 border rounded text-white border-white hover:text-white hover:border-white">
             <svg class="fill-current h-6 w-6 text-white" viewBox="0 0 20 20"
@@ -24,42 +30,30 @@
           </button>
         </div>
         <div id="main-nav" class="w-full flex-grow lg:flex items-center justify-between lg:w-auto hidden">
-          <p class="text-white font-bold text-xl hidden lg:block font-secondary" aria-hidden="true"><?php echo APP_NAME; ?></p>
-          <ul class="text-uppercase lg:flex-grow animated jackinthebox xl:mx-8 text-end pt-3 lg:pt-[0_!important]">
-            <li class="block lg:inline-block align-top">
-              <a href="#home"
+          <p class="text-white font-bold text-xl hidden lg:block font-secondary" aria-hidden="true">
+            <?php if (isHome('/')) : ?>
+              <?php echo APP_NAME; ?>
+            <?php else : ?>
+              <a href="/"><?php echo APP_NAME; ?></a>
+            <?php endif; ?>
+          </p>
+          <ul class="uppercase lg:flex-grow animated jackinthebox xl:mx-8 text-end pt-3 lg:pt-[0_!important]">
+            <li class="block lg:inline-block align-top lg:align-middle">
+              <a href="/"
                 class="block text-sm font-bold hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/') ? 'text-orange-500' : 'text-white'; ?>">
-                HOME
+                Home
               </a>
             </li>
-            <li class="block lg:inline-block align-top">
+            <li class="block lg:inline-block align-top lg:align-middle mt-5 lg:mt-0 lg:ml-5">
               <a href="#home"
-                class="block text-sm font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
-                ROAD & STORY
+                class="block text-lg font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg font-secondary">
+                Login
               </a>
             </li>
-            <li class="block lg:inline-block align-top">
+            <li class="block lg:inline-block align-top lg:align-middle">
               <a href="#home"
-                  class="block text-sm font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
-                  ACCOMMODATION
-              </a>
-            </li>
-            <li class="block lg:inline-block align-top">
-              <a href="#home"
-                class="block text-sm font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
-                TOURS
-              </a>
-            </li>
-            <li class="block lg:inline-block align-top">
-              <a href="#home"
-                class="block text-sm font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
-                CONTACT US
-              </a>
-            </li>
-            <li class="block lg:inline-block align-top">
-              <a href="#home"
-                class="block text-sm font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg">
-                COMING SOON
+                class="block text-lg font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg font-secondary">
+                Sign up
               </a>
             </li>
           </ul>
