@@ -19,11 +19,16 @@
 
   <?php if (!empty($all_skills)) : ?>
   <div>
-    <p class="text-neutral-500 text-sm font-semibold leading-tight">Filter Skills</p>
+    <p class="text-neutral-500 text-sm font-semibold leading-tight">
+      Filter Skills
+      <?php if (isset($_GET['skills']) && !empty($_GET['skills'])) : ?>
+        <!-- <1?php $ ?> -->
+      <?php endif; ?>
+    </p>
 
     <div class="relative">
 
-      <button aria-label="Filter Skills" type="button" data-target="#filter-skills-dropdown" class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 text-neutral-500" aria-expanded="false">- Pick the skills you are looking for -</button>
+      <button aria-label="Filter Skills" type="button" data-target="#filter-skills-dropdown" class="block w-full p-4 font-light text-sm border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 text-neutral-400" aria-expanded="false">- Select the skills you are looking for -</button>
 
       <div id="filter-skills-dropdown" class="absolute w-full top-full flex flex-col justify-start items-stretch p-2 rounded-lg bg-white py-3 px-4 shadow-lg border border-solid border-gray-800 max-h-[28.125rem] overflow-hidden overflow-y-scroll hidden">
 

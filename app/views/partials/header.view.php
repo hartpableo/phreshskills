@@ -70,7 +70,7 @@
                 class="block text-lg font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg font-secondary uppercase"
                 aria-expanded="false"
               >Sign up</button>
-              <div id="sign-up-dropdown" class="absolute bg-white border border-solid border-gray-600 shadow-lg right-0 top-full w-max z-10 mt-5 text-left min-w-[16em] hidden">
+              <div id="sign-up-dropdown" class="absolute bg-white border border-solid border-gray-300 shadow-lg right-0 top-full w-max z-10 mt-5 text-left min-w-[16em] hidden">
                 <a href="/employer/sign-up" class="block leading-tight font-semibold p-6 hover:text-orange-500 border-b border-solid hover:bg-gray-100">Sign up as Employer</a>
                 <a href="/jobseeker/sign-up" class="block leading-tight font-semibold p-6 hover:text-orange-500 hover:bg-gray-100">Sign up as Jobseeker</a>
               </div>

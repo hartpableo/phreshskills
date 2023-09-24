@@ -93,7 +93,16 @@
 
     <!-- End of Jobseekers Grid -->
 
-    <?php endif; ?>
+    <?php else : ?>
+
+      <?php if ($_GET) : ?>
+      <p class="text-4xl font-bold text-center my-44 font-secondary">No jobseekers available yet under your query...</p>
+      <?php else : ?>
+      <p class="text-4xl font-bold text-center my-44 font-secondary">No jobseekers available yet...</p>
+      <?php endif; ?>
+
+    <?php endif; ?>    
+
   </div>
 </section>
 
