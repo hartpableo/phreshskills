@@ -111,7 +111,7 @@
   <div class="mt-5 flex gap-x-2 gap-y-3 justify-center items-start flex-wrap">
 
     <a 
-    href="#"
+    href="/jobseekers"
     class="inline-flex px-10 py-2 text-xl font-bold text-white bg-blue-900 hover:bg-orange-500 rounded transition-all"
     >View More Jobseekers</a>
 

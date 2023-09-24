@@ -44,6 +44,12 @@
                 Home
               </a>
             </li>
+            <li class="block lg:inline-block align-top lg:align-middle">
+              <a href="/jobs"
+                class="block text-sm font-bold hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/jobs') ? 'text-orange-500' : 'text-white'; ?>">
+                Jobs
+              </a>
+            </li>
             <li class="block lg:inline-block align-top lg:align-middle mt-5 lg:mt-0 lg:ml-5">
               <a href="#home"
                 class="block text-lg font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg font-secondary">

@@ -13,6 +13,9 @@ $dynamicQuery = [];
  * ===== Routes =====
  * ==================
  */
+
 $router->get('/', 'Pages/index');
+
+$router->get('/jobs', 'Jobs/index');
 
 $router->get('/jobseeker/{jobseeker:id}', 'Jobseekers/show');
