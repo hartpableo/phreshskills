@@ -21,10 +21,12 @@
   <div>
     <p class="text-neutral-500 text-sm font-semibold leading-tight">
       Filter Skills
-      <?php if (isset($_GET['skills']) && !empty($_GET['skills'])) : ?>
-        <!-- <1?php $ ?> -->
-      <?php endif; ?>
     </p>
+    <?php if (isset($_GET['skills']) && !empty($_GET['skills'])) : ?>
+      <div class="text-neutral-700 text-sm font-semibold leading-tight">
+        <?php echo '( ' . implode(', ', $_GET['skills']) . ' )' ?>
+      </div>
+    <?php endif; ?>
 
     <div class="relative">
 
