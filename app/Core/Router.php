@@ -80,32 +80,32 @@ class Router
 
       } elseif (!empty($route['query'])) {
 
-        if (str_contains($uri, "/{$route['query']['model']}/") && $route['method'] === strtoupper($method)) :
+        if (str_contains($uri, "/{$route['query']['model']}/") && $route['method'] === strtoupper($method)) {
 
-        $savedRoute = $route['uri'];
-        $requestedRoute = $uri;
+          $savedRoute = $route['uri'];
+          $requestedRoute = $uri;
 
-        $arr1 = explode('/', $savedRoute);
-        $arr2 = explode('/', $requestedRoute);
+          $arr1 = explode('/', $savedRoute);
+          $arr2 = explode('/', $requestedRoute);
 
-        $diff1 = array_diff($arr1, $arr2);
-        $diff2 = array_diff($arr2, $arr1);
+          $diff1 = array_diff($arr1, $arr2);
+          $diff2 = array_diff($arr2, $arr1);
 
-        $savedParam = implode("/", $diff1);
-        $requested_data = implode("/", $diff2);
+          $savedParam = implode("/", $diff1);
+          $requested_data = implode("/", $diff2);
 
-        $savedRoute = str_replace($savedParam, $requested_data, $savedRoute);
+          $savedRoute = str_replace($savedParam, $requested_data, $savedRoute);
 
-        $dynamicQuery = [
-          'referenced_column' => $route['query']['queried_data'],
-          'referenced_column_value' => $requested_data
-        ];
+          $dynamicQuery = [
+            'referenced_column' => $route['query']['queried_data'],
+            'referenced_column_value' => $requested_data
+          ];
 
-        Middleware::resolve($route['middleware']);
+          Middleware::resolve($route['middleware']);
 
-        return require base_path("app/Http/controllers/{$route['controller']}.php");
+          return require base_path("app/Http/controllers/{$route['controller']}.php");
 
-        endif;
+        }
         
       }
 
