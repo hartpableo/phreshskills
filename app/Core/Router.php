@@ -21,27 +21,6 @@ class Router
     ];
   }
 
-  protected function assessUrl($uri)
-  {
-    $queryControl = [];
-    $str = $uri;
-    $start = strpos($str, "{");
-    $end = strpos($str, "}");
-    $uriSubstring = substr($str, $start, $end - $start + 1);
-    $cleanUriSubstr = str_replace('/', '', $uriSubstring);
-
-    if (!strpos($uriSubstring, ':')) return $queryControl;
-    
-    $uriSubstring = str_replace(['{', '}'], '', $uriSubstring);
-    $uriSubstrings = explode(':', $uriSubstring);
-    $queryControl = [
-      'controllerQuery' => $uriSubstrings[1],
-      'custom_parameter' => $cleanUriSubstr
-    ];
-
-    return $queryControl;
-  }
-
   public function get($uri, $controller)
   {
 
@@ -101,6 +80,8 @@ class Router
 
       } elseif (!empty($route['query'])) {
 
+        if (str_contains($uri, "/{$route['query']['model']}/") && $route['method'] === strtoupper($method)) :
+
         $savedRoute = $route['uri'];
         $requestedRoute = $uri;
 
@@ -111,24 +92,47 @@ class Router
         $diff2 = array_diff($arr2, $arr1);
 
         $savedParam = implode("/", $diff1);
-        $requestedParam = implode("/", $diff2);
+        $requested_data = implode("/", $diff2);
 
-        $savedRoute = str_replace($savedParam, $requestedParam, $savedRoute);
+        $savedRoute = str_replace($savedParam, $requested_data, $savedRoute);
 
         $dynamicQuery = [
-          'referenced_column' => $route['query']['controllerQuery'],
-          'referenced_column_value' => $requestedParam
+          'referenced_column' => $route['query']['queried_data'],
+          'referenced_column_value' => $requested_data
         ];
 
         Middleware::resolve($route['middleware']);
 
         return require base_path("app/Http/controllers/{$route['controller']}.php");
+
+        endif;
         
       }
 
     }
 
     $this->abort();
+  }
+
+  protected function assessUrl($uri)
+  {
+    $queryControl = [];
+    $str = $uri;
+    $start = strpos($str, "{");
+    $end = strpos($str, "}");
+    $uriSubstring = substr($str, $start, $end - $start + 1);
+
+    if (!strpos($uriSubstring, ':')) return $queryControl;
+    
+    $uriSubstring = str_replace(['{', '}'], '', $uriSubstring);
+    $uriSubstrings = explode(':', $uriSubstring);
+
+    $queryControl = [
+      'queried_data' => $uriSubstrings[1],
+      'model' => $uriSubstrings[0]
+    ];
+
+    return $queryControl;
   }
 
   public function prevURL()

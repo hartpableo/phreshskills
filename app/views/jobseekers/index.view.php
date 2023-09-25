@@ -32,7 +32,7 @@
       class="block bg-blue-100 text-left mb-20 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] p-6">
 
         <img src="https://picsum.photos/200/200" width="200" height="200" alt="..." 
-          class="rounded-full w-[6.6rem] h-[6.6rem] mt-[-4.85rem] mb-3" aria-hidden="true" role="presentation">
+          class="rounded-full w-[6.6rem] h-[6.6rem] mt-[-4.85rem] mb-3 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]" aria-hidden="true" role="presentation">
 
         <h3
           id="title--<?php echo $nameSlug; ?>"
