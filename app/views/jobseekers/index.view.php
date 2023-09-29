@@ -24,7 +24,7 @@
 
       <?php foreach ($jobseekers as $jobseeker) : ?>
 
-      <?php $nameSlug = Core\Slugifier::slugify($jobseeker['name']); ?>
+      <?php $nameSlug = Core\Slugifier::slugify(htmlspecialchars($jobseeker['name'])); ?>
         
       <article
       role="article"
@@ -37,15 +37,15 @@
         <h3
           id="title--<?php echo $nameSlug; ?>"
           class="mb-1 text-2xl font-bold leading-tight font-secondary">
-          <a href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>" class="text-neutral-800 hover:text-orange-500 transition-all"><?php echo $jobseeker['name']; ?></a>
+          <a href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>" class="text-neutral-800 hover:text-orange-500 transition-all"><?php echo htmlspecialchars($jobseeker['name']); ?></a>
         </h3>
         <p
           class="mb-3 text-md font-semibold leading-tight text-neutral-500 text-blue-900">
-          <?php echo $jobseeker['position']; ?>
+          <?php echo htmlspecialchars($jobseeker['position']); ?>
         </p>
         <p
           class="mb-2 text-base leading-tight text-neutral-800">
-          <?php echo excerpt($jobseeker['summary'], 125); ?>
+          <?php echo excerpt(htmlspecialchars($jobseeker['summary']), 125); ?>
         </p>
 
         <?php
@@ -66,7 +66,7 @@
             <a 
               class="p-1 px-2 font-semibold text-xs rounded bg-gray-500 text-neutral-50 hover:bg-blue-700 transition-all" 
               href="<?php echo "/skills/{$skill}"; ?>"
-            ><?php echo ucwords($skill); ?></a>
+            ><?php echo ucwords(htmlspecialchars($skill)); ?></a>
           </li>
 
           <?php
@@ -82,7 +82,7 @@
           <a
             href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>"
             class="pointer-events-auto inline-block cursor-pointer rounded text-base font-bold leading-normal text-primary text-blue-500 transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 hover:text-orange-500 hover:border-orange-500 transition-all px-2 border-2 border-solid border-blue-500 rounded transition-all">
-            View <span class="sr-only"><?php echo $jobseeker['name'] ?>'s </span>Profile
+            View <span class="sr-only"><?php echo htmlspecialchars($jobseeker['name']); ?>'s </span>Profile
           </a>
         </div>
       </article>

@@ -19,6 +19,7 @@ $router->get('/frequently-asked-questions', 'Pages/faq');
 
 $router->get('/jobs', 'Jobs/index');
 $router->get('/jobs/create', 'Jobs/create');
+$router->post('/jobs/add', 'Jobs/store');
 $router->get('/job/{job:id}', 'Jobs/show');
 
 $router->get('/jobseekers', 'Jobseekers/index');

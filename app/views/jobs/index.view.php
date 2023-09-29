@@ -21,7 +21,7 @@
 
       <?php foreach ($jobs as $job) : ?>
         
-        <?php $titleSlug = Core\Slugifier::slugify($job['title']); ?>
+        <?php $titleSlug = Core\Slugifier::slugify(htmlspecialchars($job['title'])); ?>
 
         <article
         role="article"
@@ -39,13 +39,13 @@
               <h3 
               id="job--<?php echo "{$titleSlug}-{$job['id']}"; ?>"
               class="font-secondary text-3xl font-bold"
-              ><?php echo $job['title']; ?></h3>
+              ><?php echo htmlspecialchars($job['title']); ?></h3>
           </a>
 
           <p class="mb-2 mt-3 font-bold text-md text-neutral-500">starts at: <span class="text-white text-lg inline-block px-2 leading-normal rounded bg-orange-500 align-middle"><?php echo job_salary($job['salary'], $job['salary_type']); ?></span></p>
 
           <div class="mb-3 font-normal text-gray-700 text-md leading-tight">
-            <?php echo excerpt($job['description'], 500); ?>
+            <?php echo excerpt(htmlspecialchars($job['description']), 500); ?>
           </div>
 
           <?php
@@ -60,6 +60,7 @@
               $counter = 0;
               foreach($skills as $skill) : 
               if ($counter == 9) break;
+              $skill = htmlspecialchars($skill);
             ?>
 
             <li class="inline-block">

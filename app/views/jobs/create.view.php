@@ -7,7 +7,8 @@
 
     <h1 class="font-bold text-5xl font-secondary text-blue-900 mb-8">Create a Job</h1>
 
-    <input type="hidden" name="id" value="">
+    <!-- echo the current employer id here -->
+    <input type="hidden" name="employer_id" value="2">
 
     <div class="mb-4">
         <label for="title" class="block text-gray-700 font-secondary text-sm">Job Title</label>

@@ -17,4 +17,13 @@ class Formatter
 
     return $phoneNumber;
   }
+
+  public static function clean_array_items($data)
+  {
+    $cleaned_array_items = array_map(function($item) {
+      return trim($item);
+    }, explode( ',', $data));
+
+    return implode(', ', $cleaned_array_items);
+  }
 }
