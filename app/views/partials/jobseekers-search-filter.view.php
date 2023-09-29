@@ -1,4 +1,4 @@
-<form method="GET" id="jobseekers-search-filter" class="w-full flex flex-col lg:grid auto-cols-fr grid-cols-4 justify-start items-end gap-x-5 gap-y-3 mt-10">
+<form method="GET" id="jobseekers-search-filter" class="w-full flex flex-col lg:grid lg:grid-cols-4 justify-start items-stretch lg:items-end gap-x-5 gap-y-3 mt-3 lg:mt-10">
   <div>
     <label for="title-position" class="text-white text-sm font-semibold">Search Positions</label>
     <div class="relative">

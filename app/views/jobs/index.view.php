@@ -1,10 +1,10 @@
 <?php get_template_part('header'); ?>
 
-<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-10 h-full before:opacity-90" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
+<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full before:opacity-90" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
-  <h1 class="container font-secondary text-6xl font-bold text-gold">Jobs</h1>
+  <h1 class="container font-secondary text-4xl lg:text-6xl font-bold text-gold">Jobs</h1>
 
-  <div class="container pt-10 pb-16 flex flex-col justify-start items-stretch gap-6">
+  <div class="container py-3 lg:pt-10 lg:pb-16 flex flex-col justify-start items-stretch gap-6">
 
     <?php get_template_part('jobs-search-filter'); ?>
 
@@ -34,19 +34,19 @@
             <span id="employer--<?php echo $job['id'] . strtotime($job['date_published']); ?>"><?php echo $job['company_name']; ?></span> <span class="font-normal tracking-normal">is hiring!</span>
           </p>
 
-          <a 
+          <h3 
           href="<?php echo "/job/{$job['id']}"; ?>"
-          class="block w-max text-black hover:text-gold transition-all"
           >
-              <h3 
+              <a
+              href="<?php echo "/job/{$job['id']}"; ?>"
               id="job--<?php echo "{$titleSlug}-{$job['id']}"; ?>"
-              class="font-secondary text-3xl font-bold break-all"
-              ><?php echo htmlspecialchars($job['title']); ?></h3>
-          </a>
+              class="text-black hover:text-gold transition-all font-secondary text-2xl lg:text-3xl font-bold break-words"
+              ><?php echo htmlspecialchars($job['title']); ?></a>
+          </h3>
 
           <p class="mb-2 mt-3 font-bold text-md text-neutral-800"><span class="inline-block align-middle">starts at:</span> <span class="text-black text-lg inline-block px-2 leading-normal rounded bg-gold align-middle"><?php echo job_salary($job['salary'], $job['salary_type']); ?></span></p>
 
-          <div class="my-5 font-normal text-gray-900 text-lg leading-tight">
+          <div class="my-5 font-normal text-gray-900 text-sm lg:text-lg leading-normal lg:leading-snug">
             <?php echo excerpt(htmlspecialchars($job['description']), 500); ?>
           </div>
 

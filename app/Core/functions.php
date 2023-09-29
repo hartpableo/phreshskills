@@ -101,19 +101,19 @@ function job_salary($salary, $salary_type) {
 
   switch ($salary_type) {
     case 'hourly':
-      return "\${$salary} <span class='{$css_classes}'>per hour</span>";
+      return "\$&nbsp;{$salary} <span class='{$css_classes}'>per hour</span>";
       break;
 
     case 'weekly':
-      return "\${$salary} <span class='{$css_classes}'>per week</span>";
+      return "\$&nbsp;{$salary} <span class='{$css_classes}'>per week</span>";
       break;
 
     case 'bi-weekly':
-      return "\${$salary} <span class='{$css_classes}'>per two weeks (bi weekly)</span>";
+      return "\$&nbsp;{$salary} <span class='{$css_classes}'>per two weeks (bi weekly)</span>";
       break;
 
     case 'monthly':
-      return "\${$salary} <span class='{$css_classes}'>per month</span>";
+      return "\$&nbsp;{$salary} <span class='{$css_classes}'>per month</span>";
       break;
   }
 

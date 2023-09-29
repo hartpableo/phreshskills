@@ -1,4 +1,4 @@
-<form method="GET" id="jobs-search-filter" class="w-full flex flex-col lg:grid auto-cols-fr grid-cols-4 justify-start items-start gap-x-5 gap-y-3">
+<form method="GET" id="jobs-search-filter" class="w-full flex flex-col lg:grid auto-cols-fr grid-cols-4 justify-start items-stretch lg:items-start gap-x-5 gap-y-1 lg:gap-y-3">
   <div>
     <label for="title-job-title" class="text-white text-sm font-semibold">Search Job Titles</label>
     <div class="relative">
@@ -34,7 +34,7 @@
     </div>
   </div>
   <!-- Submit -->
-  <div class="flex flex-col justify-end items-center h-full">
+  <div class="flex flex-col justify-end items-center h-full mt-3 lg:mt-0">
     <button type="submit" class="w-full font-bold text-white bg-blue-500 hover:bg-gold transition-all focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-md lg:text-xl px-4 py-3 hover:text-black">Search</button>
   </div>
 </form>

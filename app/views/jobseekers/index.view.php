@@ -1,8 +1,8 @@
 <?php get_template_part('header'); ?>
 
-<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
+<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
-  <h1 class="container font-secondary text-6xl font-bold text-gold mt-10">Jobseekers</h1>
+  <h1 class="container font-secondary text-4xl lg:text-6xl font-bold text-gold lg:mt-10">Jobseekers</h1>
 
   <div class="container">
 
@@ -20,7 +20,7 @@
     <?php if (!empty($jobseekers)) : ?>
 
     <!-- Jobseekers Grid -->
-    <div class="container grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 pt-32">
+    <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pt-32">
 
       <?php foreach ($jobseekers as $jobseeker) : ?>
 
