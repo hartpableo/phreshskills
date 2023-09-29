@@ -5,6 +5,7 @@
   <div class="relative mx-auto px-3 text-center relative overflow-hidden isolate py-20 lg:py-9 text-white min-h-[35vh] md:min-h-[40vh] h-full flex flex-col justify-center items-center text-md lg:text-lg">
 
     <h1 
+    id="site-title"
     class="font-secondary text-4xl lg:text-7xl font-bold mb-8"
     >Welcome to <span class="text-gold"><?php echo APP_NAME; ?></span>!</h1>
     
@@ -13,22 +14,22 @@
     <div class="flex justify-center items-start gap-4 flex-wrap mt-12">
 
       <a 
-      href="/jobs" 
+      href="/jobs/create" 
       class="transition-all inline-flex justify-center items-center font-bold py-2 px-6 bg-gold border border-solid border-gold hover:border-blue-900 text-black hover:bg-blue-900 text-xl min-w-[12em] text-black hover:text-white"
-      >View Jobs</a>
+      >Post a Job</a>
 
       <a 
-      href="/jobseekers" 
+      href="/jobs" 
       class="transition-all inline-flex justify-center items-center font-bold py-2 px-6 bg-transparent border border-solid border-white text-white hover:border-blue-900 hover:bg-blue-900 text-xl min-w-[12em]"
-      >View Jobseekers</a>
+      >Apply To Jobs</a>
 
     </div>
 
-    <div class="flex justify-center items-start gap-4 flex-wrap mt-12">
-      
+    <div class="flex justify-center items-start gap-4 flex-wrap mt-16">
+
       <a 
       href="mailto:pableoh@gmail.com" 
-      class="underline underline-offset-4 font-bold"
+      class="underline underline-offset-4 font-bold hover:text-blue-500 transition-all"
       >Contact Developer</a>
 
     </div>
