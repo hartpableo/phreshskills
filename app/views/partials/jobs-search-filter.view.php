@@ -1,6 +1,6 @@
 <form method="GET" id="jobs-search-filter" class="w-full flex flex-col lg:grid auto-cols-fr grid-cols-4 justify-start items-start gap-x-5 gap-y-3">
   <div>
-    <label for="title-job-title" class="text-neutral-500 text-sm font-semibold">Search Job Titles</label>
+    <label for="title-job-title" class="text-white text-sm font-semibold">Search Job Titles</label>
     <div class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none" aria-hidden="true" role="presentation">
           <svg class="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -17,7 +17,7 @@
     </div>
   </div>
   <div>
-    <label for="title-company" class="text-neutral-500 text-sm font-semibold">Search Companies</label>
+    <label for="title-company" class="text-white text-sm font-semibold">Search Companies</label>
     <div class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none" aria-hidden="true" role="presentation">
           <svg class="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -35,6 +35,6 @@
   </div>
   <!-- Submit -->
   <div class="flex flex-col justify-end items-center h-full">
-    <button type="submit" class="w-full font-bold text-white bg-blue-500 hover:bg-orange-500 transition-all focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-md lg:text-xl px-4 py-3">Search</button>
+    <button type="submit" class="w-full font-bold text-white bg-blue-500 hover:bg-gold transition-all focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-md lg:text-xl px-4 py-3 hover:text-black">Search</button>
   </div>
 </form>

@@ -1,8 +1,8 @@
 <?php get_template_part('header'); ?>
 
-<section>
+<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
-  <h1 class="container font-secondary text-6xl font-bold text-blue-900 mt-10">Jobs</h1>
+  <h1 class="container font-secondary text-6xl font-bold text-gold">Jobs</h1>
 
   <div class="container pt-10 pb-16 flex flex-col justify-start items-stretch gap-6">
 
@@ -12,7 +12,7 @@
     
     <a 
       href="<?php echo no_query_strings(); ?>"
-      class="block px-5 py-2 text-sm font-semibold rounded bg-orange-500 max-w-max text-white"
+      class="block px-5 py-2 text-sm font-semibold rounded bg-gold max-w-max text-black"
     >Clear Filters</a>
 
     <?php endif; ?>
@@ -36,15 +36,15 @@
 
           <a 
           href="<?php echo "/job/{$job['id']}"; ?>"
-          class="block w-max text-gray-900 hover:text-orange-500 transition-all"
+          class="block w-max text-gray-900 hover:text-gold transition-all"
           >
               <h3 
               id="job--<?php echo "{$titleSlug}-{$job['id']}"; ?>"
-              class="font-secondary text-3xl font-bold"
+              class="font-secondary text-3xl font-bold break-all"
               ><?php echo htmlspecialchars($job['title']); ?></h3>
           </a>
 
-          <p class="mb-2 mt-3 font-bold text-md text-neutral-500">starts at: <span class="text-white text-lg inline-block px-2 leading-normal rounded bg-orange-500 align-middle"><?php echo job_salary($job['salary'], $job['salary_type']); ?></span></p>
+          <p class="mb-2 mt-3 font-bold text-md text-neutral-500">starts at: <span class="text-black text-lg inline-block px-2 leading-normal rounded bg-gold align-middle"><?php echo job_salary($job['salary'], $job['salary_type']); ?></span></p>
 
           <div class="mb-3 font-normal text-gray-700 text-md leading-tight">
             <?php echo excerpt(htmlspecialchars($job['description']), 500); ?>
@@ -80,7 +80,7 @@
 
           <div class="flex justify-start items-start flex-wrap gap-x-3 gap-y-4 mt-5">
 
-            <a href="<?php echo "/job/{$job['id']}"; ?>" class="inline-flex items-center px-3 py-2 text-md font-medium text-center text-white bg-blue-700 rounded hover:bg-orange-500 border border-solid border-blue-700 hover:border-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 transition-all">
+            <a href="<?php echo "/job/{$job['id']}"; ?>" class="inline-flex items-center px-3 py-2 text-md font-medium text-center text-white bg-blue-700 rounded hover:bg-gold hover:text-black border border-solid border-blue-700 hover:border-gold focus:ring-4 focus:outline-none focus:ring-blue-300 transition-all">
                 <span class="font-bold">Read more</span>
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -106,9 +106,9 @@
     <?php else : ?>
 
       <?php if ($_GET) : ?>
-      <p class="text-4xl font-bold text-center my-44 font-secondary">No jobs listed yet under your query...</p>
+      <p class="text-4xl font-bold text-center my-44 font-secondary text-white">No jobs listed yet under your query...</p>
       <?php else : ?>
-      <p class="text-4xl font-bold text-center my-44 font-secondary">No jobs listed yet...</p>
+      <p class="text-4xl font-bold text-center my-44 font-secondary text-white">No jobs listed yet...</p>
       <?php endif; ?>
 
     <?php endif; ?>

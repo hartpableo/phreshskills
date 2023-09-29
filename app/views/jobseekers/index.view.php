@@ -1,8 +1,8 @@
 <?php get_template_part('header'); ?>
 
-<section>
+<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
-  <h1 class="container font-secondary text-6xl font-bold text-blue-900 mt-10">Jobseekers</h1>
+  <h1 class="container font-secondary text-6xl font-bold text-gold mt-10">Jobseekers</h1>
 
   <div class="container">
 
@@ -13,7 +13,7 @@
     <?php if ($_GET) : ?>
     <a 
       href="<?php echo no_query_strings(); ?>"
-      class="block mt-5 px-5 py-2 text-sm font-semibold rounded bg-orange-500 max-w-max text-white"
+      class="block mt-5 px-5 py-2 text-sm font-semibold rounded bg-gold max-w-max text-white"
     >Clear Filters</a>
     <?php endif; ?>
 
@@ -37,7 +37,7 @@
         <h3
           id="title--<?php echo $nameSlug; ?>"
           class="mb-1 text-2xl font-bold leading-tight font-secondary">
-          <a href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>" class="text-neutral-800 hover:text-orange-500 transition-all"><?php echo htmlspecialchars($jobseeker['name']); ?></a>
+          <a href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>" class="text-neutral-800 hover:text-black transition-all"><?php echo htmlspecialchars($jobseeker['name']); ?></a>
         </h3>
         <p
           class="mb-3 text-md font-semibold leading-tight text-neutral-500 text-blue-900">
@@ -78,7 +78,7 @@
         <div class="mt-6 flex justify-start items-start flex-wrap gap-x-4 gap-y-2">
           <a
             href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>"
-            class="pointer-events-auto inline-block cursor-pointer rounded text-base font-bold leading-normal text-primary text-blue-500 transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 hover:text-orange-500 hover:border-orange-500 transition-all px-2 border-2 border-solid border-blue-500 rounded transition-all">
+            class="pointer-events-auto inline-block cursor-pointer rounded text-base font-bold leading-normal text-primary text-blue-500 transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 hover:text-black hover:border-black transition-all px-2 border-2 border-solid border-blue-500 rounded transition-all">
             View <span class="sr-only"><?php echo htmlspecialchars($jobseeker['name']); ?>'s </span>Profile
           </a>
         </div>
@@ -93,9 +93,9 @@
     <?php else : ?>
 
       <?php if ($_GET) : ?>
-      <p class="text-4xl font-bold text-center my-44 font-secondary">No jobseekers available yet under your query...</p>
+      <p class="text-4xl font-bold text-center my-44 font-secondary text-white">No jobseekers available yet under your query...</p>
       <?php else : ?>
-      <p class="text-4xl font-bold text-center my-44 font-secondary">No jobseekers available yet...</p>
+      <p class="text-4xl font-bold text-center my-44 font-secondary text-white">No jobseekers available yet...</p>
       <?php endif; ?>
 
     <?php endif; ?>    

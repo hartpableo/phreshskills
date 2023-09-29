@@ -7,7 +7,11 @@ module.exports = {
     "./public/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gold: "#FFD700"
+      }
+    },
     fontFamily: {
       "primary": [ "PT_SANS" ],
       "secondary": [ "Roboto_Slab" ],

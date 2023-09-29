@@ -1,6 +1,6 @@
 <form method="GET" id="jobseekers-search-filter" class="w-full flex flex-col lg:grid auto-cols-fr grid-cols-4 justify-start items-end gap-x-5 gap-y-3 mt-10">
   <div>
-    <label for="title-position" class="text-neutral-500 text-sm font-semibold">Search Positions</label>
+    <label for="title-position" class="text-white text-sm font-semibold">Search Positions</label>
     <div class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none" aria-hidden="true" role="presentation">
           <svg class="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -19,11 +19,11 @@
 
   <?php if (!empty($all_skills)) : ?>
   <div>
-    <p class="text-neutral-500 text-sm font-semibold leading-tight">
+    <p class="text-white text-sm font-semibold leading-tight">
       Filter Skills
     </p>
     <?php if (isset($_GET['skills']) && !empty($_GET['skills'])) : ?>
-      <div class="text-neutral-700 text-sm font-semibold leading-tight">
+      <div class="text-white text-sm font-semibold leading-tight">
         <?php echo '( ' . implode(', ', $_GET['skills']) . ' )' ?>
       </div>
     <?php endif; ?>
@@ -39,7 +39,7 @@
           <?php $skill_slug = Core\Slugifier::slugify($skill); ?>
 
           <label for="skill--<?php echo $skill_slug; ?>"
-            class="py-2 border-b border-solid border-gray-200 text-neutral-700 hover:text-orange-500 transition-all"
+            class="py-2 border-b border-solid border-gray-200 text-neutral-700 hover:text-gold transition-all"
           >
             <input 
             type="checkbox"
@@ -63,7 +63,7 @@
   </div>
   <!-- Submit -->
   <div class="flex flex-col justify-end items-center h-full">
-    <button type="submit" class="w-full font-bold text-white bg-blue-500 hover:bg-orange-500 transition-all focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-md lg:text-xl px-4 py-3">Search</button>
+    <button type="submit" class="w-full font-bold text-white bg-blue-500 hover:bg-gold transition-all focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-md lg:text-xl px-4 py-3 hover:text-black">Search</button>
   </div>
 </form>
 
