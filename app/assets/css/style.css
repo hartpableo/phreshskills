@@ -85,18 +85,6 @@
   @apply px-2 mx-auto;
 }
 
-/* #sign-up-dropdown::before {
-  content: "";
-  position: absolute;
-  bottom: 100%;
-  right: 1em;
-  border-top: 20px solid transparent;
-  border-left: 8px solid transparent; 
-  border-bottom: 13px solid #fff;
-  border-right: 8px solid transparent;
-  z-index: -1;
-} */
-
 .has-overlay::before {
   content: "";
   @apply bg-black opacity-80 z-[-1] absolute inset-0 w-full h-full pointer-events-none;

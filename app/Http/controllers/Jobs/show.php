@@ -13,7 +13,7 @@ if (!in_array($referenced_column, $allowed_columns)) abort(Response::FORBIDDEN);
 /** connect to db */
 $db = App::resolve(Database::class);
 
-$job = $db->query("select * from jobs where {$referenced_column} = :{$referenced_column}", [
+$job = $db->query("select * from jobs join employers on jobs.employer_id = employers.employer_id where {$referenced_column} = :{$referenced_column}", [
   ":{$referenced_column}" => $referenced_column_value
 ])->findOrFail();
 
