@@ -6,6 +6,10 @@
   <meta name="description" content="<?php echo (!isHome() && isset($pageDescription)) ? $pageDescription : APP_DESC; ?>">
   <title><?php echo (!isHome() && isset($pageTitle)) ? "{$pageTitle} | " . APP_NAME : APP_NAME; ?></title>
   <link rel="stylesheet" href="<?php echo load_asset('css/style.css'); ?>">
+
+  <!-- assets preloading -->
+  <link rel="preload" as="image" href="<?php echo image_uri('hero-bg.webp'); ?>">
+
   <script src="<?php echo load_asset('js/script.js') ?>" defer></script>
 </head>
 <body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto] bg-gray-50 position-relative isolate bg-black">
@@ -14,7 +18,7 @@
       <nav class="flex items-center justify-between flex-wrap">
         <div class="flex justify-between items-center lg:hidden w-full">
           <p class="text-white font-bold text-xl block lg:hidden font-secondary">
-            <?php if (isHome('/')) : ?>
+            <?php if (isHome()) : ?>
               <?php echo APP_NAME; ?>
             <?php else : ?>
               <a href="/"><?php echo APP_NAME; ?></a>

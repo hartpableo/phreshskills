@@ -29,7 +29,7 @@
 
       <a 
       href="mailto:pableoh@gmail.com" 
-      class="underline underline-offset-4 font-bold hover:text-blue-500 transition-all"
+      class="underline underline-offset-4 font-bold hover:text-blue-500 transition-all text-sm"
       >Contact Developer</a>
 
     </div>

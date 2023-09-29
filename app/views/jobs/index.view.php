@@ -1,6 +1,6 @@
 <?php get_template_part('header'); ?>
 
-<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
+<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-10 h-full before:opacity-90" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
   <h1 class="container font-secondary text-6xl font-bold text-gold">Jobs</h1>
 
@@ -28,15 +28,15 @@
         <article
         role="article"
         aria-labelledby="job--<?php echo "{$titleSlug}-{$job['id']}"; ?>" 
-        class="p-6 bg-white border border-gray-200 rounded-lg shadow-lg">
+        class="p-4 bg-[rgba(255,255,255,0.7)] border border-gold border-2 rounded-lg shadow-lg">
           
-          <p class="block text-sm font-bold text-neutral-500">
-            <?php echo $job['company_name']; ?>
+          <p class="block text-md font-bold text-neutral-900 tracking-wider mb-3">
+            <span id="employer--<?php echo $job['id'] . strtotime($job['date_published']); ?>"><?php echo $job['company_name']; ?></span> <span class="font-normal tracking-normal">is hiring!</span>
           </p>
 
           <a 
           href="<?php echo "/job/{$job['id']}"; ?>"
-          class="block w-max text-gray-900 hover:text-gold transition-all"
+          class="block w-max text-black hover:text-gold transition-all"
           >
               <h3 
               id="job--<?php echo "{$titleSlug}-{$job['id']}"; ?>"
@@ -44,9 +44,9 @@
               ><?php echo htmlspecialchars($job['title']); ?></h3>
           </a>
 
-          <p class="mb-2 mt-3 font-bold text-md text-neutral-500">starts at: <span class="text-black text-lg inline-block px-2 leading-normal rounded bg-gold align-middle"><?php echo job_salary($job['salary'], $job['salary_type']); ?></span></p>
+          <p class="mb-2 mt-3 font-bold text-md text-neutral-800"><span class="inline-block align-middle">starts at:</span> <span class="text-black text-lg inline-block px-2 leading-normal rounded bg-gold align-middle"><?php echo job_salary($job['salary'], $job['salary_type']); ?></span></p>
 
-          <div class="mb-3 font-normal text-gray-700 text-md leading-tight">
+          <div class="my-5 font-normal text-gray-900 text-lg leading-tight">
             <?php echo excerpt(htmlspecialchars($job['description']), 500); ?>
           </div>
 
@@ -65,7 +65,7 @@
               $skill = htmlspecialchars($skill);
             ?>
 
-            <li class="inline-block p-1 px-2 font-semibold text-xs rounded bg-gray-500 text-neutral-50 transition-all">
+            <li class="inline-block p-1 px-2 font-semibold text-xs rounded bg-gray-700 text-neutral-50 transition-all tracking-widest">
               <?php echo ucwords($skill); ?>
             </li>
             
@@ -78,7 +78,7 @@
 
           <?php endif; ?>
 
-          <div class="flex justify-start items-start flex-wrap gap-x-3 gap-y-4 mt-5">
+          <div class="flex justify-start items-start flex-wrap gap-x-3 gap-y-4 mt-8">
 
             <a href="<?php echo "/job/{$job['id']}"; ?>" class="inline-flex items-center px-3 py-2 text-md font-medium text-center text-white bg-blue-700 rounded hover:bg-gold hover:text-black border border-solid border-blue-700 hover:border-gold focus:ring-4 focus:outline-none focus:ring-blue-300 transition-all">
                 <span class="font-bold">Read more</span>
@@ -115,5 +115,39 @@
 
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let companies = document.querySelectorAll('[id^=employer--]');
+    
+    if (companies.length > 0) {
+      companies.forEach(element => {
+
+        const companyText = element.textContent;
+
+        element.textContent = '';
+
+        for (let i = 0; i < companyText.length; i++) {
+          const character = companyText[i];
+          if (character === ' ') {
+            // If it's a space, create an empty span to maintain spaces
+            const spaceSpan = document.createElement("span");
+            spaceSpan.textContent = '\u00A0'; // Use a non-breaking space character
+            element.appendChild(spaceSpan);
+          } else {
+            // For non-space characters, create the letter span with the wave effect
+            const letterSpan = document.createElement("span");
+            letterSpan.textContent = character;
+            letterSpan.classList.add("wave-text");
+            // Add a delay to each letter's animation
+            letterSpan.style.animationDelay = `${i * 0.1}s`; // Adjust the delay as needed
+            element.appendChild(letterSpan);
+          }
+        }
+
+      });
+    }
+  }, { passive: true })
+</script>
 
 <?php get_template_part('footer'); ?>

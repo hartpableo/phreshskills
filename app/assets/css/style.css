@@ -102,6 +102,16 @@
   @apply bg-black opacity-80 z-[-1] absolute inset-0 w-full h-full pointer-events-none;
 }
 
-/* .has-overlay-darker::before {
-  @apply opacity-60;
-} */
+.wave-text {
+  display: inline-block;
+  animation: wave 0.5s infinite alternate;
+}
+
+@keyframes wave {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-2.7px);
+  }
+}
