@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Sep 24, 2023 at 06:46 AM
+-- Generation Time: Sep 29, 2023 at 06:16 AM
 -- Server version: 10.4.31-MariaDB-1:10.4.31+maria~ubu2004-log
 -- PHP Version: 8.1.16
 
@@ -53,20 +53,26 @@ CREATE TABLE `jobs` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `salary` varchar(255) NOT NULL,
+  `salary_type` varchar(100) NOT NULL,
   `skillset` varchar(1024) NOT NULL,
   `description` varchar(8000) NOT NULL,
-  `employer_id` int(11) NOT NULL
+  `employer_id` int(11) DEFAULT NULL,
+  `date_published` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `title`, `salary`, `skillset`, `description`, `employer_id`) VALUES
-(1, 'WordPress Plugin Developer', '3', 'wordpress, php, javascript', 'Lorem ipsum dolor sit amet consectetur adipiscing elit iaculis aptent metus turpis hac, porttitor tempor maecenas ullamcorper facilisis penatibus quis felis venenatis scelerisque fusce parturient, suspendisse tortor aenean sapien accumsan donec id faucibus semper sagittis lacus', 1),
-(2, 'Junior Laravel Developer', '8', 'laravel, php, javascript, vuejs', 'Lorem ipsum dolor sit amet consectetur adipiscing elit iaculis aptent metus turpis hac, porttitor tempor maecenas ullamcorper facilisis penatibus quis felis venenatis scelerisque fusce parturient, suspendisse tortor aenean sapien accumsan donec id faucibus semper sagittis lacus!!! sit amet consectetur adipiscing elit iaculis aptent metus turpis hac, porttitor tempor maecenas ullamcorper facilisis penatibus quis felis venenatis scelerisque fusce parturient, suspendisse tortor aenean sapien accumsan done', 2),
-(3, 'React Developer', '9', 'reactjs, tailwindcss, javascript, nodejs', 'Lorem ipsureacasad parturient, suspendisse tortor aenean sapien accumsan donec id faucibus semper sagittis lacus', 3),
-(4, 'Senior Software QA/Tester', '10', 'ui, ci, ux, c#, sql', 'augue est morbi, sagittis nibh eget curabitur sapien phasellus consequat faucibus sodales parturient aliquet tristique, ornare dapibus magnis primis mollis pulvinar blandit vel aptent sem taciti nulla. Nam pretium varius congue montes donec parturient pharetra arcu praesent, dapibus hendrerit primis tempor dictum proin placerat rhoncus class laoreet, facilisis dignissim metus eleifend accumsan porttitor aenean faucibus. Nibh rutrum torquent justo sapien cum viverra ligula condimentum, senectus penatibus fusce auctor libero orci mollis, scelerisque proin quis odio sagittis augue nisl. Mus posuere urna varius massa dictum ante convallis tristique et, taciti congue sociosqu luctus aliquam nisi interdum magnis sapien semper, habitant diam erat fusce purus eget tempor molestie.', 2);
+INSERT INTO `jobs` (`id`, `title`, `salary`, `salary_type`, `skillset`, `description`, `employer_id`, `date_published`) VALUES
+(1, 'WordPress Plugin Developer', '350', 'monthly', 'wordpress, php, javascript', 'Lorem ipsum dolor sit amet consectetur adipiscing elit iaculis aptent metus turpis hac, porttitor tempor maecenas ullamcorper facilisis penatibus quis felis venenatis scelerisque fusce parturient, suspendisse tortor aenean sapien accumsan donec id faucibus semper sagittis lacus', 1, '2023-09-29 00:00:00'),
+(2, 'Junior Laravel Developer', '8', 'hourly', 'laravel, php, javascript, vuejs', 'Lorem ipsum dolor sit amet consectetur adipiscing elit iaculis aptent metus turpis hac, porttitor tempor maecenas ullamcorper facilisis penatibus quis felis venenatis scelerisque fusce parturient, suspendisse tortor aenean sapien accumsan donec id faucibus semper sagittis lacus!!! sit amet consectetur adipiscing elit iaculis aptent metus turpis hac, porttitor tempor maecenas ullamcorper facilisis penatibus quis felis venenatis scelerisque fusce parturient, suspendisse tortor aenean sapien accumsan done', 2, '2023-09-29 00:00:00'),
+(3, 'React Developer', '9', 'bi-weekly', 'reactjs, tailwindcss, javascript, nodejs', 'Lorem ipsureacasad parturient, suspendisse tortor aenean sapien accumsan donec id faucibus semper sagittis lacus', 3, '2023-09-29 00:00:00'),
+(4, 'Senior Software QA/Tester', '150', 'weekly', 'ui, ci, ux, c#, sql', 'augue est morbi, sagittis nibh eget curabitur sapien phasellus consequat faucibus sodales parturient aliquet tristique, ornare dapibus magnis primis mollis pulvinar blandit vel aptent sem taciti nulla. Nam pretium varius congue montes donec parturient pharetra arcu praesent, dapibus hendrerit primis tempor dictum proin placerat rhoncus class laoreet, facilisis dignissim metus eleifend accumsan porttitor aenean faucibus. Nibh rutrum torquent justo sapien cum viverra ligula condimentum, senectus penatibus fusce auctor libero orci mollis, scelerisque proin quis odio sagittis augue nisl. Mus posuere urna varius massa dictum ante convallis tristique et, taciti congue sociosqu luctus aliquam nisi interdum magnis sapien semper, habitant diam erat fusce purus eget tempor molestie.', 2, '2023-09-29 00:00:00'),
+(5, 'Bookkeeper', '7', 'hourly', 'quickbooks, google sheets, google docs, microsoft excel', 'Lorem ipsum dolor sit amet consectetur adipiscing elit nullam, quis felis vel metus luctus taciti nostra, ut auctor potenti ridiculus habitant enim magnis. Purus justo quis platea per torquent rutrum malesuada nisl lobortis viverra luctus habitant mauris, venenatis diam fermentum in mi neque dapibus cras phasellus dictum commodo. Penatibus congue fringilla cum etiam proin imperdiet vulputate aliquet, nunc feugiat praesent dictumst ullamcorper magnis magna hendrerit a, cursus conubia tempor himenaeos purus diam ac. Per fermentum cursus ultricies pellentesque scelerisque dictum suscipit aenean congue mus suspendisse, quis at magna litora ne', 3, '2023-09-29 00:00:00'),
+(8, 'Tester', '125', 'weekly', 'skill test', 'Bytes\r\nLists\r\nRich TextHTML\r\nCopy\r\nLorem ipsum dolor sit amet consectetur adipiscing elit aptent at, augue suscipit nullam semper mattis magnis duis bibendum volutpat, placerat dapibus quam nisi lobortis hac ac dignissim. Posuere donec sociis potenti proin diam ante facilisis dignissim eu, pharetra integer neque euismod faucibus nec risus est purus et, mus quisque fringilla leo tellus nulla habitant porttitor. Odio ullamcorper ligula dis ac praesent nulla erat quis sagittis sapien integer, mi ultricies lobortis conubia interdum parturient et blandit curabitur posuere bibendum, fames nunc pellentesque suspendisse aliquet commodo lacinia enim vivamus rhoncus. Senectus ligula curabitur cursus lacus facilisi quisque tristique vel montes commodo porta dictumst erat nunc vulputate sodales, scelerisque massa nibh malesuada dignissim volutpat at habitant suscipit in tortor vitae augue integer. Nisi porta morbi semper odio justo nam quam sagittis, montes imperdiet sapien torquent posuere vulputa', 2, '2023-09-29 00:00:00'),
+(10, 'Latest Test', '123', 'hourly', '213, sadsad', 'sadsadsa dsa dd qd 123 3qda asdasd', 2, '2023-09-29 00:12:00'),
+(11, 'VueJS Developer', '10', 'hourly', 'Vue, Laravel, WordPress, SCSS', 'aliquet sociosqu maecenas et at, malesuada ac faucibus himenaeos eu senectus pellentesque quam aenean, accumsan integer massa iaculis metus auctor condimentum. Egestas habitant mus conubia congue pulvinar tincidunt eget orci id donec mollis eleifend vel ut te', 2, '2023-09-29 06:16:02');
 
 -- --------------------------------------------------------
 
@@ -131,7 +137,7 @@ ALTER TABLE `employers`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `jobseekers`

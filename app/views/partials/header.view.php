@@ -40,23 +40,23 @@
           <ul class="uppercase lg:flex-grow animated jackinthebox xl:mx-8 text-end pt-3 lg:pt-[0_!important]">
             <li class="block lg:inline-block align-top lg:align-middle">
               <a href="/"
-                class="block text-sm font-bold hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/') ? 'text-orange-500' : 'text-white'; ?>">
+                class="block text-md font-bold hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/') ? 'text-orange-500' : 'text-white'; ?>">
                 Home
               </a>
             </li>
             <li class="block lg:inline-block align-top lg:align-middle">
               <a href="/jobs"
-                class="block text-sm font-bold hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/jobs') ? 'text-orange-500' : 'text-white'; ?>">
+                class="block text-md font-bold hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/jobs') ? 'text-orange-500' : 'text-white'; ?>">
                 Jobs
               </a>
             </li>
             <li class="block lg:inline-block align-top lg:align-middle">
               <a href="/jobseekers"
-                class="block text-sm font-bold hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/jobseekers') ? 'text-orange-500' : 'text-white'; ?>">
+                class="block text-md font-bold hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/jobseekers') ? 'text-orange-500' : 'text-white'; ?>">
                 Jobseekers
               </a>
             </li>
-            <li class="block lg:inline-block align-top lg:align-middle mt-5 lg:mt-0 lg:ml-5">
+            <!-- <li class="block lg:inline-block align-top lg:align-middle mt-5 lg:mt-0 lg:ml-5">
               <a href="/login"
                 class="block text-lg font-bold text-white hover:text-orange-500 mx-2 focus:text-blue-500 p-1 rounded-lg font-secondary">
                 Login
@@ -74,14 +74,14 @@
                 <a href="/employer/sign-up" class="block leading-tight font-semibold p-6 hover:text-orange-500 border-b border-solid hover:bg-gray-100">Sign up as Employer</a>
                 <a href="/jobseeker/sign-up" class="block leading-tight font-semibold p-6 hover:text-orange-500 hover:bg-gray-100">Sign up as Jobseeker</a>
               </div>
-            </li>
+            </li> -->
           </ul>
         </div>
       </nav>
     </div>
   </header>
 
-  <script>
+  <!-- <script>
     const signupButton = document.querySelector('button[data-target="#sign-up-dropdown"]');
     const signupDropdown = document.querySelector(signupButton.dataset.target);
 
@@ -114,6 +114,6 @@
       }, { passive: true });
 
     }, { passive: true })
-  </script>
+  </script> -->
 
   <main>

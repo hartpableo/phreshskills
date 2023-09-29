@@ -9,7 +9,7 @@ $db = App::resolve(Database::class);
 /** manage queries */
 if (url_has_no_query_strings()) {
 
-  $jobs = $db->query('select * from jobs join employers on jobs.employer_id = employers.employer_id')->findAll();
+  $jobs = $db->query('select * from jobs join employers on jobs.employer_id = employers.employer_id order by jobs.date_published desc')->findAll();
 
 } else {
 

@@ -62,11 +62,8 @@
             if ($counter == 9) break;
           ?>
           
-          <li class="inline-block">
-            <a 
-              class="p-1 px-2 font-semibold text-xs rounded bg-gray-500 text-neutral-50 hover:bg-blue-700 transition-all" 
-              href="<?php echo "/skills/{$skill}"; ?>"
-            ><?php echo ucwords(htmlspecialchars($skill)); ?></a>
+          <li class="inline-block p-1 px-2 font-semibold text-xs rounded bg-gray-500 text-neutral-50 transition-all">
+            <?php echo ucwords($skill); ?>
           </li>
 
           <?php
