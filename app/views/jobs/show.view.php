@@ -60,6 +60,10 @@
 
       </div>
 
+      <hr class="border-2 border-solid border-red-500 max-w-[120px] mt-10">
+
+      <p class="font-normal text-sm text-gray-100 italic mt-3"><strong class="font-bold uppercase">Always Remember!</strong> You should <strong class="font-bold">NEVER</strong> have to pay anything just to be accepted for a job. You <strong class="font-bold">SHOULD NOT</strong> be paying any fees at all. Employers asking you to do some sort of payment before proceeding (or during any aspects of your interaction) is a <strong class="font-bold">SCAM</strong>!</p>
+
     </article>
 
     <!-- sidebar -->
