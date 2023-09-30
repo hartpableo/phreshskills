@@ -1,22 +1,27 @@
 <?php get_template_part('header'); ?>
 
-<section>
+<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
   <div class="container">
 
-  <form action="/jobs/add" method="POST" class="container max-w-md my-16">
+  <form action="/jobs/add" method="POST" class="container max-w-lg my-8 lg:my-16">
 
-    <h1 class="font-bold text-5xl font-secondary text-blue-900 mb-8">Create Jobseerker Profile</h1>
+    <h1 class="font-bold text-3xl lg:text-4xl font-secondary text-gold mb-8">Create Jobseerker Profile</h1>
 
     <div class="mb-4">
-        <label for="name" class="block text-gray-700 font-secondary text-sm">Name</label>
-        <input type="text" id="name" name="name" class="border border-solid rounded-sm border-gray-500 block w-full p-1">
+      <label for="name" class="block text-gray-200 font-secondary text-sm">Name</label>
+      <input type="text" id="name" name="name" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. John Doe">
+    </div>
+
+    <div class="mb-4">
+      <label for="summary" class="block text-gray-200 font-secondary text-sm">About Me</label>
+      <textarea id="summary" name="summary" cols="10" rows="10" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical" placeholder="Not sure yet what to write? Highlight interesting things about you! :)"></textarea>
     </div>
 
     <div class="mb-4 flex flex-col lg:flex-row justify-between lg:items-center gap-5">
 
         <div class="flex-grow">
 
-          <label for="rate" class="block text-gray-700 font-secondary text-sm">Expected Salary (<span class="sr-only">in US Dollars</span><strong class="font-bold" aria-hidden="true">$</strong>)</label>
+          <label for="rate" class="block text-gray-200 font-secondary text-sm">Expected Salary (<span class="sr-only">in US Dollars</span><strong class="font-bold" aria-hidden="true">$</strong>)</label>
 
             <div class="relative">
 
@@ -32,36 +37,72 @@
 
         <div class="min-w-[8rem]">
 
-          <label for="salary_type" class="block text-gray-700 font-secondary text-sm">Salary Type</label>
+          <label for="salary_type" class="block text-gray-200 font-secondary text-sm">Salary Type</label>
 
           <select name="salary_type" id="salary_type" class="bg-gray-50 border border-gray-700 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-1 font-primary min-h-[2.125rem]">
-            <?php foreach ($salary_types as $type) : ?>
+            <?php foreach (SALARY_TYPES as $type) : ?>
               <option value="<?php echo strtolower($type); ?>"><?php echo ucfirst($type); ?></option>
             <?php endforeach ?>
           </select>
 
         </div>
 
-        <!-- <p class="text-xs text-red-400 font-semibold mt-1">* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, ab.</p> -->
     </div>
 
     <div class="mb-4">
-        <label for="skillset" class="block text-gray-700 font-secondary text-sm">Skillset<br> <span class="text-xs">(separate by commas, e.g "Facebook Ads, Canva Design, Photoshop")</span></label>
-        <textarea id="skillset" name="skillset" id="skillset" cols="30" rows="2" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical resize-none"></textarea>
+        <label for="skillset" class="block text-gray-200 font-secondary text-sm">Skillset<br> <span class="text-xs">(separate by commas, e.g "Facebook Ads, Canva Design, Photoshop")</span></label>
+        <textarea id="skillset" name="skillset" id="skillset" cols="30" rows="2" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical resize-none" placeholder="e.g. Excel, Canva, Word, Cold Calling, etc."></textarea>
     </div>
 
     <div class="mb-4">
-        <label for="description" class="block text-gray-700 font-secondary text-sm">Job Description</label>
-        <textarea id="description" name="description" cols="10" rows="10" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical"></textarea>
+
+      <p class="block font-bold font-secondary text-lg mt-8 mb-5 text-gold">Work Background(s) or Experience(s)</p>
+
+      <div id="repeatable-fields-container">
+        <div class="repeatable-field overflow-hidden rounded-md has-overlay-light relative p-3 mb-4 border-2 border-solid border-gray-200 border-b-2">
+          <label class="block text-gray-200 font-secondary text-sm mb-2">Company Name:
+            <input type="text" name="work_background_company_name[]" class="border border-solid rounded-sm border-gray-500 block w-full p-1 text-neutral-700" placeholder="e.g. Google, Netflix, etc.">
+          </label>
+          <label class="block text-gray-200 font-secondary text-sm mb-2">Position:
+            <input type="text" name="work_background_position[]" class="border border-solid rounded-sm border-gray-500 block w-full p-1 text-neutral-700" placeholder="e.g. Web Designer, Virtual Assistant, etc.">
+          </label>
+          <label class="block text-gray-200 font-secondary text-sm mb-2">How long did you work for this company?
+            <input type="text" name="work_background_duration[]" class="border border-solid rounded-sm border-gray-500 block w-full p-1 text-neutral-700" placeholder="e.g. March 2022 - April 2023">
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button id="add-field-button" type="button" aria-label="Add a field for work background" class="bg-gold overflow-hidden rounded hover:bg-blue-300 transition-all p-1" title="Add New Field">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16" role="presentation" aria-hidden="true">
+          <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+        </svg>
+        </button>
+      </div>
+
     </div>
 
     <div>
-      <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-gold transition-all">Submit</button>
+      <button type="submit" class="bg-blue-900 text-white px-6 py-2 mt-5 rounded hover:bg-gold transition-all hover:text-black text-lg font-bold">Submit</button>
     </div>
 
     </form>
 
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const workExperienceContainer = document.getElementById('repeatable-fields-container');
+    const addWorkExperienceButton = document.getElementById('add-field-button');
+
+    addWorkExperienceButton.addEventListener('click', function () {
+      const clone = workExperienceContainer.firstElementChild.cloneNode(true);
+      const inputs = clone.querySelectorAll('input');
+      inputs.forEach(input => input.value = '');
+      workExperienceContainer.appendChild(clone);
+    });
+  });
+</script>
 
 <?php get_template_part('footer'); ?>

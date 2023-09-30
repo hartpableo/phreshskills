@@ -95,6 +95,11 @@
   @apply bg-black opacity-60 z-[-1] absolute inset-0 w-full h-full pointer-events-none;
 }
 
+/* .has-overlay-dark::before {
+  content: "";
+  @apply bg-black opacity-90 z-[-1] absolute inset-0 w-full h-full pointer-events-none;
+} */
+
 .wave-text {
   display: inline-block;
   animation: wave 0.5s infinite alternate;
