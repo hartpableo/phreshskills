@@ -45,7 +45,7 @@
 
       <hr class="mt-8 mb-6 border-gray-100 opacity-70">    
 
-      <div class="text-gray-200 text-md font-medium">
+      <div class="text-gray-200 text-lg font-medium">
         <?php echo maintain_breaks($job['description']); ?>
       </div>
 

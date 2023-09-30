@@ -6,12 +6,7 @@
   <meta name="description" content="<?php echo (!isHome() && isset($pageDescription)) ? $pageDescription : APP_DESC; ?>">
   <title><?php echo (!isHome() && isset($pageTitle)) ? "{$pageTitle} | " . APP_NAME : APP_NAME; ?></title>
   <link rel="stylesheet" href="<?php echo load_asset('css/style.css'); ?>">
-
-  <!-- assets preloading -->
-  <link rel="preload" as="image" href="<?php echo image_uri('hero-bg.webp'); ?>">
-
   <script src="<?php echo load_asset('js/script.js') ?>" defer></script>
-
 </head>
 <body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto] bg-gray-50 position-relative isolate bg-black">
   <header role="banner" class="bg-blue-900">
@@ -61,64 +56,10 @@
                 Jobseekers
               </a>
             </li>
-            <!-- <li class="block lg:inline-block align-top lg:align-middle mt-5 lg:mt-0 lg:ml-5">
-              <a href="/login"
-                class="block text-lg font-bold text-white hover:text-gold mx-2 focus:text-blue-500 p-1 rounded-lg font-secondary">
-                Login
-              </a>
-            </li>
-            <li class="block lg:inline-block align-top lg:align-middle relative">
-              <button 
-                aria-label="Open sign up options"
-                data-target="#sign-up-dropdown"
-                type="button"
-                class="block text-lg font-bold text-white hover:text-gold mx-2 focus:text-blue-500 p-1 rounded-lg font-secondary uppercase"
-                aria-expanded="false"
-              >Sign up</button>
-              <div id="sign-up-dropdown" class="absolute bg-white border border-solid border-gray-300 shadow-lg right-0 top-full w-max z-10 mt-5 text-left min-w-[16em] hidden">
-                <a href="/employer/sign-up" class="block leading-tight font-semibold p-6 hover:text-gold border-b border-solid hover:bg-gray-100">Sign up as Employer</a>
-                <a href="/jobseeker/sign-up" class="block leading-tight font-semibold p-6 hover:text-gold hover:bg-gray-100">Sign up as Jobseeker</a>
-              </div>
-            </li> -->
           </ul>
         </div>
       </nav>
     </div>
   </header>
-
-  <!-- <script>
-    const signupButton = document.querySelector('button[data-target="#sign-up-dropdown"]');
-    const signupDropdown = document.querySelector(signupButton.dataset.target);
-
-    document.addEventListener('DOMContentLoaded', () => {
-
-      signupButton.addEventListener('click', () => {
-
-        let dropdownIsExpanded = signupButton.getAttribute('aria-expanded') == 'true';
-
-        if (!dropdownIsExpanded) {
-          signupDropdown.classList.remove('hidden');
-          signupButton.setAttribute('aria-expanded', true);
-        } else {
-          signupDropdown.classList.add('hidden');
-          signupButton.setAttribute('aria-expanded', false);
-        }
-
-        event.stopPropagation();
-
-      }, { passive: true })
-
-      document.addEventListener('click', (event) => {
-        const target = event.target;
-        const isInsideDropdown = signupDropdown.contains(target);
-
-        if (!isInsideDropdown) {
-          signupDropdown.classList.add('hidden');
-          signupButton.setAttribute('aria-expanded', false);
-        }
-      }, { passive: true });
-
-    }, { passive: true })
-  </script> -->
 
   <main>
