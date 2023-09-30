@@ -3,7 +3,7 @@
 use Core\App;
 use Core\Session;
 use Core\Database;
-use Http\Forms\CreateJobForm;
+use Http\Forms\CreateJobseekerForm;
 
 $db = App::resolve(Database::class);
 
@@ -21,7 +21,7 @@ $attributes = [
 
 show($attributes);
 
-// $form = CreateJobForm::validate($attributes);
+$form = CreateJobseekerForm::validate($attributes);
 
 // $form->register($attributes);
 

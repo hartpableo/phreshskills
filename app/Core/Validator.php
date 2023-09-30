@@ -30,6 +30,11 @@ class Validator
     return $imageFile['size'] <= $maxSize;
   }
 
+  public static function check_if_empty($value)
+  {
+    return (bool) strlen($value) || empty($value);
+  }
+
   public static function contactNumber($value)
   {
       // Remove all non-digit characters from the contact number
