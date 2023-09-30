@@ -24,4 +24,5 @@ $router->get('/job/{job:id}', 'Jobs/show');
 
 $router->get('/jobseekers', 'Jobseekers/index');
 $router->get('/jobseeker/create-profile', 'Jobseekers/create');
+$router->post('/jobseeker/add', 'Jobseekers/store');
 $router->get('/jobseeker/{jobseeker:id}', 'Jobseekers/show');

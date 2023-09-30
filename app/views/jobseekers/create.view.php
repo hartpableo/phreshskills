@@ -3,13 +3,18 @@
 <section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
   <div class="container">
 
-  <form action="/jobs/add" method="POST" class="container max-w-lg my-8 lg:my-16">
+  <form action="/jobseeker/add" method="POST" class="container max-w-lg my-8 lg:mt-10 lg:mb-16">
 
     <h1 class="font-bold text-3xl lg:text-4xl font-secondary text-gold mb-8">Create Jobseerker Profile</h1>
 
     <div class="mb-4">
       <label for="name" class="block text-gray-200 font-secondary text-sm">Name</label>
       <input type="text" id="name" name="name" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. John Doe">
+    </div>
+
+    <div class="mb-4">
+      <label for="position" class="block text-gray-200 font-secondary text-sm">Position</label>
+      <input type="text" id="position" name="position" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. Email Marketing Specialist">
     </div>
 
     <div class="mb-4">
@@ -50,8 +55,8 @@
     </div>
 
     <div class="mb-4">
-        <label for="skillset" class="block text-gray-200 font-secondary text-sm">Skillset<br> <span class="text-xs">(separate by commas, e.g "Facebook Ads, Canva Design, Photoshop")</span></label>
-        <textarea id="skillset" name="skillset" id="skillset" cols="30" rows="2" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical resize-none" placeholder="e.g. Excel, Canva, Word, Cold Calling, etc."></textarea>
+        <label for="skills" class="block text-gray-200 font-secondary text-sm">Skillset<br> <span class="text-xs">(separate by commas, e.g "Facebook Ads, Canva Design, Photoshop")</span></label>
+        <textarea id="skills" name="skills" id="skills" cols="30" rows="2" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical resize-none" placeholder="e.g. Excel, Canva, Word, Cold Calling, etc."></textarea>
     </div>
 
     <div class="mb-4">
