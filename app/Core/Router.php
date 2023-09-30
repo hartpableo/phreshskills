@@ -137,7 +137,7 @@ class Router
 
   public function prevURL()
   {
-    return $_SERVER['HTTP_REFERER'];
+    return $_SERVER['HTTP_REFERER'] ?? '/';
   }
 
   public function abort($status_code = 404)
