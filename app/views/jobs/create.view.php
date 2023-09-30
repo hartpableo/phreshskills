@@ -14,11 +14,11 @@
     <input type="hidden" name="employer_id" value="2">
 
     <div class="mb-4">
-        <label for="title" class="block text-gray-200 font-secondary text-sm">Job Title</label>
-        <input type="text" id="title" name="title" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. Web Developer">
-        <?php if (has_error('title')) : ?>
-          <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('title'); ?></p>
-        <?php endif; ?>
+      <label for="title" class="block text-gray-200 font-secondary text-sm">Job Title</label>
+      <input type="text" id="title" name="title" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. Web Developer">
+      <?php if (has_error('title')) : ?>
+        <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('title'); ?></p>
+      <?php endif; ?>
     </div>
 
     <div class="mb-4 flex flex-col lg:flex-row justify-between lg:items-center gap-5">
@@ -44,7 +44,7 @@
           <label for="salary_type" class="block text-gray-200 font-secondary text-sm">Salary Type</label>
 
           <select name="salary_type" id="salary_type" class="bg-gray-50 border border-gray-200 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-1 font-primary min-h-[2.125rem]">
-            <?php foreach ($salary_types as $type) : ?>
+            <?php foreach (SALARY_TYPES as $type) : ?>
               <option value="<?php echo strtolower($type); ?>"><?php echo ucfirst($type); ?></option>
             <?php endforeach ?>
           </select>
@@ -53,11 +53,11 @@
     </div>
 
     <div class="mb-4">
-        <label for="skillset" class="block text-gray-200 font-secondary text-sm">Skillset<br> <span class="text-xs">(separate by commas, e.g "Facebook Ads, Canva Design, Photoshop")</span></label>
-        <textarea id="skillset" name="skillset" id="skillset" cols="30" rows="2" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical resize-none"></textarea>
-        <?php if (has_error('skillset')) : ?>
-          <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('skillset'); ?></p>
-        <?php endif; ?>
+      <label for="skillset" class="block text-gray-200 font-secondary text-sm">Skillset<br> <span class="text-xs">(separate by commas, e.g "Facebook Ads, Canva Design, Photoshop")</span></label>
+      <textarea id="skillset" name="skillset" id="skillset" cols="30" rows="2" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical resize-none"></textarea>
+      <?php if (has_error('skillset')) : ?>
+        <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('skillset'); ?></p>
+      <?php endif; ?>
     </div>
 
     <div class="mb-4">
@@ -77,7 +77,7 @@
       <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-gold hover:text-black transition-all">Submit</button>
     </div>
 
-    </form>
+  </form>
 
   </div>
 </section>
