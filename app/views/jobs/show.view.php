@@ -12,7 +12,10 @@
   <div id="job-details" class="container grid grid-cols-1 gap-3">
 
     <article role="article" class="p-4 rounded-lg border border-gray-400 border-2">
-      <h1 class="text-gold text-3xl lg:text-6xl font-bold font-secondary mb-4"><?php echo htmlspecialchars($job['title']); ?></h1>
+
+      <h1 class="text-gold text-3xl lg:text-6xl font-bold font-secondary mb-4">
+        <?php echo htmlspecialchars($job['title']); ?>
+      </h1>
 
       <hr class="mb-4 border-gray-100 opacity-70">
 
@@ -43,7 +46,7 @@
       <hr class="mt-8 mb-6 border-gray-100 opacity-70">    
 
       <div class="text-gray-200 text-md font-medium">
-        <?php echo htmlspecialchars($job['description']); ?>
+        <?php echo maintain_breaks($job['description']); ?>
       </div>
 
       <div class="flex justify-start items-start gap-4 flex-wrap mt-12">

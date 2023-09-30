@@ -95,6 +95,24 @@ function excerpt($string, $maxLength = 100) {
   return (strlen($string) > $maxLength) ? substr($string, 0, $maxLength) . '...' : $string;
 }
 
+function maintain_breaks($string) {
+  if (strlen($string) == 0) return $string;
+  $output = str_replace("\n", "<br>", htmlspecialchars($string, ENT_QUOTES, 'UTF-8'));
+  return $output;
+}
+
+function has_error($error_handle) {
+  $errors_session = Core\Session::get('errors');
+  if (!isset($errors_session) || empty($errors_session)) return false;
+  if (isset($errors_session["{$error_handle}_error"])) return true;
+}
+
+function get_error($error_handle) {
+  $errors_session = Core\Session::get('errors');
+  if (!isset($errors_session) || empty($errors_session)) return false;
+  if (isset($errors_session["{$error_handle}_error"])) return '*' . $errors_session["{$error_handle}_error"];
+}
+
 function job_salary($salary, $salary_type) {
 
   $css_classes = 'text-sm font-medium';

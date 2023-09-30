@@ -1,25 +1,31 @@
 <?php get_template_part('header'); ?>
 
-<section>
+<!-- <s?php !empty(Core\Session::get('errors')) && show(Core\Session::get('errors')); ?> -->
+
+<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full before:opacity-90" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
+
   <div class="container">
 
-  <form action="/jobs/add" method="POST" class="container max-w-md my-16">
+  <form action="/jobs/add" method="POST" class="container max-w-md my-10 lg:my-16">
 
-    <h1 class="font-bold text-5xl font-secondary text-blue-900 mb-8">Create a Job</h1>
+    <h1 class="font-bold text-3xl lg:text-5xl font-secondary text-gold mb-8">Create a Job</h1>
 
     <!-- echo the current employer id here -->
     <input type="hidden" name="employer_id" value="2">
 
     <div class="mb-4">
-        <label for="title" class="block text-gray-700 font-secondary text-sm">Job Title</label>
-        <input type="text" id="title" name="title" class="border border-solid rounded-sm border-gray-500 block w-full p-1">
+        <label for="title" class="block text-gray-200 font-secondary text-sm">Job Title</label>
+        <input type="text" id="title" name="title" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. Web Developer">
+        <?php if (has_error('title')) : ?>
+          <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('title'); ?></p>
+        <?php endif; ?>
     </div>
 
     <div class="mb-4 flex flex-col lg:flex-row justify-between lg:items-center gap-5">
 
         <div class="flex-grow">
 
-          <label for="salary" class="block text-gray-700 font-secondary text-sm">Salary (<span class="sr-only">in US Dollars</span><strong class="font-bold" aria-hidden="true">$</strong>)</label>
+          <label for="salary" class="block text-gray-200 font-secondary text-sm">Salary (<span class="sr-only">in US Dollars</span><strong class="font-bold" aria-hidden="true">$</strong>)</label>
 
             <div class="relative">
 
@@ -35,31 +41,40 @@
 
         <div class="min-w-[8rem]">
 
-          <label for="salary_type" class="block text-gray-700 font-secondary text-sm">Salary Type</label>
+          <label for="salary_type" class="block text-gray-200 font-secondary text-sm">Salary Type</label>
 
-          <select name="salary_type" id="salary_type" class="bg-gray-50 border border-gray-700 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-1 font-primary min-h-[2.125rem]">
+          <select name="salary_type" id="salary_type" class="bg-gray-50 border border-gray-200 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-1 font-primary min-h-[2.125rem]">
             <?php foreach ($salary_types as $type) : ?>
               <option value="<?php echo strtolower($type); ?>"><?php echo ucfirst($type); ?></option>
             <?php endforeach ?>
           </select>
 
         </div>
-
-        <!-- <p class="text-xs text-red-400 font-semibold mt-1">* Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, ab.</p> -->
     </div>
 
     <div class="mb-4">
-        <label for="skillset" class="block text-gray-700 font-secondary text-sm">Skillset<br> <span class="text-xs">(separate by commas, e.g "Facebook Ads, Canva Design, Photoshop")</span></label>
+        <label for="skillset" class="block text-gray-200 font-secondary text-sm">Skillset<br> <span class="text-xs">(separate by commas, e.g "Facebook Ads, Canva Design, Photoshop")</span></label>
         <textarea id="skillset" name="skillset" id="skillset" cols="30" rows="2" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical resize-none"></textarea>
+        <?php if (has_error('skillset')) : ?>
+          <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('skillset'); ?></p>
+        <?php endif; ?>
     </div>
 
     <div class="mb-4">
-        <label for="description" class="block text-gray-700 font-secondary text-sm">Job Description</label>
+        <label for="description" class="block text-gray-200 font-secondary text-sm">Job Description</label>
         <textarea id="description" name="description" cols="10" rows="10" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical"></textarea>
+        <?php if (has_error('description')) : ?>
+          <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('description'); ?></p>
+        <?php endif; ?>
+    </div>
+
+    <div class="mb-4">
+        <label for="benefits" class="block text-gray-200 font-secondary text-sm">Benefits for working with you (If any...)</label>
+        <textarea id="benefits" name="benefits" cols="10" rows="7" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical"></textarea>
     </div>
 
     <div>
-      <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-gold transition-all">Submit</button>
+      <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-gold hover:text-black transition-all">Submit</button>
     </div>
 
     </form>

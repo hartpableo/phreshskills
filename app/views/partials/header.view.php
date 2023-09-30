@@ -11,6 +11,7 @@
   <link rel="preload" as="image" href="<?php echo image_uri('hero-bg.webp'); ?>">
 
   <script src="<?php echo load_asset('js/script.js') ?>" defer></script>
+
 </head>
 <body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto] bg-gray-50 position-relative isolate bg-black">
   <header role="banner" class="bg-blue-900">

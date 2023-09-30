@@ -13,6 +13,7 @@ $attributes = [
   'salary_type' => $_POST['salary_type'],
   'skillset' => $_POST['skillset'],
   'description' => $_POST['description'],
+  'benefits' => $_POST['benefits'],
   'employer_id' => $_POST['employer_id']
 ];
 

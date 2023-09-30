@@ -25,11 +25,21 @@
 
     </div>
 
-    <div class="flex justify-center items-start gap-4 flex-wrap mt-16">
+    <div class="flex justify-center items-start lg:items-center gap-4 flex-wrap mt-16">
 
       <a 
+        href="/employer/login" 
+        class="underline underline-offset-4 font-bold hover:text-gold transition-all text-sm"
+        >Employer's Login</a>
+      |
+      <a 
+        href="/jobseeker/login" 
+        class="underline underline-offset-4 font-bold hover:text-blue-500 transition-all text-sm"
+        >Jobseeker's Login</a>
+      |
+      <a 
       href="mailto:pableoh@gmail.com" 
-      class="underline underline-offset-4 font-bold hover:text-blue-500 transition-all text-sm"
+      class="underline underline-offset-4 font-bold hover:text-red-400 transition-all text-sm"
       >Contact Developer</a>
 
     </div>
