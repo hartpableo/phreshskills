@@ -26,4 +26,12 @@ class Formatter
 
     return implode(', ', $cleaned_array_items);
   }
+
+  public static function string_to_array($separator, $data)
+  {
+    if (!isset($data)) return false;
+    return $new_array = array_map(function($item) {
+      return trim($item);
+    }, explode( $separator, $data));
+  }
 }

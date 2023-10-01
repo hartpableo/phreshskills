@@ -4,7 +4,7 @@
   <div class="container max-w-[52rem] text-gray-200">
     <div class="rounded-xl border-2 border-solid border-gray-300 py-6 px-10 overflow-auto has-overlay-light relative overflow-hidden">
 
-      <img src="https://picsum.photos/200/200" alt="<?php echo "Photo of {$jobseeker['name']}"; ?>" loading="lazy" width="200" height="200" class="rounded-full ml-5 mb-5 lg:float-right max-w-full max-h-auto aspect-ratio">
+      <img src="https://picsum.photos/200/200" alt="<?php echo "Photo of {$jobseeker['name']}"; ?>" loading="lazy" width="200" height="200" class="rounded-full ml-5 mb-5 md:float-right max-w-full max-h-auto aspect-ratio">
 
       <h1 class="text-5xl font-bold font-secondary pl-5 border-l-solid border-gold border-l-8 mb-3 text-white"><?php echo $jobseeker['name']; ?></h1>
 
@@ -27,7 +27,36 @@
         <?php echo maintain_breaks($jobseeker['summary']); ?>
       </div>
 
-      <h2 class="text-2xl my-6 mb-3 font-secondary font-bold">Experience/Background</h2>
+      <?php 
+        if (!empty($work_background)) : 
+          $counter = 1; 
+      ?>
+        <h2 class="text-2xl my-6 mb-3 font-secondary font-bold text-blue-500">Experience/Background</h2>
+        <div class="flex flex-col gap-3 justify-start items-stretch pl-5">
+        <?php 
+          foreach ($work_background as $work) : 
+            if ($counter == count($work_background) + 1) break;
+        ?>
+
+
+          <div class="relative text-gray-200">
+            <h3 class="text-xl mb-0 leading-none font-bold relative"><?php echo "<span class='text-gray-200 -ml-6 mr-1'>{$counter}.</span>" . htmlspecialchars($work['position']); ?></h3>
+            <p class="text-sm text-gray-100"><?php echo htmlspecialchars($work['company']); ?></p>
+            <p class="text-sm text-gray-100"><?php echo htmlspecialchars($work['duration']); ?></p>
+          </div>
+
+        <?php 
+          $counter++; 
+          endforeach; 
+        ?>
+        </div>
+      <?php endif; ?>
+
+      <div class="grid grid-cols-3 gap-3 pl-6 justify-center items-stretch mt-16 text-center">
+
+          <a href="#">Contact <?php echo htmlspecialchars($jobseeker['name']); ?></a>
+
+      </div>
 
     </div>
   </div>
