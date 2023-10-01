@@ -32,7 +32,7 @@ class Validator
 
   public static function check_if_empty($value)
   {
-    return (bool) strlen($value) || empty($value);
+    return (bool) !empty($value);
   }
 
   public static function contactNumber($value)

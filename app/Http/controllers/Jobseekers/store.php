@@ -26,5 +26,4 @@ Session::flash('message', [
   'registered' => 'Congratulations! Your jobseeker profile has been created.'
 ]);
 
-// redirect('/jobseeker/profile');
 redirect();

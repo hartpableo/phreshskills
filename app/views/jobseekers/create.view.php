@@ -39,7 +39,7 @@
       <?php endif; ?>
     </div>
 
-    <div class="mb-4 flex flex-col lg:flex-row justify-between lg:items-center gap-5">
+    <div class="flex flex-col lg:flex-row justify-between lg:items-center gap-5">
 
         <div class="flex-grow">
 
@@ -54,10 +54,6 @@
             </svg>
 
           </div>
-
-          <?php if (has_error('rate')) : ?>
-            <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('rate'); ?></p>
-          <?php endif; ?>
 
         </div>
 
@@ -78,6 +74,10 @@
 
     </div>
 
+    <?php if (has_error('rate')) : ?>
+      <p class="text-xs text-red-400 font-semibold mt-1 w-full mb-4"><?php echo get_error('rate'); ?></p>
+    <?php endif; ?>
+
     <div class="mb-4">
         <label for="skills" class="block text-gray-200 font-secondary text-sm">Skillset<br> <span class="text-xs">(separate by commas, e.g "Facebook Ads, Canva Design, Photoshop")</span></label>
         <textarea id="skills" name="skills" id="skills" cols="30" rows="2" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical resize-none" placeholder="e.g. Excel, Canva, Word, Cold Calling, etc."><?php echo old('skills') ?? '' ?></textarea>
@@ -89,6 +89,34 @@
     <div class="mb-4">
 
       <p class="block font-bold font-secondary text-lg mt-8 mb-5 text-gold">Work Background(s) or Experience(s)</p>
+
+      <?php
+        $background = old('work_background');
+        if ($background) :
+          $prev_companies = $background['company'];
+          $prev_positions = $background['position'];
+          $prev_work_durations = $background['duration'];
+          for ($i = 0; $i < count($prev_companies); $i++) :
+      ?>
+
+      <div id="repeatable-fields-container">
+        <div class="repeatable-field overflow-hidden rounded-md has-overlay-light relative p-3 mb-4 border-2 border-solid border-gray-200 border-b-2">
+          <label class="block text-gray-200 font-secondary text-sm mb-2">Company Name:
+            <input type="text" name="work_background[company][]" class="border border-solid rounded-sm border-gray-500 block w-full p-1 text-neutral-700" placeholder="e.g. Google, Netflix, etc." value="<?php echo $prev_companies[$i]; ?>">
+          </label>
+          <label class="block text-gray-200 font-secondary text-sm mb-2">Position:
+            <input type="text" name="work_background[position][]" class="border border-solid rounded-sm border-gray-500 block w-full p-1 text-neutral-700" placeholder="e.g. Web Designer, Virtual Assistant, etc." value="<?php echo $prev_positions[$i]; ?>">
+          </label>
+          <label class="block text-gray-200 font-secondary text-sm mb-2">How long did you work for this company?
+            <input type="text" name="work_background[duration][]" class="border border-solid rounded-sm border-gray-500 block w-full p-1 text-neutral-700" placeholder="e.g. March 2022 - April 2023" value="<?php echo $prev_work_durations[$i]; ?>">
+          </label>
+        </div>
+      </div>
+
+      <?php
+          endfor; 
+        else :
+      ?>
 
       <div id="repeatable-fields-container">
         <div class="repeatable-field overflow-hidden rounded-md has-overlay-light relative p-3 mb-4 border-2 border-solid border-gray-200 border-b-2">
@@ -103,6 +131,8 @@
           </label>
         </div>
       </div>
+
+      <?php endif; ?>
 
       <div class="flex justify-end">
         <button id="add-field-button" type="button" aria-label="Add a field for work background" class="bg-gold overflow-hidden rounded hover:bg-blue-300 transition-all p-1" title="Add New Field">
