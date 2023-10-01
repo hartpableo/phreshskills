@@ -37,7 +37,7 @@
         <h3
           id="title--<?php echo $nameSlug; ?>"
           class="mb-1 text-2xl font-bold leading-tight font-secondary">
-          <a href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>" class="text-white hover:text-black transition-all"><?php echo htmlspecialchars($jobseeker['name']); ?></a>
+          <a href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>" class="text-white hover:text-blue-500 transition-all"><?php echo htmlspecialchars($jobseeker['name']); ?></a>
         </h3>
         <p
           class="mb-3 text-md font-semibold leading-tight text-neutral-400">

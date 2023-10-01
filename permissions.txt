@@ -1,0 +1,9 @@
+1. employers
+- view jobseekers' profiles
+- create jobs (12 per month)
+
+-- employer's fee: $25/month
+
+2. jobseekers
+- create profile
+- view jobs
