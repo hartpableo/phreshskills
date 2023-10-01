@@ -31,7 +31,7 @@
         if (!empty($work_background)) : 
           $counter = 1; 
       ?>
-        <h2 class="text-2xl my-6 mb-3 font-secondary font-bold text-blue-500">Experience/Background</h2>
+        <h2 class="text-2xl mt-6 mb-5 font-secondary font-bold text-gray-200">Experience/Background</h2>
         <div class="flex flex-col gap-3 justify-start items-stretch pl-5">
         <?php 
           foreach (array_reverse($work_background) as $work) : 
@@ -52,9 +52,9 @@
         </div>
       <?php endif; ?>
 
-      <div class="grid grid-cols-3 gap-3 pl-6 justify-center items-stretch mt-16 text-center">
+      <div class="grid grid-cols-3 gap-3 justify-center items-stretch mt-16 text-center">
 
-          <a href="#">Contact <?php echo htmlspecialchars($jobseeker['name']); ?></a>
+          <a href="mailto:<?php echo htmlspecialchars($jobseeker['email']); ?>" class="w-full h-full bg-gold text-black font-bold text-xl hover:bg-blue-500 hover:text-gray-200 transition-all leading-none py-4">Contact <?php echo htmlspecialchars($jobseeker['name']); ?></a>
 
       </div>
 

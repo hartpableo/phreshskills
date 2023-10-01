@@ -45,21 +45,29 @@
 
       <hr class="mt-8 mb-6 border-gray-100 opacity-70">    
 
-      <div class="text-gray-200 text-lg font-medium">
+      <div class="text-gray-200 text-xl font-medium">
+        <h2 class="mt-6 mb-3 font-secondary text-3xl font-bold text-gray-200">Job Description</h2>
         <?php echo maintain_breaks($job['description']); ?>
       </div>
 
+      <?php if (isset($job['benefits']) && strlen($job['benefits'])) : ?>
+      <div class="text-gray-200 text-xl font-medium">
+        <h2 class="mt-6 mb-3 font-secondary text-3xl font-bold text-gray-200">Benefits</h2>
+        <?php echo maintain_breaks($job['benefits']); ?>
+      </div>
+      <?php endif; ?>
+
       <div class="flex justify-start items-start gap-4 flex-wrap mt-12">
 
-      <a 
-      href="/jobs/create" 
-      class="transition-all inline-flex justify-center items-center font-bold py-1 px-6 bg-gold border border-solid border-gold hover:border-blue-900 text-black hover:bg-blue-900 text-xl min-w-[8em] text-black hover:text-white"
-      >
-        Apply
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill ml-2" viewBox="0 0 16 16" aria-hidden="true" role="presentation">
-          <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
-        </svg>
-      </a>
+        <a 
+        href="<?php echo $job['application_link']; ?>" 
+        class="transition-all inline-flex justify-center items-center font-bold py-1 px-6 bg-gold border border-solid border-gold hover:border-blue-900 text-black hover:bg-blue-900 text-xl min-w-[8em] text-black hover:text-white"
+        >
+          Apply
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill ml-2" viewBox="0 0 16 16" aria-hidden="true" role="presentation">
+            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+          </svg>
+        </a>
 
       </div>
 
