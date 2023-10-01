@@ -3,7 +3,7 @@
 <section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
   <div class="container">
 
-  <form action="/jobseeker/add" method="POST" class="container max-w-lg my-8 lg:mt-10 lg:mb-16">
+  <form action="/jobseeker/add" method="POST" class="container max-w-xl my-8 lg:mt-10 lg:mb-16">
 
     <h1 class="font-bold text-3xl lg:text-4xl font-secondary text-gold mb-8">Create Jobseerker Profile</h1>
 
@@ -90,6 +90,7 @@
 
       <p class="block font-bold font-secondary text-lg mt-8 mb-5 text-gold">Work Background(s) or Experience(s)</p>
 
+      <div id="repeatable-fields-container">
       <?php
         $background = old('work_background');
         if ($background) :
@@ -99,7 +100,6 @@
           for ($i = 0; $i < count($prev_companies); $i++) :
       ?>
 
-      <div id="repeatable-fields-container">
         <div class="repeatable-field overflow-hidden rounded-md has-overlay-light relative p-3 mb-4 border-2 border-solid border-gray-200 border-b-2">
           <label class="block text-gray-200 font-secondary text-sm mb-2">Company Name:
             <input type="text" name="work_background[company][]" class="border border-solid rounded-sm border-gray-500 block w-full p-1 text-neutral-700" placeholder="e.g. Google, Netflix, etc." value="<?php echo $prev_companies[$i]; ?>">
@@ -111,7 +111,6 @@
             <input type="text" name="work_background[duration][]" class="border border-solid rounded-sm border-gray-500 block w-full p-1 text-neutral-700" placeholder="e.g. March 2022 - April 2023" value="<?php echo $prev_work_durations[$i]; ?>">
           </label>
         </div>
-      </div>
 
       <?php
           endfor; 
@@ -133,6 +132,8 @@
       </div>
 
       <?php endif; ?>
+      
+      </div>
 
       <div class="flex justify-end">
         <button id="add-field-button" type="button" aria-label="Add a field for work background" class="bg-gold overflow-hidden rounded hover:bg-blue-300 transition-all p-1" title="Add New Field">

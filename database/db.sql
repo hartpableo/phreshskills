@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Sep 30, 2023 at 05:17 AM
+-- Generation Time: Oct 01, 2023 at 05:03 PM
 -- Server version: 10.4.31-MariaDB-1:10.4.31+maria~ubu2004-log
 -- PHP Version: 8.1.16
 
@@ -31,17 +31,18 @@ CREATE TABLE `employers` (
   `employer_id` int(11) NOT NULL,
   `company_name` varchar(1024) NOT NULL,
   `company_email` varchar(255) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `monthly_posts_remaining` int(3) DEFAULT 12
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employers`
 --
 
-INSERT INTO `employers` (`employer_id`, `company_name`, `company_email`, `password`) VALUES
-(1, 'Google Inc.', 'recruitment@google.com', '$2y$10$tXI/NUM0C8zGK5E0/nHSvuhSh3U4L1UIsokni4zArkdv8BZRRpmhK'),
-(2, 'Automattic', 'info@automattic.org', '123123123'),
-(3, 'Meta', 'info@meta.com', '121212');
+INSERT INTO `employers` (`employer_id`, `company_name`, `company_email`, `password`, `monthly_posts_remaining`) VALUES
+(1, 'Google Inc.', 'recruitment@google.com', '$2y$10$tXI/NUM0C8zGK5E0/nHSvuhSh3U4L1UIsokni4zArkdv8BZRRpmhK', 12),
+(2, 'Automattic', 'info@automattic.org', '123123123', 0),
+(3, 'Meta', 'info@meta.com', '121212', 12);
 
 -- --------------------------------------------------------
 
@@ -78,7 +79,8 @@ INSERT INTO `jobs` (`id`, `title`, `salary`, `salary_type`, `skillset`, `descrip
 (12, 'App Tester', '200', 'bi-weekly', 'quality assurance, continuous integration', 'sadsadjnsadnsad\r\n- asdadasd\r\n- sad asdasd\r\n- sad sadasd\r\n- sadasdad\r\n\r\nsakdosad', NULL, NULL, 2, '2023-09-29 10:23:35'),
 (13, 'Web Programmer', '25', 'hourly', 'php, sql, docker, python, javascript', 'asse erat a platea nascetur nisl ac, eros egestas massa cursus magna integer sapien porttitor ultricies venenatis vitae. Cras hac pellentesque dictumst pharetra gravida congue netus malesuada, ad pulvinar euismod commodo penatibus sollicitudin ornare felis, senect\r\n\r\n- 1\r\n- 2\r\n- 3sdsada\r\n\r\nsadsad sadsa dsa dad sa\r\n   sadsad', NULL, NULL, 2, '2023-09-30 02:00:10'),
 (14, 'salndlsadas', '123', 'hourly', 'asd, sadsad, sadsad', 'sadasdsadsadsad dsa dsa dsa dsa da dsad zz c zxcxzc\r<br>\r<br>- 1\r<br>- 2\r<br>- 3 \r<br>\r<br>c zc kwndoq dqlkmdlm dqd qdqdwqdwqd\r<br>   dasd sad as dsad sada\r<br>sd  dsadsadda', NULL, NULL, 2, '2023-09-30 02:03:00'),
-(15, 'QA', '12', 'hourly', 'sdsadsadsad', '<script>alert(\"Infiltrated\")</script>', NULL, NULL, 2, '2023-09-30 02:45:48');
+(15, 'QA', '12', 'hourly', 'sdsadsadsad', '<script>alert(\"Infiltrated\")</script>', NULL, NULL, 2, '2023-09-30 02:45:48'),
+(16, 'Software Tester', '12', 'hourly', 'excel, sheets', 'lectus facilisi curae in arcu habitasse, felis aenean phasellus aliquet posuere scelerisque nulla mollis libero consequat lacus, porta magna tortor orci convallis est ligula velit tellus. Nullam consequat dui arcu posuere lobortis non aenean luctus, nisl nunc massa duis dictum torquent ', 'zzzzzzzzzzz lectus facilisi curae in arcu habitasse, felis aenean phasellus aliquet posuere scelerisque nulla mollis libero consequat lacus, porta magna tortor orci convallis est ligula velit tellus. Nullam consequat dui arcu posuere lobortis non aenean luctus, nisl nunc massa duis dictum torquent ', 'https://asdsadsadsad.com', 2, '2023-10-01 16:05:04');
 
 -- --------------------------------------------------------
 
@@ -95,18 +97,22 @@ CREATE TABLE `jobseekers` (
   `profile_image` varchar(1024) DEFAULT NULL,
   `skills` varchar(1024) NOT NULL,
   `rate` varchar(1024) NOT NULL,
-  `salary_type` varchar(255) NOT NULL
+  `salary_type` varchar(255) NOT NULL,
+  `work_background_company_name` varchar(1024) DEFAULT NULL,
+  `work_background_position` varchar(255) DEFAULT NULL,
+  `work_background_duration` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `jobseekers`
 --
 
-INSERT INTO `jobseekers` (`id`, `name`, `email`, `summary`, `position`, `profile_image`, `skills`, `rate`, `salary_type`) VALUES
-(1, 'John Doe', 'jdoe@gmail.com', 'Lorem ipsum dolor sit amet consectetur adipiscing elit mattis gravida lobortis euismod, ultricies rutrum iaculis penatibus commodo sollicitudin erat interdum congue eros, himenaeos fames mauris viverra suspendisse ullamcorper platea venenatis vitae torquent. Lacinia class lacus sapien nunc aliquam euismod, porttitor sed quam vitae malesuada magna faucibus, diam habitant duis taciti accumsan. Per semper suspendisse tristique nisl imperdiet euismod malesuada pulvinar sollicitudin facilisi litora, eu consequat senectus cubilia volutpat magnis facilisis ridiculus elementum eros. Laoreet neque erat sapien nam nostra aliquam torquent nec dapibus non, nisi pharetra lacus commodo metus volutpat leo cum aliquet, rhoncus hac maecenas mattis vestibulum primis tellus phasellus eget.', 'Web Developer', NULL, 'php, html, photoshop, css', '3', ''),
-(2, 'Jane Hoz', 'jhoz@gmail.com', 'Lorem ipsum dolor sit amet consectetur adipiscing elit mattis gravida lobortis euismod, ultricies rutrum iaculis penatibus commodo sollicitudin erat interdum congue eros, himenaeos fames mauris viverra suspendisse ullamcorper platea venenatis vitae torquent. Lacinia class lacus sapien nunc aliquam euismod, porttitor sed quam vitae malesuada magna faucibus, diam habitant duis taciti accumsan. Per semper suspendisse tristique nisl imperdiet euismod malesuada pulvinar sollicitudin facilisi litora, eu consequat senectus cubilia volutpat magnis facilisis ridiculus elementum eros. Laor', 'Graphic Designer', NULL, 'photoshop, figma', '7.5', ''),
-(3, 'Hart Pableo', 'hpableo12322@gmail.com', 'agittis est aptent. Ac bibendum justo suspendisse aliquam lectus fermentum condimentum, ridiculus potenti morbi netus nam sed, nisl libero purus natoque cubilia mi. Luctus imperdiet eros parturient proin montes libero varius inceptos, potenti penatibus porta phasellus lobortis nisl et condimentum, hendrerit senectus hac ultrices cum per a. Augue quam mauris ornare arcu volutpat sed euismod quis, egestas phasellus viverra pellentesque suspendisse per semper, fusce nunc vel potenti nibh facilisis curabitur. Magna fringilla augue dictumst rutrum gravida habitasse velit orci praesent, pretium quis in sed viverra id iaculis vestibulum pulvinar interdum, facilisi duis tristique taciti enim cubilia per phasellus.', 'PHP Developer', NULL, 'php, wordpress, drupal, laravel', '15', ''),
-(4, 'Test Name', 'tester@gmail.com', 'Nisi sociosqu cras per torquent consequat accumsan fermentum mollis auctor, imperdiet facilisis l', 'Virtual Assistant', NULL, 'photoshop, social media marketing, facebook ads', '13', '');
+INSERT INTO `jobseekers` (`id`, `name`, `email`, `summary`, `position`, `profile_image`, `skills`, `rate`, `salary_type`, `work_background_company_name`, `work_background_position`, `work_background_duration`) VALUES
+(1, 'John Doe', 'jdoe@gmail.com', 'Lorem ipsum dolor sit amet consectetur adipiscing elit mattis gravida lobortis euismod, ultricies rutrum iaculis penatibus commodo sollicitudin erat interdum congue eros, himenaeos fames mauris viverra suspendisse ullamcorper platea venenatis vitae torquent. Lacinia class lacus sapien nunc aliquam euismod, porttitor sed quam vitae malesuada magna faucibus, diam habitant duis taciti accumsan. Per semper suspendisse tristique nisl imperdiet euismod malesuada pulvinar sollicitudin facilisi litora, eu consequat senectus cubilia volutpat magnis facilisis ridiculus elementum eros. Laoreet neque erat sapien nam nostra aliquam torquent nec dapibus non, nisi pharetra lacus commodo metus volutpat leo cum aliquet, rhoncus hac maecenas mattis vestibulum primis tellus phasellus eget.', 'Web Developer', NULL, 'php, html, photoshop, css', '3', 'hourly', NULL, NULL, NULL),
+(2, 'Jane Hoz', 'jhoz@gmail.com', 'Lorem ipsum dolor sit amet consectetur adipiscing elit mattis gravida lobortis euismod, ultricies rutrum iaculis penatibus commodo sollicitudin erat interdum congue eros, himenaeos fames mauris viverra suspendisse ullamcorper platea venenatis vitae torquent. Lacinia class lacus sapien nunc aliquam euismod, porttitor sed quam vitae malesuada magna faucibus, diam habitant duis taciti accumsan. Per semper suspendisse tristique nisl imperdiet euismod malesuada pulvinar sollicitudin facilisi litora, eu consequat senectus cubilia volutpat magnis facilisis ridiculus elementum eros. Laor', 'Graphic Designer', NULL, 'photoshop, figma', '7.5', 'hourly', NULL, NULL, NULL),
+(4, 'Test Name', 'tester@gmail.com', 'Nisi sociosqu cras per torquent consequat accumsan fermentum mollis auctor, imperdiet facilisis l', 'Virtual Assistant', NULL, 'photoshop, social media marketing, facebook ads', '13', 'weekly', NULL, NULL, NULL),
+(8, 'Hart Pableo', 'hart123@mmd.com', ' placerat id elementum felis et, suspendisse integer sollicitudin dapibus ultrices odio quisque sodales curae magnis. Faucibus natoque lacus suspendisse eleifend pretium aliquet ultricies, hac himenaeos mus tincidunt montes pulvinar eget nascetur, netus consequat facilisi porta sagittis vestibulum. Morbi mauris pellentesque odio commodo posuere per, proin eros risus id metus, hendrerit nibh penatibus neque vel. Nostra sodales nisi tempus vivamus sociosqu porttit', 'PHP Developer', NULL, 'HTML, CSS, PHP, Javascript, WordPress, TailwindCSS, Bootstrap, Drupal', '20', 'hourly', 'Proweaver, Marameo Design', 'WordPress Developer, WordPress & Drupal Developer', 'August 2021 - November 2022, November 2022 - Present'),
+(10, '1111123213', 'asdas@sadsad.c', 'dsadsadsadsadsad', 'sadsadsad', NULL, 'asdsadasdsad', '23', 'hourly', '111, 2222, 3333', '111, 222, 333', '11111, 2222, 33333');
 
 --
 -- Indexes for dumped tables
@@ -138,19 +144,19 @@ ALTER TABLE `jobseekers`
 -- AUTO_INCREMENT for table `employers`
 --
 ALTER TABLE `employers`
-  MODIFY `employer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `employer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `jobseekers`
 --
 ALTER TABLE `jobseekers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
