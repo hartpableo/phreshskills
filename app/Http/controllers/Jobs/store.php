@@ -17,6 +17,12 @@ $attributes = [
   'employer_id' => $_POST['employer_id']
 ];
 
+$employer = $db->query('select * from employers where employer_id = :employer_id', [
+  ':employer_id' => $attributes['employer_id']
+])->findOrFail();
+
+$attributes['application_link'] = $_POST['application_link'] === '' ? $employer['company_email'] : $_POST['application_link'];
+
 $form = CreateJobForm::validate($attributes);
 
 $form->register($attributes);

@@ -34,7 +34,7 @@
         <h2 class="text-2xl my-6 mb-3 font-secondary font-bold text-blue-500">Experience/Background</h2>
         <div class="flex flex-col gap-3 justify-start items-stretch pl-5">
         <?php 
-          foreach ($work_background as $work) : 
+          foreach (array_reverse($work_background) as $work) : 
             if ($counter == count($work_background) + 1) break;
         ?>
 

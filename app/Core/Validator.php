@@ -42,4 +42,10 @@ class Validator
       // Example: Validate if the cleaned number is exactly 10 digits
       return (bool) ctype_digit($cleanedNumber) && strlen($cleanedNumber) <= 13 && strlen($cleanedNumber) > 6;
   }
+
+  public static function url_or_email($string) {
+    if (filter_var($string, FILTER_VALIDATE_EMAIL) || filter_var($string, FILTER_VALIDATE_URL)) return true;
+    
+    return false;
+  }
 }
