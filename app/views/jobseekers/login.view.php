@@ -22,8 +22,9 @@
       <?php endif; ?>
     </div>
 
-    <div>
-      <button type="submit" class="bg-blue-900 text-white px-6 py-2 mt-5 rounded hover:bg-gold transition-all hover:text-black text-lg font-bold">Log in</button>
+    <div class="mt-8">
+      <button type="submit" class="inline-block align-middle bg-blue-900 text-white px-6 py-2 rounded hover:bg-gold transition-all hover:text-black text-lg font-bold">Log in</button>
+      <p class="ml-2 inline-block align-middle font-semibold text-gray-200">Don't have an account yet? <a href="/jobseeker/create-profile" class="text-red-400 hover:underline">Sign up here</a>.</p>
     </div>
 
   </form>

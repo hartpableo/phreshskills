@@ -153,8 +153,9 @@
 
     </div>
 
-    <div>
-      <button type="submit" class="bg-blue-900 text-white px-6 py-2 mt-5 rounded hover:bg-gold transition-all hover:text-black text-lg font-bold">Submit</button>
+    <div class="mt-8">
+      <button type="submit" class="inline-block align-middle bg-blue-900 text-white px-6 py-2 rounded hover:bg-gold transition-all hover:text-black text-lg font-bold">Submit</button>
+      <p class="ml-2 inline-block align-middle font-semibold text-gray-200">Already have an account? <a href="/jobseeker/login" class="text-red-400 hover:underline">Log in here</a>.</p>
     </div>
 
     </form>
