@@ -30,3 +30,4 @@ $router->get('/jobseeker/{jobseeker:id}', 'Jobseekers/show');
 $router->get('/employer/login', 'Employers/login');
 $router->get('/employer/register', 'Employers/create');
 $router->post('/employer/store', 'Employers/store');
+$router->post('/employer/authenticate', 'Employers/authenticate');

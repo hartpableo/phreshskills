@@ -10,14 +10,15 @@ class Authenticator
 {
   public function attempt($name, $password) 
   {
-    $manager = App::resolve(Database::class)->query('select * from managers where name = :name', [
-      ':name' => $name
+    $employer = App::resolve(Database::class)->query('select * from employers where company_name = :company_name', [
+      ':company_name' => $name
     ])->find();
 
-    if ($manager && $manager['name'] === $name && md5($password) == $manager['password']) {
+    if ($employer && $employer['company_name'] === $name && password_verify($password, $employer['password'])) {
       $this->login([
-        'id' => $manager['id'],
-        'name' => $name
+        'id' => $employer['employer_id'],
+        'user_type' => 'employer',
+        'company_name' => $name
       ]);
 
       return true;

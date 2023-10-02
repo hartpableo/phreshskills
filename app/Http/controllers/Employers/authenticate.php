@@ -1,0 +1,24 @@
+<?php
+
+use Core\Session;
+use Core\Authenticator;
+use Http\Forms\EmployerLoginForm;
+
+$attributes = [
+  'company_name' => $_POST['company_name'],
+  'company_email' => $_POST['company_email'],
+  'password' => $_POST['password']
+];
+
+$form = EmployerLoginForm::validate($attributes);
+
+$signedIn = (new Authenticator())->attempt($attributes['company_name'],$attributes['password']);
+
+/** validate user */
+if (!$signedIn) $form->addError('errors', 'There is an error with your login credentials! Please review and try again. :)')->throw();
+
+Session::flash('message', [
+  'logged_in' => 'You have successfully logged in!'
+]);
+
+redirect();

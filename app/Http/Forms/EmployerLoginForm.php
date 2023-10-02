@@ -8,7 +8,7 @@ use Core\Validator;
 use Http\Forms\Form;
 use Core\ValidationException;
 
-class EmployerRegisterForm extends Form
+class EmployerLoginForm extends Form
 {
   public function __construct(public array $attributes)
   {
