@@ -34,16 +34,14 @@ class Authenticator
     if ($user) return true;
   }
 
-  public function tenantExists($attributes = [])
+  public function employerExists($attributes = [])
   {
-    $tenant = App::resolve(Database::class)->query('select * from tenants where name = :name and email = :email and contact = :contact and room = :room', [
-      ':name' => $attributes['name'],
-      ':email' => $attributes['email'],
-      ':contact' => $attributes['contact'],
-      ':room' => $attributes['room'],
+    $employer = App::resolve(Database::class)->query('select * from employers where company_name = :company_name and company_email = :company_email', [
+      ':company_name' => $attributes['company_name'],
+      ':company_email' => $attributes['company_email']
     ])->find();
 
-    return (bool) ($tenant) ? true : false;
+    return (bool) ($employer) ? true : false;
   }
 
   public function login($user = []) {
