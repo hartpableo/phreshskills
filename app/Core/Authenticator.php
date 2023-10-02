@@ -8,17 +8,17 @@ use Core\Database;
 
 class Authenticator 
 {
-  public function attempt($name, $password) 
+  public function attempt($email, $password) 
   {
-    $employer = App::resolve(Database::class)->query('select * from employers where company_name = :company_name', [
-      ':company_name' => $name
+    $jobseeker = App::resolve(Database::class)->query('select * from jobseekers where email = :email', [
+      ':email' => $email,
     ])->find();
 
-    if ($employer && $employer['company_name'] === $name && password_verify($password, $employer['password'])) {
+    if ($jobseeker && $jobseeker['email'] === $email && password_verify($password, $jobseeker['password'])) {
       $this->login([
-        'id' => $employer['employer_id'],
-        'user_type' => 'employer',
-        'company_name' => $name
+        'id' => $jobseeker['id'],
+        'user_type' => 'jobseeker',
+        'name' => $jobseeker['name']
       ]);
 
       return true;
@@ -35,14 +35,14 @@ class Authenticator
     if ($user) return true;
   }
 
-  public function employerExists($attributes = [])
+  public function jobseekerExists($attributes = [])
   {
-    $employer = App::resolve(Database::class)->query('select * from employers where company_name = :company_name and company_email = :company_email', [
-      ':company_name' => $attributes['company_name'],
-      ':company_email' => $attributes['company_email']
+    $jobseeker = App::resolve(Database::class)->query('select * from jobseekers where name = :name and email = :email', [
+      ':name' => $attributes['name'],
+      ':email' => $attributes['email']
     ])->find();
 
-    return (bool) ($employer) ? true : false;
+    return (bool) ($jobseeker) ? true : false;
   }
 
   public function login($user = []) {

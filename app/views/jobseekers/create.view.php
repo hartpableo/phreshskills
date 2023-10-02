@@ -17,9 +17,17 @@
 
     <div class="mb-4">
       <label for="email" class="block text-gray-200 font-secondary text-sm">Email Address</label>
-      <input type="text" id="email" name="email" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. John Doe" value="<?php echo old('email') ?? '' ?>">
+      <input type="text" id="email" name="email" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. johndoe@google.com" value="<?php echo old('email') ?? '' ?>">
       <?php if (has_error('email')) : ?>
         <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('email'); ?></p>
+      <?php endif; ?>
+    </div>
+
+    <div class="mb-4">
+      <label for="password" class="block text-gray-200 font-secondary text-sm">Password</label>
+      <input type="password" id="password" name="password" class="border border-solid rounded-sm border-gray-500 block w-full p-1">
+      <?php if (has_error('password')) : ?>
+        <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('password'); ?></p>
       <?php endif; ?>
     </div>
 

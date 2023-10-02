@@ -10,6 +10,7 @@ $db = App::resolve(Database::class);
 $attributes = [
   'name' => trim($_POST['name']),
   'email' => trim($_POST['email']),
+  'password' => trim($_POST['password']),
   'rate' => $_POST['rate'],
   'salary_type' => $_POST['salary_type'],
   'skills' => $_POST['skills'],
