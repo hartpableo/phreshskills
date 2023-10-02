@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Censor;
 use Core\Database;
 
 /** connect to db */
@@ -67,8 +68,6 @@ if (!empty($skills)) {
   $all_skills = array_unique($all_skills);
 
 }
-
-// show($jobseekers);
 
 view('jobseekers/index', [
   'jobseekers' => $jobseekers,

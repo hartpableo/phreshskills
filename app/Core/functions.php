@@ -67,11 +67,11 @@ function auth() {
 }
 
 function is_employer() {
-  return $_SESSION['user']['user_type'] == 'employer';
+  return isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'employer';
 }
 
 function is_jobseeker() {
-  return $_SESSION['user']['user_type'] == 'jobseeker';
+  return isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'jobseeker';
 }
 
 function redirect($path = '/') {

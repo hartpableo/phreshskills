@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./app/views/**/*.view.php",
     "./app/**/functions.php",
+    "./app/**/Censor.php",
     "./theme/**/*.html",
     "./public/**/*.js",
   ],
