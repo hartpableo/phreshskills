@@ -15,7 +15,9 @@
 
   <div class="container py-3 lg:pt-10 lg:pb-16 flex flex-col justify-start items-stretch gap-6">
 
-    <?php get_template_part('jobs-search-filter'); ?>
+    <?php get_template_part('jobs-search-filter', [
+      'all_skills' => $all_skills
+    ]); ?>
 
     <?php if ($_GET) : ?>
     
