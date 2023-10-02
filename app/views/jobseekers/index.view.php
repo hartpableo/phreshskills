@@ -46,10 +46,9 @@ get_template_part('header');
 
           <?php if (!is_employer()) : ?>
             <?php $jobseeker_name = new Censor(htmlspecialchars($jobseeker['name'])); ?>
-
-            <span class="text-white transition-all">
-              <?php echo $jobseeker_name->generic_censor(); ?>
-            </span>
+            
+            <span class="sr-only">Hidden Name</span>
+            <?php echo $jobseeker_name->generic_censor(); ?>
 
           <?php else : ?>
             
@@ -61,13 +60,17 @@ get_template_part('header');
 
         </h3>
 
-        <p
-          class="mb-3 text-md font-semibold leading-tight text-neutral-400">
+        <p class="mb-3 text-md font-semibold leading-tight text-neutral-400">
           <?php echo htmlspecialchars($jobseeker['position']); ?>
         </p>
-        <p
-          class="mb-2 text-base leading-tight text-neutral-100">
-          <?php echo excerpt(htmlspecialchars($jobseeker['summary']), 125); ?>
+        
+        <p class="mb-2 text-base leading-tight text-neutral-100">
+          <?php if (!is_employer()) : ?>
+            <?php $jobseeker_summary = new Censor(excerpt(htmlspecialchars($jobseeker['summary']), 180)); ?>
+            <?php echo $jobseeker_summary->get_censored_data(); ?>
+          <?php else : ?>
+            <?php echo excerpt(htmlspecialchars($jobseeker['summary']), 180); ?>
+          <?php endif; ?>
         </p>
 
         <?php
@@ -98,12 +101,17 @@ get_template_part('header');
         <?php endif; ?>
 
         <div class="mt-6 flex justify-start items-start flex-wrap gap-x-4 gap-y-2">
+
+          <?php $link_to_profile = !is_employer() ? '/employer/login' : "/jobseeker/{$jobseeker['id']}"; ?>
+
           <a
-            href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>"
+            href="<?php echo $link_to_profile; ?>"
+            target="_blank"
             class="pointer-events-auto inline-block cursor-pointer rounded text-base font-bold leading-normal text-primary text-gold transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 hover:text-blue-300 hover:border-blue-300 transition-all px-5 py-1 border-2 border-solid border-gold rounded transition-all">
             View <span class="sr-only"><?php echo htmlspecialchars($jobseeker['name']); ?>'s </span>Profile
           </a>
         </div>
+
       </article>
       
       <?php endforeach; ?>

@@ -1,4 +1,13 @@
-<?php get_template_part('header'); ?>
+<?php 
+  use Core\Censor;
+  get_template_part('header'); 
+?>
+
+<style>
+  strong[data-notice] {
+    color: inherit !important;
+  }
+</style>
 
 <section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full before:opacity-90" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
@@ -47,7 +56,12 @@
           <p class="mb-2 mt-3 font-bold text-md text-neutral-800"><span class="inline-block align-middle">starts at:</span> <span class="text-black text-lg inline-block px-2 leading-normal rounded bg-gold align-middle"><?php echo job_salary($job['salary'], $job['salary_type']); ?></span></p>
 
           <div class="my-5 font-normal text-gray-900 text-sm lg:text-lg leading-normal lg:leading-snug">
-            <?php echo excerpt(htmlspecialchars($job['description']), 500); ?>
+            <?php if (!is_employer()) : ?>
+              <?php $job_description = new Censor(excerpt(htmlspecialchars($job['description']), 500)); ?>
+              <?php echo $job_description->get_censored_data(); ?>
+            <?php else : ?>
+              <?php echo excerpt(htmlspecialchars($job['description']), 500); ?>
+            <?php endif; ?>
           </div>
 
           <?php
@@ -80,14 +94,18 @@
 
           <div class="flex justify-start items-start flex-wrap gap-x-3 gap-y-4 mt-8">
 
-            <a href="<?php echo "/job/{$job['id']}"; ?>" class="inline-flex items-center px-3 py-2 text-md font-medium text-center text-white bg-blue-700 rounded hover:bg-gold hover:text-black border border-solid border-blue-700 hover:border-gold focus:ring-4 focus:outline-none focus:ring-blue-300 transition-all">
+            <?php $link_to_job_details = (is_jobseeker()) ? "/job/{$job['id']}" : '/jobseeker/login';  ?>
+
+            <a href="<?php echo $link_to_job_details; ?>" target="_blank" class="inline-flex items-center px-3 py-2 text-md font-medium text-center text-white bg-blue-700 rounded hover:bg-gold hover:text-black border border-solid border-blue-700 hover:border-gold focus:ring-4 focus:outline-none focus:ring-blue-300 transition-all">
                 <span class="font-bold">Read more</span>
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
             </a>
 
-            <a href="<?php echo $job['application_link']; ?>" class="inline-flex items-center px-3 py-2 text-md font-medium text-center text-blue-700 bg-transparent rounded border border-solid border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 transition-all">
+            <?php $application_link = (is_jobseeker()) ? $job['application_link'] : '/jobseeker/login';  ?>
+
+            <a href="<?php echo $application_link; ?>" target="_blank" class="inline-flex items-center px-3 py-2 text-md font-medium text-center text-blue-700 bg-transparent rounded border border-solid border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 transition-all">
               <span class="font-bold">Apply Now</span>
               <svg class="w-3.5 h-3.5 ml-2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" width="18" height="18" fill="currentColor" class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
                 <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2H2Zm-2 9.8V4.698l5.803 3.546L0 11.801Zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 9.671V4.697l-5.803 3.546.338.208A4.482 4.482 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671Z"/>

@@ -31,15 +31,27 @@ class Censor
   }
 
   private function censorLinks($text) {
-    $text = preg_replace_callback('/<a\s+(?:[^>]*)href=["\']([^"\']*)["\']([^>]*)>(.*?)<\/a>/i', function($match) {
-      return $this->censorString($match[3] != '' ? $match[3] : $match[0]);
+    // Censor anchor tag links
+    $text = preg_replace_callback('/<a\s+(?:[^>]*)href="\'"\'>(.*?)<\/a>/i', function($match) {
+        return $this->censorString($match[3] != '' ? $match[3] : $match[0]);
+    }, $text);
+
+    // Censor raw string URLs
+    $text = preg_replace_callback('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', function($match) {
+        return $this->censorString($match[0]);
+    }, $text);
+
+    // Censor non-www and non-https strings that end in .com, .org, .net
+    $text = preg_replace_callback('/\b(?:[\w-]+\.)+(?:com|org|net)\b/', function($match) {
+      return $this->censorString($match[0]);
     }, $text);
 
     return $text;
   }
 
+
   private function censorString($string) {
     $censoredString = str_repeat('*', strlen($string));
-    return "<strong class=\"blur-sm text-white select-none pointer-events-none\" data-notice=\"You must be a logged in user to view this specific content.\">{$censoredString}</strong>";
+    return "<strong class=\"blur-sm text-white select-none pointer-events-none d-inline-block\" data-notice=\"You must be a logged in user to view this specific content.\">{$censoredString}</strong>";
   }
 }
