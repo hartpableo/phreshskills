@@ -4,7 +4,7 @@
 
   <form action="/jobseeker/authenticate" method="POST" class="container max-w-xl my-8 lg:mt-10 lg:mb-16">
 
-    <h1 class="font-bold text-3xl lg:text-4xl font-secondary text-gold mb-8">Create Jobseerker Profile</h1>
+    <h1 class="font-bold text-3xl lg:text-4xl font-secondary text-gold mb-8">Jobseeker's Log In</h1>
 
     <div class="mb-4">
       <label for="email" class="block text-gray-200 font-secondary text-sm">Email Address</label>

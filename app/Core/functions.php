@@ -66,6 +66,14 @@ function auth() {
   return $_SESSION['user'] ?? false;
 }
 
+function is_employer() {
+  return $_SESSION['user']['user_type'] == 'employer';
+}
+
+function is_jobseeker() {
+  return $_SESSION['user']['user_type'] == 'jobseeker';
+}
+
 function redirect($path = '/') {
   header("location: {$path}");
   exit();

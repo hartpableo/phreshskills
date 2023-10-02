@@ -5,12 +5,16 @@ namespace Core\Middleware;
 use Exception;
 use Core\Middleware\Auth;
 use Core\Middleware\Guest;
+use Core\Middleware\Employer;
+use Core\Middleware\Jobseeker;
 
 class Middleware 
 {
   const MAP = [
     'guest' => Guest::class,
-    'auth' => Auth::class
+    'auth' => Auth::class,
+    'jobseeker' => Jobseeker::class,
+    'employer' => Employer::class
   ];
 
   public static function resolve($key) 
