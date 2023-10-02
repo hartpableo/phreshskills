@@ -26,3 +26,6 @@ $router->get('/jobseekers', 'Jobseekers/index');
 $router->get('/jobseeker/create-profile', 'Jobseekers/create');
 $router->post('/jobseeker/add', 'Jobseekers/store');
 $router->get('/jobseeker/{jobseeker:id}', 'Jobseekers/show');
+
+$router->get('/employer/login', 'Employers/login');
+$router->get('/employer/register', 'Employers/create');

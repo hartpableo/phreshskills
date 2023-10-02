@@ -1,7 +1,5 @@
 <?php get_template_part('header'); ?>
 
-<!-- <s?php !empty(Core\Session::get('errors')) && show(Core\Session::get('errors')); ?> -->
-
 <section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full before:opacity-90" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
   <div class="container">
