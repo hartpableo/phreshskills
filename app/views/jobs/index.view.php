@@ -96,16 +96,16 @@
 
           <div class="flex justify-start items-start flex-wrap gap-x-3 gap-y-4 mt-8">
 
-            <?php $link_to_job_details = (is_jobseeker()) ? "/job/{$job['id']}" : '/jobseeker/login';  ?>
+            <?php $link_to_job_details = (auth()) ? "/job/{$job['id']}" : '/jobseeker/login';  ?>
 
-            <a href="<?php echo $link_to_job_details; ?>" target="_blank" class="inline-flex items-center px-3 py-2 text-md font-medium text-center text-white bg-blue-700 rounded hover:bg-gold hover:text-black border border-solid border-blue-700 hover:border-gold focus:ring-4 focus:outline-none focus:ring-blue-300 transition-all">
+            <a href="<?php echo $link_to_job_details; ?>" class="inline-flex items-center px-3 py-2 text-md font-medium text-center text-white bg-blue-700 rounded hover:bg-gold hover:text-black border border-solid border-blue-700 hover:border-gold focus:ring-4 focus:outline-none focus:ring-blue-300 transition-all">
                 <span class="font-bold">Read more</span>
                 <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                 </svg>
             </a>
 
-            <?php $application_link = (is_jobseeker()) ? $job['application_link'] : '/jobseeker/login';  ?>
+            <?php $application_link = (auth()) ? $job['application_link'] : '/jobseeker/login';  ?>
 
             <a href="<?php echo $application_link; ?>" target="_blank" class="inline-flex items-center px-3 py-2 text-md font-medium text-center text-blue-700 bg-transparent rounded border border-solid border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 transition-all">
               <span class="font-bold">Apply Now</span>

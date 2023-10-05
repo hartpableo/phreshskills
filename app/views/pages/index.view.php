@@ -19,14 +19,15 @@
       >Post a Job</a>
 
       <a 
-      href="/jobs" 
+      href="<?php echo (is_employer()) ? '/jobseekers' : '/jobs'; ?>" 
       class="transition-all inline-flex justify-center items-center font-bold py-2 px-6 bg-transparent border border-solid border-white text-white hover:border-blue-900 hover:bg-blue-900 text-xl min-w-[12em]"
-      >Apply To Jobs</a>
+      ><?php echo (is_employer()) ? 'View Jobseekers' : 'Apply To Jobs'; ?></a>
 
     </div>
 
     <div class="flex justify-center items-start lg:items-center gap-4 flex-wrap mt-16">
 
+      <?php if (!auth()) : ?>
       <a 
         href="/employer/login" 
         class="underline underline-offset-4 font-bold hover:text-gold transition-all text-sm"
@@ -37,6 +38,7 @@
         class="underline underline-offset-4 font-bold hover:text-blue-500 transition-all text-sm"
         >Jobseeker's Login</a>
       |
+      <?php endif; ?>
       <a 
       href="mailto:pableoh@gmail.com" 
       class="underline underline-offset-4 font-bold hover:text-red-400 transition-all text-sm"

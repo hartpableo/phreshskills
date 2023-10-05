@@ -67,6 +67,19 @@
                 <button class="uppercase block text-md text-white font-bold hover:text-gold mx-2 focus:text-blue-500 p-1 rounded-lg" type="submit">Logout</button>
               </form>
             </li>
+            <?php else : ?>
+            <li class="block lg:inline-block align-top lg:align-middle">
+              <a href="/jobseeker/login"
+                class="block text-md font-bold hover:text-gold mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/jobseekers') ? 'text-gold' : 'text-white'; ?>">
+                Login as Jobseeker
+              </a>
+            </li>
+            <li class="block lg:inline-block align-top lg:align-middle">
+              <a href="/employer/login"
+                class="block text-md font-bold hover:text-gold mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/jobseekers') ? 'text-gold' : 'text-white'; ?>">
+                Login as Employer
+              </a>
+            </li>
             <?php endif; ?>
 
           </ul>

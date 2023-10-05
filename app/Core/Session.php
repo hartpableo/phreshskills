@@ -31,6 +31,11 @@ class Session
     unset($_SESSION['_flash']);
   }
 
+  public static function get_current_user()
+  {
+    return $_SESSION['user'];
+  }
+
   public static function destroy()
   {
     session_unset();

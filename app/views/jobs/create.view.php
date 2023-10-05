@@ -1,4 +1,10 @@
-<?php get_template_part('header'); ?>
+<?php
+
+use Core\Session;
+
+get_template_part('header'); 
+
+?>
 
 <section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full before:opacity-90" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
@@ -8,8 +14,7 @@
 
     <h1 class="font-bold text-3xl lg:text-5xl font-secondary text-gold mb-8">Create a Job</h1>
 
-    <!-- echo the current employer id here -->
-    <input type="hidden" name="employer_id" value="2">
+    <input type="hidden" name="employer_id" value="<?php echo Session::get_current_user()['id']; ?>">
 
     <div class="mb-4">
       <label for="title" class="block text-gray-200 font-secondary text-sm">Job Title</label>

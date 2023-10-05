@@ -106,7 +106,6 @@ get_template_part('header');
 
           <a
             href="<?php echo $link_to_profile; ?>"
-            target="_blank"
             class="pointer-events-auto inline-block cursor-pointer rounded text-base font-bold leading-normal text-primary text-gold transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 hover:text-blue-300 hover:border-blue-300 transition-all px-5 py-1 border-2 border-solid border-gold rounded transition-all">
             View <span class="sr-only"><?php echo htmlspecialchars($jobseeker['name']); ?>'s </span>Profile
           </a>
