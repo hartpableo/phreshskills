@@ -11,7 +11,7 @@ $attributes = [
 
 $form = JobseekerLoginForm::validate($attributes);
 
-$signedIn = (new Authenticator())->attempt($attributes['email'],$attributes['password']);
+$signedIn = (new Authenticator())->jobseeker_login_attempt($attributes['email'],$attributes['password']);
 
 /** validate user */
 if (!$signedIn) $form->addError('errors', 'There is an error with your login credentials! Please review and try again. :)')->throw();

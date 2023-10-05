@@ -31,3 +31,4 @@ try {
 
 // Clear flashed session data
 Session::removeFlash();
+show($_SESSION);

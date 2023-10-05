@@ -12,7 +12,7 @@ $attributes = [
 
 $form = EmployerLoginForm::validate($attributes);
 
-$signedIn = (new Authenticator())->attempt($attributes['company_name'],$attributes['password']);
+$signedIn = (new Authenticator())->employer_login_attempt($attributes['company_email'],$attributes['password']);
 
 /** validate user */
 if (!$signedIn) $form->addError('errors', 'There is an error with your login credentials! Please review and try again. :)')->throw();

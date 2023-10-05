@@ -24,18 +24,6 @@ class EmployerLoginForm extends Form
     return $instance->failed() ? $instance->throw() : $instance;
   }
 
-  public function register($attributes = []) 
-  {
-    App::resolve(Database::class)
-        ->query('insert into employers(company_name, company_email, password) 
-        values(:company_name, :company_email, :password)', 
-    [
-      ':company_name' => $attributes['company_name'],
-      ':company_email' => $attributes['company_email'],
-      ':password' => password_hash($attributes['password'], PASSWORD_DEFAULT),
-    ]);
-  }
-
   public function throw()
   {
     ValidationException::throw($this->getErrors(), $this->attributes);
