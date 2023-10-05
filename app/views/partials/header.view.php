@@ -7,6 +7,9 @@
   <title><?php echo (!isHome() && isset($pageTitle)) ? "{$pageTitle} | " . APP_NAME : APP_NAME; ?></title>
   <link rel="stylesheet" href="<?php echo load_asset('css/style.css'); ?>">
   <script src="<?php echo load_asset('js/script.js') ?>" defer></script>
+
+  <?php get_template_part('app-head'); ?>
+
 </head>
 <body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto] bg-gray-50 position-relative isolate bg-black">
   <header role="banner" class="bg-blue-900">
@@ -56,6 +59,16 @@
                 Jobseekers
               </a>
             </li>
+
+            <?php if (auth()) : ?>
+            <li class="block lg:inline-block align-top lg:align-middle">
+              <form action="<?php echo is_jobseeker() ? '/jobseeker/logout' : '/employer/logout'; ?>" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button class="uppercase block text-md text-white font-bold hover:text-gold mx-2 focus:text-blue-500 p-1 rounded-lg" type="submit">Logout</button>
+              </form>
+            </li>
+            <?php endif; ?>
+
           </ul>
         </div>
       </nav>

@@ -28,8 +28,10 @@ $router->get('/jobseeker/login', 'Jobseekers/login')->only('guest');
 $router->post('/jobseeker/authenticate', 'Jobseekers/authenticate')->only('guest');
 $router->post('/jobseeker/add', 'Jobseekers/store')->only('guest');
 $router->get('/jobseeker/{jobseeker:id}', 'Jobseekers/show')->only('auth');
+$router->delete('/jobseeker/logout', 'Jobseekers/logout')->only('jobseeker');
 
 $router->get('/employer/login', 'Employers/login')->only('guest');
 $router->get('/employer/register', 'Employers/create')->only('guest');
 $router->post('/employer/store', 'Employers/store')->only('guest');
 $router->post('/employer/authenticate', 'Employers/authenticate')->only('guest');
+$router->delete('/employer/logout', 'Employers/logout')->only('employer');

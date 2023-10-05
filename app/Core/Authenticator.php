@@ -18,7 +18,8 @@ class Authenticator
       $this->login([
         'id' => $jobseeker['id'],
         'user_type' => 'jobseeker',
-        'name' => $jobseeker['name']
+        'name' => $jobseeker['name'],
+        'email' => $jobseeker['email']
       ]);
 
       return true;
