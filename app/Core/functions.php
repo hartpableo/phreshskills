@@ -62,6 +62,11 @@ function image_uri($image, $fallback = '') {
   return load_asset("images/{$image}");
 }
 
+function file_uri($image, $fallback = '') {
+  if (!isset($image) || !strlen($image)) return $fallback ?? "https://picsum.photos/200/200";
+  return load_asset("files/{$image}");
+}
+
 function auth() {
   return $_SESSION['user'] ?? false;
 }

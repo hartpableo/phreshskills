@@ -17,6 +17,7 @@ $attributes = [
   'summary' => $_POST['summary'],
   'position' => $_POST['position'],
   'work_background' => $_POST['work_background'],
+  'profile_photo' => $_FILES['profile_photo']
 ];
 
 $form = CreateJobseekerForm::validate($attributes);

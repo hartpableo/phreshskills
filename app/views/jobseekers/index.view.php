@@ -37,8 +37,16 @@ get_template_part('header');
       aria-labelledby="title--<?php echo $nameSlug; ?>"
       class="block bg-gray-900 text-left mb-20 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] p-6 border border-solid border-gold rounded-md">
 
-        <img src="https://picsum.photos/200/200" width="200" height="200" alt="..." 
-          class="rounded-full w-[6.6rem] h-[6.6rem] mt-[-4.85rem] mb-3 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]" aria-hidden="true" role="presentation">
+        <img
+            src="<?php echo file_uri($jobseeker['profile_photo']); ?>"
+            width="200"
+            height="200"
+            alt="<?php echo "Profile Picture of {$jobseeker['name']}" ?>"
+            class="rounded-full w-[6.6rem] h-[6.6rem] mt-[-4.85rem] mb-3 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+            aria-hidden="true"
+            role="presentation"
+            loading="lazy"
+        >
 
         <h3
           id="title--<?php echo $nameSlug; ?>"

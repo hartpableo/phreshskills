@@ -43,6 +43,9 @@
       <img id="preview-image" class="sr-only" width="120" height="120" loading="lazy" style="object-fit: cover;object-position: center;" aria-hidden="true">
       <label for="profile_photo" class="form-label block mt-2 text-gray-200">Profile Picture</label>
       <input class="form-control text-gray-200 border border-solid border-gray-200 cursor-pointer" type="file" id="profile_photo" accept="image/*" name="profile_photo">
+      <?php if (has_error('profile_photo')) : ?>
+        <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('profile_photo'); ?></p>
+      <?php endif; ?>
     </div>
 
     <div class="mb-4">

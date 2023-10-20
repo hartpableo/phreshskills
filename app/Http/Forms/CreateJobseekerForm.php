@@ -4,6 +4,7 @@ namespace Http\Forms;
 
 use Core\App;
 use Core\Formatter;
+use Core\Image;
 use Core\Validator;
 use Http\Forms\Form;
 use Core\ValidationException;
@@ -20,6 +21,7 @@ class CreateJobseekerForm extends Form
     if (!Validator::check_if_empty($attributes['position'])) $this->errors['position_error'] = 'Please state your job position or the job position you are after. :)';
     if (!Validator::string($attributes['summary'], 7, 8000)) $this->errors['summary_error'] = 'Summary length is invalid.';
     if (!Validator::string($attributes['skills'], 1, INF)) $this->errors['skills_error'] = 'Please specify your current skills to be able to help employers see what you can do. :)';
+    if (!Validator::file($attributes['profile_photo'])) $this->errors['profile_photo_error'] = 'Please upload your profile picture.';
   }
 
   public static function validate($attributes)
@@ -39,12 +41,13 @@ class CreateJobseekerForm extends Form
 
     App::resolve(Database::class)
         ->query(
-          'insert into jobseekers(name, email, password, salary_type, skills, summary, rate, position, work_background_company_name, work_background_position, work_background_duration) 
-          values(:name, :email, :password, :salary_type, :skills, :summary, :rate, :position, :work_background_company_name, :work_background_position, :work_background_duration)', 
+          'insert into jobseekers(name, email, password, profile_photo, salary_type, skills, summary, rate, position, work_background_company_name, work_background_position, work_background_duration) 
+          values(:name, :email, :password, :profile_photo, :salary_type, :skills, :summary, :rate, :position, :work_background_company_name, :work_background_position, :work_background_duration)',
           [
             ':name' => $attributes['name'],
             ':rate' => $attributes['rate'],
             ':salary_type' => $attributes['salary_type'],
+            ':profile_photo' => Image::handleImage($attributes['profile_photo']['name']),
             ':skills' => Formatter::clean_array_items($attributes['skills']),
             ':summary' => $attributes['summary'],
             ':email' => $attributes['email'],

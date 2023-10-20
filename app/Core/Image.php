@@ -4,7 +4,7 @@ namespace Core;
 
 class Image
 {
-  public static function handleImage($imgFile, $index, $origImgFile = '')
+  public static function handleImage($imgFile, $origImgFile = '')
   {
     if (!empty($origImgFile) && empty($imgFile)) {
       return $origImgFile;
@@ -18,9 +18,7 @@ class Image
 
     $uploadFile = $uploadDir . "{$imgFile}";
 
-    $file_tmp_names = $_FILES['profile_photo']['tmp_name'];
-
-    if (move_uploaded_file($file_tmp_names[$index], $uploadFile)) return $imgFile;
+    if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $uploadFile)) return $imgFile;
 
     return false;
 
@@ -36,7 +34,7 @@ class Image
     $images_in_db = $db->query('select distinct photo from jobseekers')->findAll();
 
     // Convert the result to a simple array of image names
-    $images_in_db = array_map(function($row) { return $row['photo']; }, $images_in_db);
+    $images_in_db = array_map(function($row) { return $row['profile_photo']; }, $images_in_db);
 
     $dir = BASE_PATH . '/public/assets/files/';
     if ($handle = opendir($dir)) {
