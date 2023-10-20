@@ -1,0 +1,2 @@
+- clean images (check Image class)
+- delete job after end date
