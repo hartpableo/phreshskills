@@ -18,6 +18,7 @@
   </div>
 
   <?php if (!empty($all_skills)) : ?>
+
   <div>
     <p class="text-white text-sm font-semibold leading-tight">
       Filter Skills
@@ -59,8 +60,7 @@
     </div>
 
   <?php endif; ?>
-
-  </div>
+<!--  </div>-->
   <!-- Submit -->
   <div class="flex flex-col justify-end items-center h-full">
     <button type="submit" class="w-full font-bold text-white bg-blue-500 hover:bg-gold transition-all focus:ring-4 focus:outline-none focus:ring-blue-300 rounded text-md lg:text-xl px-4 py-3 hover:text-black">Search</button>

@@ -29,14 +29,14 @@
 
       <?php if (!auth()) : ?>
       <a 
-        href="/employer/login" 
+        href="/employer/register"
         class="underline underline-offset-4 font-bold hover:text-gold transition-all text-sm"
-        >Employer's Login</a>
+        >Register as Employer</a>
       |
       <a 
-        href="/jobseeker/login" 
+        href="/jobseeker/create-profile"
         class="underline underline-offset-4 font-bold hover:text-blue-500 transition-all text-sm"
-        >Jobseeker's Login</a>
+        >Register as Jobseeker</a>
       |
       <?php endif; ?>
       <a 
