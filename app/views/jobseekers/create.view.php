@@ -3,7 +3,7 @@
 <section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
   <div class="container">
 
-  <form action="/jobseeker/add" method="POST" class="container max-w-xl my-8 lg:mt-10 lg:mb-16">
+  <form action="/jobseeker/add" method="POST" class="container max-w-xl my-8 lg:mt-10 lg:mb-16" enctype="multipart/form-data">
 
     <h1 class="font-bold text-3xl lg:text-4xl font-secondary text-gold mb-8">Create Jobseerker Profile</h1>
 
@@ -37,6 +37,12 @@
       <?php if (has_error('position')) : ?>
         <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('position'); ?></p>
       <?php endif; ?>
+    </div>
+
+    <div class="mb-4">
+      <img id="preview-image" class="sr-only" width="120" height="120" loading="lazy" style="object-fit: cover;object-position: center;" aria-hidden="true">
+      <label for="profile_photo" class="form-label block mt-2 text-gray-200">Profile Picture</label>
+      <input class="form-control text-gray-200 border border-solid border-gray-200 cursor-pointer" type="file" id="profile_photo" accept="image/*" name="profile_photo">
     </div>
 
     <div class="mb-4">
@@ -175,6 +181,28 @@
       workExperienceContainer.appendChild(clone);
     });
   });
+</script>
+
+<script>
+  window.addEventListener('load', () => {
+    (imageInput) && imageInput.addEventListener('change', previewSelectedImage);
+  }, {passive: true})
+
+  // preview image on upload
+  const imageInput = document.getElementById('profile_photo');
+  const previewImage = document.getElementById('preview-image');
+
+  function previewSelectedImage() {
+    const file = imageInput.files[0];
+    if (file) {
+      previewImage.classList.remove('sr-only');
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(e) {
+        previewImage.src = e.target.result;
+      }
+    }
+  }
 </script>
 
 <?php get_template_part('footer'); ?>
