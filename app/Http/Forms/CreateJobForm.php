@@ -30,8 +30,8 @@ class CreateJobForm extends Form
   public function register($attributes = []) 
   {
     App::resolve(Database::class)
-        ->query('insert into jobs(title, salary, salary_type, skillset, description, benefits, employer_id, application_link) 
-        values(:title, :salary, :salary_type, :skillset, :description, :benefits, :employer_id, :application_link)', 
+        ->query('insert into jobs(title, salary, salary_type, skillset, description, benefits, employer_id, application_link, date_end) 
+        values(:title, :salary, :salary_type, :skillset, :description, :benefits, :employer_id, :application_link, :date_end)',
     [
       ':title' => $attributes['title'],
       ':salary' => $attributes['salary'],
@@ -41,6 +41,7 @@ class CreateJobForm extends Form
       ':benefits' => $attributes['benefits'],
       ':employer_id' => $attributes['employer_id'],
       ':application_link' => $attributes['application_link'],
+      ':date_end' => $attributes['date_end'],
     ]);
   }
 
