@@ -17,6 +17,7 @@ class CreateJobForm extends Form
     if (!Validator::string($attributes['description'], 7, 8000)) $this->errors['description_error'] = 'Description length is invalid.';
     if (!Validator::string($attributes['skillset'], 2, INF)) $this->errors['skillset_error'] = 'Please be a bit more specific with your required skillset. :)';
     if (!Validator::url_or_email($attributes['application_link'])) $this->errors['application_link_error'] = 'The provided application link is invalid. Please provide a URL or an email address.';
+    if (!Validator::date($attributes['date_end'])) $this->errors['date_end_error'] = 'Please specify until when you\'ll be accepting applicants for this role. :)';
   }
 
   public static function validate($attributes)

@@ -15,7 +15,8 @@ $attributes = [
   'skillset' => $_POST['skillset'],
   'description' => $_POST['description'],
   'benefits' => $_POST['benefits'],
-  'employer_id' => $_POST['employer_id']
+  'employer_id' => $_POST['employer_id'],
+  'date_end' => $_POST['date_end']
 ];
 
 $employer = $db->query('select * from employers where employer_id = :employer_id', [

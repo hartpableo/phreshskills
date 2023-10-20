@@ -2,7 +2,9 @@
 
 namespace Core;
 
-class Validator 
+use DateTime;
+
+class Validator
 {
   public static function string($value, $min_length = 1, $max_length = INF)
   {
@@ -19,20 +21,22 @@ class Validator
     return filter_var($value, FILTER_VALIDATE_EMAIL);
   }
 
-  public static function date($value)
+  public static function date($date, $format = 'Y-m-d')
   {
-    return (bool) $value;
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) === $date;
   }
 
-  public static function imageValidate($imageFile = [], $maxSize = 1000000)
-  {
-    $file_type = $imageFile['type'];
-    $allowed = array("image/jpeg", "image/gif", "image/jpg", "image/png", "image/webp");
-
-    if(!empty($file_type) && !in_array($file_type, $allowed)) return false;
-
-    return $imageFile['size'] <= $maxSize;
-  }
+//  public static function imageValidate($imageFile = [], $maxSize = 1000000): bool
+//  {
+//    if (!isset($file['tmp_name']) || empty($file['tmp_name'])) return false;
+//    $file_type = $imageFile['type'];
+//    $allowed = array("image/jpeg", "image/gif", "image/jpg", "image/png", "image/webp");
+//
+//    if(empty($file_type) && !in_array($file_type, $allowed)) return false;
+//
+//    return $imageFile['size'] <= $maxSize;
+//  }
 
   public static function check_if_empty($value)
   {

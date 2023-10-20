@@ -76,10 +76,18 @@ get_template_part('header');
 
     <div class="mb-4">
       <label for="application_link" class="block text-gray-200 font-secondary text-sm">Job Application Link</label>
-      <p class="text-sm text-gray-200 mb-1">(If left blank, this information will default to your email address)</p>
+      <p class="text-sm text-gray-200 mb-1">(If left blank, this information will default to your registered email address)</p>
       <input type="text" id="application_link" name="application_link" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. https://www.yourwebsite.com/careers" value="<?php echo old('application_link') ?? '' ?>">
       <?php if (has_error('application_link')) : ?>
         <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('application_link'); ?></p>
+      <?php endif; ?>
+    </div>
+
+    <div class="mb-4">
+      <label for="date_end" class="block text-gray-200 font-secondary text-sm">Open for applications until:</label>
+      <input type="date" id="date_end" name="date_end" class="font-primary border border-solid rounded-sm border-gray-500 block w-full p-1" value="<?php echo old('date_end') ?? '' ?>">
+      <?php if (has_error('date_end')) : ?>
+        <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('date_end'); ?></p>
       <?php endif; ?>
     </div>
 
