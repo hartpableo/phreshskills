@@ -1,5 +1,4 @@
 .ddev
 node_modules
-
-/vendor/
 .idea
+public/assets/files
