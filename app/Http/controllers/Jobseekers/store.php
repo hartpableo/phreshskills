@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Authenticator;
 use Core\Session;
 use Core\Database;
 use Http\Forms\CreateJobseekerForm;
@@ -22,10 +23,17 @@ $attributes = [
 
 $form = CreateJobseekerForm::validate($attributes);
 
+$account_exists = (new Authenticator())->jobseekerExists($attributes);
+
+if ($account_exists) {
+  Session::flash('error-message', 'You are already registered! Please login instead.');
+  $form->throw();
+}
+
 $form->register($attributes);
 
 Session::flash('message', [
-  'registered' => 'Congratulations! Your jobseeker profile has been created.'
+  'registered' => htmlspecialchars('Congratulations! Your jobseeker profile has been created. <a href="/jobseeker/login">Proceed to Login!</a>')
 ]);
 
 redirect();

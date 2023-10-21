@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="<?php echo (!isHome() && isset($pageDescription)) ? $pageDescription : APP_DESC; ?>">
   <title><?php echo (!isHome() && isset($pageTitle)) ? "{$pageTitle} | " . APP_NAME : APP_NAME; ?></title>
-  <link rel="stylesheet" href="<?php echo load_asset('css/style.css'); ?>">
-  <script src="<?php echo load_asset('js/script.js') ?>" defer></script>
+  <link rel="stylesheet" href="<?php echo load_asset('css/style.css'); ?><?php echo version(); ?>">
+  <script src="<?php echo load_asset('js/script.js'); ?><?php echo version(); ?>" defer></script>
 
   <?php get_template_part('app-head'); ?>
 
@@ -86,6 +86,7 @@
         </div>
       </nav>
     </div>
+    <?php get_template_part('alerts'); ?>
   </header>
 
   <main>

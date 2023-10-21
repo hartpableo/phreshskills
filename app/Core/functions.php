@@ -57,6 +57,10 @@ function load_asset($path_to_file) {
   return ROOT . "/assets/{$path_to_file}";
 }
 
+function version(): void {
+  echo '?v=' . ASSET_VERSION;
+}
+
 function image_uri($image, $fallback = '') {
   if (!isset($image) || !strlen($image)) return $fallback ?? "https://picsum.photos/200/200";
   return load_asset("images/{$image}");

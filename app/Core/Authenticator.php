@@ -64,7 +64,7 @@ class Authenticator
       ':email' => $attributes['email']
     ])->find();
 
-    return (bool) ($jobseeker) ? true : false;
+    return (bool) ($jobseeker);
   }
 
   public function employerExists($attributes = [])
