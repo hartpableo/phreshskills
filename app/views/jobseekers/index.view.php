@@ -46,6 +46,7 @@ get_template_part('header');
             aria-hidden="true"
             role="presentation"
             loading="lazy"
+            style="aspect-ratio: 1/1;"
         >
 
         <h3

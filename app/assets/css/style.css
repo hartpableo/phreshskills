@@ -87,7 +87,7 @@
 
 .has-overlay::before {
   content: "";
-  @apply bg-black opacity-80 z-[-1] absolute inset-0 w-full h-full pointer-events-none;
+  @apply bg-black opacity-90 z-[-1] absolute inset-0 w-full h-full pointer-events-none;
 }
 
 .has-overlay-light::before {

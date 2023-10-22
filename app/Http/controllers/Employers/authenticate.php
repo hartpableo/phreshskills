@@ -15,7 +15,11 @@ $form = EmployerLoginForm::validate($attributes);
 $signedIn = (new Authenticator())->employer_login_attempt($attributes['company_email'],$attributes['password']);
 
 /** validate user */
-if (!$signedIn) $form->addError('errors', 'There is an error with your login credentials! Please review and try again. :)')->throw();
+//if (!$signedIn) $form->addError('errors', 'There is an error with your login credentials! Please review and try again. :)')->throw();
+if (!$signedIn) {
+  Session::flash('error-message', 'There is an error with your login credentials! Please review and try again. :)');
+  $form->throw();
+}
 
 Session::flash('message', [
   'logged_in' => 'You have successfully logged in!'

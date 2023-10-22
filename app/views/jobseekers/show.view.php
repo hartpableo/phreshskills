@@ -4,7 +4,15 @@
   <div class="container max-w-[52rem] text-gray-200">
     <div class="rounded-xl border-2 border-solid border-gray-300 py-6 px-10 overflow-auto has-overlay-light relative overflow-hidden">
 
-      <img src="https://picsum.photos/200/200" alt="<?php echo "Photo of {$jobseeker['name']}"; ?>" loading="lazy" width="200" height="200" class="rounded-full ml-5 mb-5 md:float-right max-w-full max-h-auto aspect-ratio">
+      <img
+        src="<?php echo file_uri($jobseeker['profile_photo']); ?>"
+        alt="<?php echo "Photo of {$jobseeker['name']}"; ?>"
+        loading="lazy"
+        width="200"
+        height="200"
+        class="rounded-full object-cover ml-5 mb-5 md:float-right max-w-full max-h-auto"
+        style="aspect-ratio: 1/1;"
+      >
 
       <h1 class="text-5xl font-bold font-secondary pl-5 border-l-solid border-gold border-l-8 mb-3 text-white"><?php echo $jobseeker['name']; ?></h1>
 
