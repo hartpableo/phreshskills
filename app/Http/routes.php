@@ -15,6 +15,7 @@ $dynamicQuery = [];
  */
 
 $router->get('/', 'Pages/index');
+$router->get('/get-more-posts', 'Pages/get-more-posts');
 //$router->get('/frequently-asked-questions', 'Pages/faq');
 
 $router->get('/jobs', 'Jobs/index');
