@@ -13,5 +13,7 @@
             "email": "pableoh@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "ext-pdo": "*"
+    }
 }
