@@ -30,11 +30,7 @@ $form = CreateJobForm::validate($attributes);
 $form->register($attributes);
 
 $current_active_employer_posts = new PostsManager($employer);
-
-//$updated_available_posts = $current_active_employer_posts->update_employer_posts_data();
-
- show($updated_available_posts);
-// show('in jobs/store controller');
+$updated_available_posts = $current_active_employer_posts->update_employer_posts_data();
 
 Session::flash('message', [
   'registered' => 'Congratulations! Your job has been posted.'

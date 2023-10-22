@@ -15,6 +15,7 @@
 
       <h1 class="text-gold text-3xl lg:text-6xl font-bold font-secondary mb-4">
         <?php echo htmlspecialchars($job['title']); ?>
+        <small class="text-sm block lg:inline text-white font-primary">(<span class="font-light">open until</span> <?php echo date('F d Y', strtotime($job['date_end'])); ?>)</small>
       </h1>
 
       <hr class="mb-4 border-gray-100 opacity-70">

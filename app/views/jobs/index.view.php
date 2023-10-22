@@ -56,7 +56,7 @@
           </h3>
 
           <p class="mb-2 mt-3 font-bold text-md text-neutral-800"><span class="inline-block align-middle">starts at:</span> <span class="text-black text-lg inline-block px-2 leading-normal rounded bg-gold align-middle"><?php echo job_salary($job['salary'], $job['salary_type']); ?></span></p>
-          <p class="mb-2 mt-3 font-bold text-md text-neutral-800"><span class="inline-block align-middle">open for applications until:</span> <span class="text-black text-md inline-block px-2 leading-normal font-normal rounded bg-neutral-200 align-middle">date</span></p>
+          <p class="mb-2 mt-3 font-bold text-md text-neutral-800"><span class="inline-block align-middle">open for applications until:</span> <span class="text-black text-md inline-block px-2 leading-normal font-normal rounded bg-neutral-200 align-middle"><?php echo date('F d Y', strtotime($job['date_end'])); ?></span></p>
 
           <div class="my-5 font-normal text-gray-900 text-sm lg:text-lg leading-normal lg:leading-snug">
             <?php if (!is_employer()) : ?>
