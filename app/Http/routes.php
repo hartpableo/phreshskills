@@ -20,6 +20,7 @@ $router->get('/get-more-posts', 'Pages/get-more-posts');
 
 $router->get('/jobs', 'Jobs/index');
 $router->get('/jobs/create', 'Jobs/create')->only('employer');
+$router->get('/job/edit', 'Jobs/edit')->only('employer');
 $router->post('/jobs/add', 'Jobs/store')->only('employer');
 $router->get('/job/{job:id}', 'Jobs/show')->only('auth');
 

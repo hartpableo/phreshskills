@@ -80,6 +80,14 @@
       <p class="font-normal text-sm text-gray-100 italic mt-3"><strong class="font-bold uppercase">Always Remember!</strong> You should <strong class="font-bold">NEVER</strong> have to pay anything just to be accepted for a job. You <strong class="font-bold">SHOULD NOT</strong> be paying any fees at all. Employers asking you to do some sort of payment before proceeding (or during any aspects of your interaction) is a <strong class="font-bold">SCAM</strong>!</p>
       <?php endif; ?>
 
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 justify-center items-stretch mt-16 text-center">
+
+        <?php if (is_employer() && $job['employer_id'] === get_current_uid()) : ?>
+          <a href="/job/edit?id=<?php echo $job['id']; ?>" class="w-full h-full bg-gold text-black font-bold text-xl hover:bg-blue-500 hover:text-gray-200 transition-all leading-none py-4">Edit this job listing</a>
+        <?php endif; ?>
+
+      </div>
+
     </article>
 
     <!-- sidebar -->
