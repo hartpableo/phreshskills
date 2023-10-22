@@ -35,6 +35,17 @@ class Validator
     return $imageFile['size'] <= $maxSize;
   }
 
+  public static function imageValidateWithOriginal($new_image = [], $maxSize = 2000000): bool
+  {
+    if (isset($new_image)) {
+      $file_type = $new_image['type'];
+      $allowed = array("image/jpeg", "image/gif", "image/jpg", "image/png", "image/webp");
+      if(empty($file_type) && !in_array($file_type, $allowed)) return false;
+      return $new_image['size'] <= $maxSize;
+    }
+    return true;
+  }
+
   public static function check_if_empty($value)
   {
     return (bool) !empty($value);

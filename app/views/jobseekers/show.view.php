@@ -62,7 +62,13 @@
 
       <div class="grid grid-cols-3 gap-3 justify-center items-stretch mt-16 text-center">
 
+        <?php if (is_employer()) : ?>
           <a href="mailto:<?php echo htmlspecialchars($jobseeker['email']); ?>" class="w-full h-full bg-gold text-black font-bold text-xl hover:bg-blue-500 hover:text-gray-200 transition-all leading-none py-4">Contact <?php echo htmlspecialchars($jobseeker['name']); ?></a>
+        <?php endif; ?>
+
+        <?php if (get_current_uid() === \Core\Session::get_current_user()['id']) : ?>
+          <a href="/jobseeker/edit-profile" class="w-full h-full bg-gold text-black font-bold text-xl hover:bg-blue-500 hover:text-gray-200 transition-all leading-none py-4">Edit Profile</a>
+        <?php endif; ?>
 
       </div>
 

@@ -63,12 +63,12 @@
 
             <?php
               if (auth()) :
-              $user_type = strtolower($_SESSION['user']['user_type']);
+                $user_type = strtolower($_SESSION['user']['user_type']);
             ?>
             <li class="block lg:inline-block align-top lg:align-middle">
-              <a href="<?php echo "/{$user_type}/edit-profile" ?>"
+              <a href="<?php echo $user_type; ?>/<?php echo get_current_uid(); ?>"
                  class="block text-md font-bold hover:text-gold mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/jobseeker/login') ? 'text-gold' : 'text-white'; ?>">
-                Edit Profile
+                My Profile
               </a>
             </li>
             <?php endif; ?>

@@ -10,6 +10,10 @@ get_template_part('header');
 
     <h1 class="font-bold text-3xl lg:text-4xl font-secondary text-gold mb-8">Update/Edit Your Profile</h1>
 
+    <input type="hidden" name="id" value="<?php echo $jobseeker['id']; ?>">
+    <input type="hidden" name="original_profile_photo" value="<?php echo $jobseeker['profile_photo']; ?>">
+    <input type="hidden" name="_method" value="PATCH">
+
     <div class="mb-4">
       <label for="name" class="block text-gray-200 font-secondary text-sm">Name</label>
       <input type="text" id="name" name="name" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. John Doe" value="<?php echo original_data($jobseeker, 'name'); ?>">
@@ -46,9 +50,6 @@ get_template_part('header');
       <img src="<?php echo file_uri($jobseeker['profile_photo']); ?>" id="preview-image" width="120" height="120" loading="lazy" style="object-fit: cover;object-position: center;" aria-hidden="true">
       <label for="profile_photo" class="form-label block mt-2 text-gray-200">Profile Picture</label>
       <input class="form-control text-gray-200 border border-solid border-gray-200 cursor-pointer" type="file" id="profile_photo" accept="image/*" name="profile_photo">
-      <?php if (has_error('profile_photo')) : ?>
-        <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('profile_photo'); ?></p>
-      <?php endif; ?>
       <?php if (has_error('profile_photo_validation')) : ?>
         <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('profile_photo_validation'); ?></p>
       <?php endif; ?>

@@ -88,7 +88,7 @@ function redirect($path = '/') {
   exit();
 }
 
-function getCurrentUserID() {
+function get_current_uid() {
   return $_SESSION['user']['id'] ?? null;
 }
 
