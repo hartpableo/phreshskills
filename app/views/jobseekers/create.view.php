@@ -46,6 +46,9 @@
       <?php if (has_error('profile_photo')) : ?>
         <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('profile_photo'); ?></p>
       <?php endif; ?>
+      <?php if (has_error('profile_photo_validation')) : ?>
+        <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('profile_photo_validation'); ?></p>
+      <?php endif; ?>
     </div>
 
     <div class="mb-4">

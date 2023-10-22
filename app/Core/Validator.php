@@ -27,16 +27,14 @@ class Validator
     return $d && $d->format($format) === $date;
   }
 
-//  public static function imageValidate($imageFile = [], $maxSize = 1000000): bool
-//  {
-//    if (!isset($file['tmp_name']) || empty($file['tmp_name'])) return false;
-//    $file_type = $imageFile['type'];
-//    $allowed = array("image/jpeg", "image/gif", "image/jpg", "image/png", "image/webp");
-//
-//    if(empty($file_type) && !in_array($file_type, $allowed)) return false;
-//
-//    return $imageFile['size'] <= $maxSize;
-//  }
+  public static function imageValidate($imageFile = [], $maxSize = 2000000): bool
+  {
+    $file_type = $imageFile['type'];
+    $allowed = array("image/jpeg", "image/gif", "image/jpg", "image/png", "image/webp");
+
+    if(empty($file_type) && !in_array($file_type, $allowed)) return false;
+    return $imageFile['size'] <= $maxSize;
+  }
 
   public static function check_if_empty($value)
   {

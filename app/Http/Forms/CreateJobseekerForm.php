@@ -22,6 +22,7 @@ class CreateJobseekerForm extends Form
     if (!Validator::string($attributes['summary'], 7, 8000)) $this->errors['summary_error'] = 'Summary length is invalid.';
     if (!Validator::string($attributes['skills'], 1, INF)) $this->errors['skills_error'] = 'Please specify your current skills to be able to help employers see what you can do. :)';
     if (!Validator::file($attributes['profile_photo'])) $this->errors['profile_photo_error'] = 'Please upload your profile picture.';
+    if (!Validator::imageValidate($attributes['profile_photo'])) $this->errors['profile_photo_validation_error'] = 'Please make sure your image is using the correct format/fle type and is not larger than 2mb.';
   }
 
   public static function validate($attributes)
