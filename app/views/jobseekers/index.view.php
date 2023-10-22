@@ -30,18 +30,21 @@ get_template_part('header');
 
       <?php foreach ($jobseekers as $jobseeker) : ?>
 
-      <?php $nameSlug = Core\Slugifier::slugify(htmlspecialchars($jobseeker['name'])); ?>
+      <?php
+        $nameSlug = Core\Slugifier::slugify(htmlspecialchars($jobseeker['name']));
+        $imgAlt = auth() ? "Profile Picture of {$jobseeker['name']}" : 'Profile Picture';
+      ?>
         
       <article
       role="article"
-      aria-labelledby="title--<?php echo $nameSlug; ?>"
+      aria-labelledby="title--<?php echo auth() ? $nameSlug : 'hidden-name'; ?>"
       class="block bg-gray-900 text-left mb-20 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] p-6 border border-solid border-gold rounded-md">
 
         <img
             src="<?php echo file_uri($jobseeker['profile_photo']); ?>"
             width="200"
             height="200"
-            alt="<?php echo "Profile Picture of {$jobseeker['name']}" ?>"
+            alt="<?php echo $imgAlt ?>"
             class="rounded-full w-[6.6rem] h-[6.6rem] mt-[-4.85rem] mb-3 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
             aria-hidden="true"
             role="presentation"
@@ -50,21 +53,17 @@ get_template_part('header');
         >
 
         <h3
-          id="title--<?php echo $nameSlug; ?>"
+          id="title--<?php echo auth() ? $nameSlug : 'hidden-name'; ?>"
           class="mb-1 text-2xl font-bold leading-tight font-secondary">
 
-          <?php if (!is_employer()) : ?>
+          <?php if (!auth()) : ?>
             <?php $jobseeker_name = new Censor(htmlspecialchars($jobseeker['name'])); ?>
-            
             <span class="sr-only">Hidden Name</span>
             <?php echo $jobseeker_name->generic_censor(); ?>
-
           <?php else : ?>
-            
             <a href="<?php echo "/jobseeker/{$jobseeker['id']}"; ?>" class="text-white hover:text-blue-500 transition-all">
               <?php echo htmlspecialchars($jobseeker['name']); ?>
             </a>
-          
           <?php endif; ?>
 
         </h3>
@@ -113,11 +112,14 @@ get_template_part('header');
 
           <?php $link_to_profile = !is_employer() ? '/employer/login' : "/jobseeker/{$jobseeker['id']}"; ?>
 
+          <?php if (!is_jobseeker()) : ?>
           <a
             href="<?php echo $link_to_profile; ?>"
             class="pointer-events-auto inline-block cursor-pointer rounded text-base font-bold leading-normal text-primary text-gold transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 hover:text-blue-300 hover:border-blue-300 transition-all px-5 py-1 border-2 border-solid border-gold rounded transition-all">
             View <span class="sr-only"><?php echo htmlspecialchars($jobseeker['name']); ?>'s </span>Profile
           </a>
+          <?php endif; ?>
+
         </div>
 
       </article>

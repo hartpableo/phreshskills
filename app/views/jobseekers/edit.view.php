@@ -31,14 +31,6 @@ get_template_part('header');
     </div>
 
     <div class="mb-4">
-      <label for="password" class="block text-gray-200 font-secondary text-sm">New Password (leave blank if you're not changing your password)</label>
-      <input type="password" id="password" name="password" class="border border-solid rounded-sm border-gray-500 block w-full p-1">
-      <?php if (has_error('password')) : ?>
-        <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('password'); ?></p>
-      <?php endif; ?>
-    </div>
-
-    <div class="mb-4">
       <label for="position" class="block text-gray-200 font-secondary text-sm">Position</label>
       <input type="text" id="position" name="position" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. Email Marketing Specialist" value="<?php echo original_data($jobseeker, 'position'); ?>">
       <?php if (has_error('position')) : ?>

@@ -2,7 +2,7 @@
 
 <section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
   <div class="container max-w-[52rem] text-gray-200">
-    <div class="rounded-xl border-2 border-solid border-gray-300 py-6 px-10 overflow-auto has-overlay-light relative overflow-hidden">
+    <div class="rounded-xl border-2 border-solid border-gray-300 py-6 px-5 lg:px-10 overflow-auto has-overlay-light relative overflow-hidden">
 
       <img
         src="<?php echo file_uri($jobseeker['profile_photo']); ?>"
@@ -35,6 +35,33 @@
         <?php echo maintain_breaks($jobseeker['summary']); ?>
       </div>
 
+      <?php
+      $skills = explode(', ', $jobseeker['skills']);
+      if (!empty($skills)) :
+        ?>
+        <p class="mb-3 mt-5">I specialize in:</p>
+        <ul aria-label="Skills" class="flex justify-start items-start flex-wrap gap-2 mb-5">
+
+          <?php
+          /** show only a maximum of 9 skills */
+          $counter = 0;
+          foreach($skills as $skill) :
+            if ($counter == 9) break;
+            ?>
+
+            <li class="inline-block p-1 px-2 font-bold text-xs rounded bg-gray-700 text-neutral-200 transition-all tracking-widest">
+              <?php echo ucwords($skill); ?>
+            </li>
+
+            <?php
+            $counter++;
+          endforeach;
+          ?>
+
+        </ul>
+
+      <?php endif; ?>
+
       <?php 
         if (!empty($work_background)) : 
           $counter = 1; 
@@ -60,7 +87,7 @@
         </div>
       <?php endif; ?>
 
-      <div class="grid grid-cols-3 gap-3 justify-center items-stretch mt-16 text-center">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 justify-center items-stretch mt-16 text-center">
 
         <?php if (is_employer()) : ?>
           <a href="mailto:<?php echo htmlspecialchars($jobseeker['email']); ?>" class="w-full h-full bg-gold text-black font-bold text-xl hover:bg-blue-500 hover:text-gray-200 transition-all leading-none py-4">Contact <?php echo htmlspecialchars($jobseeker['name']); ?></a>

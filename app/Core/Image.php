@@ -25,7 +25,7 @@ class Image
   }
 
   private static function cleanFileName($filename) {
-    $newFilename = time() . '-' . str_replace(' ', '-', strtolower($filename));
+    $newFilename = time() . '-' . rand(0,1000) . str_replace(' ', '-', strtolower($filename));
     return $newFilename;
   }
 
