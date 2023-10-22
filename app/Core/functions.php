@@ -95,6 +95,10 @@ function getCurrentUserID() {
 function old($key, $default = '') {
   return Session::get('old')[$key] ?? $default;
 }
+function original_data($data_table, $data_column) {
+  return $data_table[$data_column] ?? '';
+}
+
 
 function isHome() {
   return (bool) urlIs('/');

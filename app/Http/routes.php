@@ -26,6 +26,7 @@ $router->get('/job/{job:id}', 'Jobs/show')->only('auth');
 $router->get('/jobseekers', 'Jobseekers/index');
 $router->get('/jobseeker/create-profile', 'Jobseekers/create')->only('guest');
 $router->get('/jobseeker/login', 'Jobseekers/login')->only('guest');
+$router->get('/jobseeker/edit-profile', 'Jobseekers/edit')->only('jobseeker');
 $router->post('/jobseeker/authenticate', 'Jobseekers/authenticate')->only('guest');
 $router->post('/jobseeker/add', 'Jobseekers/store')->only('guest');
 $router->get('/jobseeker/{jobseeker:id}', 'Jobseekers/show')->only('auth');

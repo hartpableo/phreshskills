@@ -8,8 +8,4 @@
   </div>
 </section>
 
-<!-- <script>
-
-</script> -->
-
 <?php get_template_part('footer'); ?>

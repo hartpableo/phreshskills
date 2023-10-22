@@ -61,6 +61,17 @@
               </a>
             </li>
 
+            <?php
+              if (auth()) :
+              $user_type = strtolower($_SESSION['user']['user_type']);
+            ?>
+            <li class="block lg:inline-block align-top lg:align-middle">
+              <a href="<?php echo "/{$user_type}/edit-profile" ?>"
+                 class="block text-md font-bold hover:text-gold mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/jobseeker/login') ? 'text-gold' : 'text-white'; ?>">
+                Edit Profile
+              </a>
+            </li>
+            <?php endif; ?>
             <?php if (auth()) : ?>
             <li class="block lg:inline-block align-top lg:align-middle">
               <form action="<?php echo is_jobseeker() ? '/jobseeker/logout' : '/employer/logout'; ?>" method="POST">
