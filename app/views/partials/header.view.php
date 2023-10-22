@@ -12,7 +12,7 @@
   <?php get_template_part('app-head'); ?>
 
 </head>
-<body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto] bg-gray-50 position-relative isolate bg-black">
+<body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto] bg-gray-50 relative isolate bg-black">
   <header role="banner" class="bg-blue-900">
     <div class="container max-w-none py-4">
       <nav class="flex items-center justify-between flex-wrap">

@@ -1,12 +1,12 @@
 <?php
-
 use Core\Session;
-
-get_template_part('header'); 
-
+get_template_part('header');
+if ($current_employer['monthly_posts_remaining'] === 0) {
+  get_template_part('posts-limit-reached');
+}
 ?>
 
-<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full before:opacity-90" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
+<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full before:opacity-90 <?php if ($current_employer['monthly_posts_remaining'] === 0) echo 'pointer-events-none'; ?>" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
   <div class="container">
 
@@ -97,7 +97,7 @@ get_template_part('header');
     </div>
 
     <div>
-      <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-gold hover:text-black transition-all">Submit</button>
+      <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-gold hover:text-black transition-all" <?php if ($current_employer['monthly_posts_remaining'] === 0) echo 'disabled'; ?>>Submit</button>
     </div>
 
   </form>
