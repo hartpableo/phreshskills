@@ -31,7 +31,6 @@ class Validator
   {
     $file_type = $imageFile['type'];
     $allowed = array("image/jpeg", "image/gif", "image/jpg", "image/png", "image/webp");
-
     if(empty($file_type) && !in_array($file_type, $allowed)) return false;
     return $imageFile['size'] <= $maxSize;
   }
