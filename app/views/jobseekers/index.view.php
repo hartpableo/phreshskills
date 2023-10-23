@@ -110,13 +110,16 @@ get_template_part('header');
 
         <div class="mt-6 flex justify-start items-start flex-wrap gap-x-4 gap-y-2">
 
-          <?php $link_to_profile = !is_employer() ? '/employer/login' : "/jobseeker/{$jobseeker['id']}"; ?>
+          <?php
+            $link_to_profile = !is_employer() ? '/employer/login' : "/jobseeker/{$jobseeker['id']}";
+            $link_sr_text = auth() ? htmlspecialchars($jobseeker['name']) : null;
+          ?>
 
           <?php if (!is_jobseeker()) : ?>
           <a
             href="<?php echo $link_to_profile; ?>"
             class="pointer-events-auto inline-block cursor-pointer rounded text-base font-bold leading-normal text-primary text-gold transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700 hover:text-blue-300 hover:border-blue-300 transition-all px-5 py-1 border-2 border-solid border-gold rounded transition-all">
-            View <span class="sr-only"><?php echo htmlspecialchars($jobseeker['name']); ?>'s </span>Profile
+            View <?php echo !isset($link_sr_text) ? '' : "<span class=\"sr-only\">{$link_sr_text}</span>"; ?>Profile
           </a>
           <?php endif; ?>
 

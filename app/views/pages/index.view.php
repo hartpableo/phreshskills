@@ -14,7 +14,7 @@
     <div class="flex justify-center items-start gap-4 flex-wrap mt-12">
 
       <a 
-      href="/jobs/create" 
+      href="<?php echo is_employer() ? '/jobs/create' : '/employer/login' ?>"
       class="transition-all inline-flex justify-center items-center font-bold py-2 px-6 bg-gold border border-solid border-gold hover:border-blue-900 text-black hover:bg-blue-900 text-xl min-w-[12em] text-black hover:text-white"
       >Post a Job</a>
 
