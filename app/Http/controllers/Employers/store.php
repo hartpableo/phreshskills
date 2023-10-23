@@ -18,7 +18,10 @@ $form = EmployerRegisterForm::validate($attributes);
 
 $employerExists = (new Authenticator())->employerExists($attributes);
 
-if ($employerExists) $form->addError('errors', 'You are already registered! Please login instead.')->throw();
+if ($employerExists) {
+  Session::flash('error-message', 'That account already exists! Please login instead. :)');
+  $form->throw();
+};
 
 $form->register($attributes);
 
