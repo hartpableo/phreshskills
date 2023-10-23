@@ -21,8 +21,7 @@ class PostsManager
 
   }
 
-  protected function deduct_posts($posts_value)
-  {
+  protected function deduct_posts($posts_value): bool|int {
     $int_val = (int) $posts_value;
     if ($int_val == 0) {
       Session::flash('error', 'Sorry! You have no more posts remaining for this month.');
@@ -31,16 +30,14 @@ class PostsManager
     return $int_val - 1;
   }
 
-  protected function add_posts($posts_value, $posts_to_add)
-  {
+  protected function add_posts($posts_value, $posts_to_add): bool|int {
     $initial_posts_number = (int) $posts_value;
     $additional_posts = (int) $posts_to_add;
     if ($additional_posts <= 0) return false;
     return $initial_posts_number + $additional_posts;
   }
 
-  public function update_employer_posts_data($additional_posts = 0)
-  {
+  public function update_employer_posts_data($additional_posts = 0) {
     if ($additional_posts > 0) {
       $this->employer_posts = $this->add_posts($this->employer_posts, $additional_posts);
     } else {
