@@ -3,7 +3,7 @@ use Core\Session;
 get_template_part('header');
 ?>
 
-<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full before:opacity-90 <?php if ($current_employer['monthly_posts_remaining'] === 0) echo 'pointer-events-none'; ?>" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
+<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full before:opacity-90" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
 
   <div class="container">
 
@@ -11,11 +11,11 @@ get_template_part('header');
 
     <h1 class="font-bold text-3xl lg:text-5xl font-secondary text-gold mb-8">Edit Job Listing</h1>
 
-    <input type="hidden" name="employer_id" value="<?php echo Session::get_current_user()['id']; ?>">
+    <input type="hidden" name="employer_id" value="<?php echo get_current_uid(); ?>">
 
     <div class="mb-4">
       <label for="title" class="block text-gray-200 font-secondary text-sm">Job Title</label>
-      <input type="text" id="title" name="title" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. Web Developer" value="<?php echo old('title') ?? ''; ?>">
+      <input type="text" id="title" name="title" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. Web Developer" value="<?php echo original_data($job, 'title'); ?>">
       <?php if (has_error('title')) : ?>
         <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('title'); ?></p>
       <?php endif; ?>
@@ -29,7 +29,7 @@ get_template_part('header');
 
             <div class="relative">
 
-              <input type="number" step="0.01" min="2.5" id="salary" name="salary" class="border border-solid rounded-sm border-gray-500 block w-full p-1 pl-6" value="<?php echo old('salary') ?? ''; ?>">
+              <input type="number" step="0.01" min="2.5" id="salary" name="salary" class="border border-solid rounded-sm border-gray-500 block w-full p-1 pl-6" value="<?php echo original_data($job, 'salary'); ?>">
 
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-currency-dollar absolute top-1/2 left-1" style="transform: translateY(-50%);" viewBox="0 0 16 16" aria-hidden="true" role="presentation">
                 <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
@@ -47,7 +47,7 @@ get_template_part('header');
             <?php foreach (SALARY_TYPES as $type) : ?>
               <option 
                 value="<?php echo strtolower($type); ?>"
-                <?php if (isset($_POST['salary_type']) && $_POST['salary_type'] == strtolower($type)) echo 'selected'; ?>
+                <?php if (original_data($job, 'salary_type') && original_data($job, 'salary_type') == strtolower($type)) echo 'selected'; ?>
               ><?php echo ucfirst($type); ?></option>
             <?php endforeach ?>
           </select>
@@ -57,7 +57,7 @@ get_template_part('header');
 
     <div class="mb-4">
       <label for="skillset" class="block text-gray-200 font-secondary text-sm">Skillset<br> <span class="text-xs">(separate by commas, e.g "Facebook Ads, Canva Design, Photoshop")</span></label>
-      <textarea id="skillset" name="skillset" id="skillset" cols="30" rows="2" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical resize-none"><?php echo old('skillset') ?? ''; ?></textarea>
+      <textarea id="skillset" name="skillset" id="skillset" cols="30" rows="2" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical resize-none"><?php echo original_data($job, 'skillset') ?></textarea>
       <?php if (has_error('skillset')) : ?>
         <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('skillset'); ?></p>
       <?php endif; ?>
@@ -65,7 +65,7 @@ get_template_part('header');
 
     <div class="mb-4">
         <label for="description" class="block text-gray-200 font-secondary text-sm">Job Description</label>
-        <textarea id="description" name="description" cols="10" rows="10" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical"><?php echo old('description') ?? ''; ?></textarea>
+        <textarea id="description" name="description" cols="10" rows="10" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical"><?php echo original_data($job, 'description') ?></textarea>
         <?php if (has_error('description')) : ?>
           <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('description'); ?></p>
         <?php endif; ?>
@@ -74,7 +74,7 @@ get_template_part('header');
     <div class="mb-4">
       <label for="application_link" class="block text-gray-200 font-secondary text-sm">Job Application Link</label>
       <p class="text-sm text-gray-200 mb-1">(If left blank, this information will default to your registered email address)</p>
-      <input type="text" id="application_link" name="application_link" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. https://www.yourwebsite.com/careers" value="<?php echo old('application_link') ?? '' ?>">
+      <input type="text" id="application_link" name="application_link" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. https://www.yourwebsite.com/careers" value="<?php echo original_data($job, 'application_link'); ?>">
       <?php if (has_error('application_link')) : ?>
         <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('application_link'); ?></p>
       <?php endif; ?>
@@ -82,7 +82,7 @@ get_template_part('header');
 
     <div class="mb-4">
       <label for="date_end" class="block text-gray-200 font-secondary text-sm">Open for applications until:</label>
-      <input type="date" id="date_end" name="date_end" class="font-primary border border-solid rounded-sm border-gray-500 block w-full p-1" value="<?php echo old('date_end') ?? '' ?>">
+      <input type="date" id="date_end" name="date_end" class="font-primary border border-solid rounded-sm border-gray-500 block w-full p-1" value="<?php echo original_data($job, 'date_end') ?>">
       <?php if (has_error('date_end')) : ?>
         <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('date_end'); ?></p>
       <?php endif; ?>
@@ -90,11 +90,11 @@ get_template_part('header');
 
     <div class="mb-4">
         <label for="benefits" class="block text-gray-200 font-secondary text-sm">Benefits for working with you (If any...)</label>
-        <textarea id="benefits" name="benefits" cols="10" rows="7" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical"><?php echo old('benefits') ?? '' ?></textarea>
+        <textarea id="benefits" name="benefits" cols="10" rows="7" class="form-textarea border border-solid rounded-sm border-gray-500 block w-full p-1 resize-vertical"><?php echo maintain_breaks(original_data($job, 'benefits')) ?></textarea>
     </div>
 
     <div>
-      <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-gold hover:text-black transition-all" <?php if ($current_employer['monthly_posts_remaining'] === 0) echo 'disabled'; ?>>Submit</button>
+      <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-gold hover:text-black transition-all">Submit</button>
     </div>
 
   </form>

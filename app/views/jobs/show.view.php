@@ -82,9 +82,9 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 justify-center items-stretch mt-16 text-center">
 
-        <?php if (is_employer() && $job['employer_id'] === get_current_uid()) : ?>
-          <a href="/job/edit?id=<?php echo $job['id']; ?>" class="w-full h-full bg-gold text-black font-bold text-xl hover:bg-blue-500 hover:text-gray-200 transition-all leading-none py-4">Edit this job listing</a>
-        <?php endif; ?>
+<!--        --><?php //if (is_employer() && $job['employer_id'] === get_current_uid()) : ?>
+<!--          <a href="/job/edit?id=--><?php //echo $job['id']; ?><!--" class="w-full h-full bg-gold text-black font-bold text-xl hover:bg-blue-500 hover:text-gray-200 transition-all leading-none py-4">Edit this job listing</a>-->
+<!--        --><?php //endif; ?>
 
       </div>
 
