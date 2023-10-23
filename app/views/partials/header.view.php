@@ -74,7 +74,7 @@
             <?php endif; ?>
             <?php if (is_employer()) : ?>
               <li class="block lg:inline-block align-top lg:align-middle">
-                <a href="jobs/<?php echo get_current_uid(); ?>"
+                <a href="/jobs/my-listings"
                    class="block text-md font-bold hover:text-gold mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/jobseeker/login') ? 'text-gold' : 'text-white'; ?>">
                   My Job Listings
                 </a>

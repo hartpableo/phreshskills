@@ -22,6 +22,7 @@ $router->get('/jobs', 'Jobs/index');
 $router->get('/jobs/create', 'Jobs/create')->only('employer');
 //$router->get('/job/edit', 'Jobs/edit')->only('employer');
 $router->post('/jobs/add', 'Jobs/store')->only('employer');
+$router->get('/jobs/my-listings', 'Jobs/my-listings')->only('employer');
 $router->get('/job/{job:id}', 'Jobs/show')->only('auth');
 
 $router->get('/jobseekers', 'Jobseekers/index');
