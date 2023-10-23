@@ -23,22 +23,29 @@ class PostsManager
 
   protected function deduct_posts($posts_value)
   {
-
     $int_val = (int) $posts_value;
-
     if ($int_val == 0) {
       Session::flash('error', 'Sorry! You have no more posts remaining for this month.');
       return false;
     }
-
     return $int_val - 1;
-
   }
 
-  public function update_employer_posts_data()
+  protected function add_posts($posts_value, $posts_to_add)
   {
+    $initial_posts_number = (int) $posts_value;
+    $additional_posts = (int) $posts_to_add;
+    if ($additional_posts <= 0) return false;
+    return $initial_posts_number + $additional_posts;
+  }
 
-    $this->employer_posts = $this->deduct_posts($this->employer_posts);
+  public function update_employer_posts_data($additional_posts = 0)
+  {
+    if ($additional_posts > 0) {
+      $this->employer_posts = $this->add_posts($this->employer_posts, $additional_posts);
+    } else {
+      $this->employer_posts = $this->deduct_posts($this->employer_posts);
+    }
 
     // Validate the value before attempting to update the database
     if (!is_int($this->employer_posts)) {
@@ -58,8 +65,6 @@ class PostsManager
 
         return true;
     } catch (\PDOException $exception) {
-        // Handle the exception (e.g., log the error message)
-        // You can also rethrow the exception if needed
         throw $exception;
     }
   
