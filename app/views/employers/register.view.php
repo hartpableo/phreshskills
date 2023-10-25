@@ -35,6 +35,10 @@
       <?php endif; ?>
     </div>
 
+    <div class="mb-4">
+
+    </div>
+
     <div>
       <button type="submit" class="inline-block align-middle bg-blue-900 text-white px-4 py-2 rounded hover:bg-gold hover:text-black transition-all">Sign Up</button>
       <p class="ml-2 inline-block align-middle font-semibold text-gray-200">Already have an account? <a href="/employer/login" class="text-red-400 hover:underline">Login here</a>.</p>
