@@ -7,6 +7,8 @@
 
     <h1 class="font-bold text-3xl lg:text-4xl font-secondary text-gold mb-8">Create Jobseeker Profile</h1>
 
+    <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
+
     <div class="mb-4">
       <label for="name" class="block text-gray-200 font-secondary text-sm">Name</label>
       <input type="text" id="name" name="name" class="border border-solid rounded-sm border-gray-500 block w-full p-1" placeholder="e.g. John Doe" value="<?php echo old('name') ?? '' ?>">

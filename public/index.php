@@ -17,16 +17,11 @@ if ($_GET && empty(array_filter($_GET))) redirect(no_query_strings());
 
 // Routing
 try {
-  
   $router->route($uri, $method, $dynamicQuery);
-
 } catch (ValidationException $exception) {
-
   Session::flash('errors', $exception->errors);
   Session::flash('old', $exception->old);
-  
   redirect($router->prevURL());
-  
 }
 
 // Clear flashed session data

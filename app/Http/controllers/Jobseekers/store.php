@@ -2,6 +2,7 @@
 
 use Core\App;
 use Core\Authenticator;
+use Core\CSRFToken\CSRFToken;
 use Core\Session;
 use Core\Database;
 use Http\Forms\CreateJobseekerForm;
@@ -9,6 +10,7 @@ use Http\Forms\CreateJobseekerForm;
 $db = App::resolve(Database::class);
 
 $attributes = [
+  'csrf_token' => $_POST['csrf_token'],
   'name' => trim($_POST['name']),
   'email' => trim($_POST['email']),
   'password' => trim($_POST['password']),
@@ -20,6 +22,9 @@ $attributes = [
   'work_background' => $_POST['work_background'],
   'profile_photo' => $_FILES['profile_photo']
 ];
+
+$token = new CSRFToken();
+$tokenIsValid = $token->validateToken( $attributes['csrf_token'] );
 
 $form = CreateJobseekerForm::validate($attributes);
 
