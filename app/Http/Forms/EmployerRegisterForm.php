@@ -27,12 +27,13 @@ class EmployerRegisterForm extends Form
   public function register($attributes = []) 
   {
     App::resolve(Database::class)
-        ->query('insert into employers(company_name, company_email, password) 
-        values(:company_name, :company_email, :password)', 
+        ->query('insert into employers(company_name, company_email, password, plan_cycle) 
+        values(:company_name, :company_email, :password, :plan_cycle)',
     [
       ':company_name' => $attributes['company_name'],
       ':company_email' => $attributes['company_email'],
       ':password' => password_hash($attributes['password'], PASSWORD_DEFAULT),
+      ':plan_cycle' => date( 'Y-m-d' )
     ]);
   }
 

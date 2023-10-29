@@ -107,7 +107,10 @@
         </li>
         <li class="mb-1">
           <strong class="text-lg mb-5">Credits</strong>
-          <p>Emojis are taken from <a href="https://emojipedia.org/" target="_blank" rel="nofollow noreferrer">https://emojipedia.org/</a>.</p>
+          <ul class="list-disc ml-5">
+            <li>Emojis are taken from <a href="https://emojipedia.org/" target="_blank" rel="nofollow noreferrer">https://emojipedia.org/</a>.</li>
+            <li>Non-user-generated images like the global background image is taken from <a href="https://www.pexels.com/" target="_blank" rel="nofollow noreferrer">Pexels</a></li>
+          </ul>
         </li>
       </ol>
       <p>Please feel free to <a href="mailto:pableoh@gmail.com">contact me</a> if you have any questions or concerns about our Full Disclosure Statement or any other aspect of our platform.</p>
