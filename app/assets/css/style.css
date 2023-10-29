@@ -95,6 +95,10 @@
   @apply bg-black opacity-60 z-[-1] absolute inset-0 w-full h-full pointer-events-none;
 }
 
+.body p {
+  @apply leading-7 mb-8;
+}
+
 .wave-text {
   display: inline-block;
   animation: wave 0.5s infinite alternate;
