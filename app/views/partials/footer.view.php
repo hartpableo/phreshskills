@@ -18,6 +18,7 @@
         ><span class="sr-only">Author: </span>Hart Pableo</a
       >
       | <a href="/full-disclosure" class="hover:text-gold duration-300">Read Full Disclosure</a>
+      | <a href="/upcoming-features" class="hover:text-gold duration-300">Upcoming Features</a>
     </div>
   </div>
 </footer>

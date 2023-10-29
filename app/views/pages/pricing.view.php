@@ -1,9 +1,9 @@
 <?php get_template_part('header'); ?>
 
-<section>
-  <article class="container max-w-lg py-16" role="article">
+<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
+  <article class="container max-w-lg py-16 text-gray-200" role="article">
 
-    <h1 class="mb-1 text-6xl font-secondary text-blue-900 font-bold">Pricing</h1>
+    <h1 class="mb-1 text-6xl font-secondary text-gold font-bold">Pricing</h1>
     <p class="mb-7">Here are the available pricing plans for improved employers' experience.</p>
 
     <div class="body">
@@ -14,7 +14,7 @@
         <li class="mb-1"><strong>Visibility:</strong> Your job posts will be visible to our active jobseekers.</li>
         <li class="mb-1"><strong>1 Week Availability:</strong> Each job post remains live for one week, ensuring you find the right candidates.</li>
       </ul>
-      <p class="text-sm block pl-3 py-3 border-l-[.5em] border-l-green-500 bg-green-200"><em><strong>Note:</strong> More premium features are in development, so stay tuned for even greater benefits to enhance your recruiting efforts.</em></p>
+      <p class="text-sm text-gray-900 block pl-3 py-3 border-l-[.5em] border-l-green-500 bg-green-200"><em><strong>Note:</strong> More premium features are in development, so stay tuned for even greater benefits to enhance your recruiting efforts.</em></p>
     </div>
 
   </article>
