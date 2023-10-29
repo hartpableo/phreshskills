@@ -3,3 +3,4 @@ node_modules
 .idea
 public/assets/files
 public/assets/css/style.css
+database/
