@@ -8,9 +8,7 @@
   <title><?php echo (!isHome() && isset($pageTitle)) ? "{$pageTitle} | " . APP_NAME : APP_NAME; ?></title>
   <link rel="stylesheet" href="<?php echo load_asset('css/style.css'); ?><?php echo version(); ?>">
   <script src="<?php echo load_asset('js/script.js'); ?><?php echo version(); ?>" defer></script>
-
   <?php get_template_part('app-head'); ?>
-
 </head>
 <body class="min-h-screen font-primary grid grid-rows-[auto_1fr_auto] bg-gray-50 relative isolate bg-black">
   <header role="banner" class="bg-blue-900">

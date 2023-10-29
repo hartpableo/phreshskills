@@ -1,6 +1,8 @@
 <?php 
   use Core\Censor;
-  get_template_part('header'); 
+  get_template_part('header', [
+      'pageTitle' => 'Jobs',
+  ]);
 ?>
 
 <style>
