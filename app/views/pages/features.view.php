@@ -8,8 +8,9 @@
     <div class="body">
       <ol class="list-decimal ml-4 mb-8">
         <li>Paid plans for more monthly posts or exisiting posts extensions</li>
+        <li>...</li>
       </ol>
-      <p>Suggest me more features and I will list them here!<br> Email: pableoh@gmail.com</p>
+      <p>Suggest me more features and I will list them here!<br> Email: <strong>pableoh@gmail.com</strong></p>
     </div>
 
   </article>

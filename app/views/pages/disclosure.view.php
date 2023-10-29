@@ -1,9 +1,9 @@
 <?php get_template_part('header'); ?>
 
-<section>
-  <article class="container max-w-2xl py-16" role="article">
+<section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
+  <article class="container max-w-2xl py-16 text-gray-200" role="article">
 
-    <h1 class="text-4xl font-secondary text-blue-900 font-bold">Phreshskills Full Disclosure</h1>
+    <h1 class="text-4xl font-secondary text-gold font-bold">Phreshskills Full Disclosure</h1>
     <p class="mb-7 text-sm">Last Updated: October 29, 2023</p>
 
     <div class="body">
