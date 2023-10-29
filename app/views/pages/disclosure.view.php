@@ -103,6 +103,10 @@
           <p>We may update this Full Disclosure Statement from time to time. The most recent version will be posted on our website.</p>
           <p>It is your responsibility to review this statement periodically to stay informed about how Phreshskills operates.</p>
         </li>
+        <li class="mb-1">
+          <strong class="text-lg mb-5">Credits</strong>
+          <p>Emojis are taken from <a href="https://emojipedia.org/" target="_blank" rel="nofollow noreferrer">https://emojipedia.org/</a>.</p>
+        </li>
       </ol>
       <p>Please feel free to <a href="mailto:pableoh@gmail.com">contact me</a> if you have any questions or concerns about our Full Disclosure Statement or any other aspect of our platform.</p>
       <p>This disclosure statement will be continuously updated as needed.</p>

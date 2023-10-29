@@ -7,7 +7,7 @@
     <h1 
     id="site-title"
     class="font-secondary text-4xl lg:text-7xl font-bold mb-8"
-    >Welcome to <span class="text-gold"><?php echo APP_NAME; ?></span>!</h1>
+    >Welcome to <span class="text-gold"><?php echo APP_NAME; ?></span>👋🏻!</h1>
     
     <p class="max-w-2xl text-xl">This platform was made to help <span class="text-gold font-bold">Filipinos</span> jump-start their careers and for <span class="text-blue-500 font-bold">companies or businesses worldwide</span> to find the right individual for their team!</p>
 

@@ -1,5 +1,5 @@
 <?php get_template_part('header', [
-    'pageTitle' => 'Pricing',
+    'pageTitle' => 'Pricing 💲',
 ]); ?>
 
 <section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">

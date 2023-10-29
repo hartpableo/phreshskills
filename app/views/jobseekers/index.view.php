@@ -1,7 +1,7 @@
 <?php
 use Core\Censor;
 get_template_part('header', [
-    'pageTitle' => 'Jobseekers',
+    'pageTitle' => 'Jobseekers 🔍',
 ]);
 ?>
 
