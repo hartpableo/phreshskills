@@ -15,6 +15,7 @@ define('ROOT',  $base_url = ( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']=='on
 define('BASE_PATH', realpath(__DIR__ . '/../../'));
 define('APP_NAME', 'Phreshskills');
 define('APP_DESC', 'Hire Fresh Skills Now From the Talents in the Philippines!');
+define( 'DISCLOSURE_LATEST_UPDATE', 'October 29, 2023' );
 define(
   'SALARY_TYPES', 
   [
