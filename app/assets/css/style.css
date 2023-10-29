@@ -95,26 +95,32 @@
   @apply bg-black opacity-60 z-[-1] absolute inset-0 w-full h-full pointer-events-none;
 }
 
-
-/* animations */
 .wave-text {
   display: inline-block;
   animation: wave 0.5s infinite alternate;
-}
-
-@keyframes wave {
-  0% {
-      transform: translateY(0);
-  }
-  100% {
-      transform: translateY(-2.7px);
-  }
 }
 
 .fadeout {
   animation-name: fadeout;
   animation-duration: 2000ms;
   animation-fill-mode: forwards;
+}
+
+.floating {
+  animation-name: floating;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Animations */
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2.7px);
+  }
 }
 
 @keyframes fadeout {
@@ -124,4 +130,10 @@
   to {
     opacity: 0;
   }
+}
+
+@keyframes floating {
+  from { transform: translate(0,  0px); }
+  65%  { transform: translate(0, .5em); }
+  to   { transform: translate(0, -0px); }
 }
