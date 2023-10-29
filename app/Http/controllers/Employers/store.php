@@ -35,7 +35,7 @@ if ($employerExists) {
 $form->register($attributes);
 
 Session::flash('message', [
-  'registered' => 'Congratulations! You have been successfully registered. You can now login.
+  'registered' => 'Congratulations! You have been successfully registered. You can now login.'
 ]);
 
 redirect( '/employer/login' );

@@ -34,6 +34,6 @@
 
 Spam protection
 - up to 5 tries only
-  You sent
-  Jobseekers
+
+Jobseekers
 - only from PH
