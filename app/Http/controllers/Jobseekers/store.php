@@ -5,6 +5,7 @@ use Core\Authenticator;
 use Core\CSRFToken\CSRFToken;
 use Core\Session;
 use Core\Database;
+use Core\Validator;
 use Http\Forms\CreateJobseekerForm;
 
 $db = App::resolve(Database::class);
@@ -15,6 +16,7 @@ $attributes = [
   'name' => trim($_POST['name']),
   'email' => trim($_POST['email']),
   'password' => trim($_POST['password']),
+  'birth_date' => $_POST['birth_date'],
   'rate' => $_POST['rate'],
   'salary_type' => $_POST['salary_type'],
   'skills' => $_POST['skills'],
@@ -23,6 +25,12 @@ $attributes = [
   'work_background' => $_POST['work_background'],
   'profile_photo' => $_FILES['profile_photo']
 ];
+
+if ( ! Validator::notUnderage( $attributes['birth_date']) ) {
+  Session::flash('error-message', 'Sorry! You must be 18 years old and above to register.');
+  $router = new \Core\Router();
+  return redirect( $router->prevURL() );
+}
 
 // Check if ruh has a value and redirect to home if it does
 if ( $attributes['ruh'] ) {

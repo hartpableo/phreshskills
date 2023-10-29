@@ -45,6 +45,14 @@
     </div>
 
     <div class="mb-4">
+      <label for="name" class="block text-gray-200 font-secondary text-sm">Birthdate:</label>
+      <input type="date" id="birth_date" name="birth_date" class="border border-solid rounded-sm border-gray-500 block w-full p-1" value="<?php echo old('birth_date') ?? '' ?>">
+      <?php if (has_error('birth_date')) : ?>
+        <p class="text-xs text-red-400 font-semibold mt-1"><?php echo get_error('birth_date'); ?></p>
+      <?php endif; ?>
+    </div>
+
+    <div class="mb-4">
       <img id="preview-image" class="sr-only" width="120" height="120" loading="lazy" style="object-fit: cover;object-position: center;" aria-hidden="true">
       <label for="profile_photo" class="form-label block mt-2 text-gray-200">Profile Picture</label>
       <input class="form-control text-gray-200 border border-solid border-gray-200 cursor-pointer" type="file" id="profile_photo" accept="image/jpeg, image/gif, image/jpg, image/png, image/webp" name="profile_photo">

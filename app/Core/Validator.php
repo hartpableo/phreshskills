@@ -27,6 +27,13 @@ class Validator
     return $d && $d->format($format) === $date;
   }
 
+  public static function notUnderage( $birthdate ): bool {
+    $date = new DateTime( $birthdate );
+    $now = new DateTime();
+    $interval = $now->diff( $date );
+    return $interval->y >= 18;
+  }
+
   public static function imageValidate($imageFile = [], $maxSize = 2000000): bool
   {
     $file_type = $imageFile['type'];
