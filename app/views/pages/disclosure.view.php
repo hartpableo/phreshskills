@@ -4,7 +4,7 @@
   <article class="container max-w-2xl py-16" role="article">
 
     <h1 class="text-4xl font-secondary text-blue-900 font-bold">Phreshskills Full Disclosure</h1>
-    <p class="mb-7 text-sm">Last Updated: <?php echo DISCLOSURE_LATEST_UPDATE; ?></p>
+    <p class="mb-7 text-sm">Last Updated: October 29, 2023</p>
 
     <div class="body">
       <p>Welcome to Phreshskills! I value transparency and want to ensure that you have a clear understanding of how this platform operates and the principles I adhere to. Please read the following Full Disclosure Statement carefully:</p>
