@@ -22,6 +22,10 @@
 
 ---
 
+# Notes
+
+- check Locator class on live environment
+
 - Free Tier
   -- 1 post per month
   -- 1 week job availability
