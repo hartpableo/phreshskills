@@ -25,8 +25,12 @@ $attributes = [
 
 $token = new CSRFToken();
 $tokenIsValid = $token->validateToken( $attributes['csrf_token'] );
-
 $form = CreateJobseekerForm::validate($attributes);
+
+if ( ! $tokenIsValid ) {
+  Session::flash('error-message', 'Looks like your token is invalid or expired. Please try again.');
+  $form->throw();
+}
 
 $account_exists = (new Authenticator())->jobseekerExists($attributes);
 
@@ -38,7 +42,7 @@ if ($account_exists) {
 $form->register($attributes);
 
 Session::flash('message', [
-  'registered' => htmlspecialchars('Congratulations! Your jobseeker profile has been created. <a href="/jobseeker/login">Proceed to Login!</a>')
+  'registered' => htmlspecialchars('Congratulations! Your jobseeker profile has been created. You can now login.' )
 ]);
 
 redirect();

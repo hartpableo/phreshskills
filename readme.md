@@ -19,3 +19,21 @@
 - feature job listing (unique frontend)
 
 ## Paypal Code: `37BE-14E3`
+
+---
+
+- Free Tier
+  -- 1 post per month
+  -- 1 week job availability
+
+- Additional Posts
+  -- $20 per post
+
+- Extend post availability
+  -- $13 per 1 week extension
+
+Spam protection
+- up to 5 tries only
+  You sent
+  Jobseekers
+- only from PH
