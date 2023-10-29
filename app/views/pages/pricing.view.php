@@ -3,7 +3,8 @@
 <section>
   <article class="container max-w-lg py-16" role="article">
 
-    <h1 class="mb-7 text-6xl text-center font-secondary text-blue-900 font-bold">Pricing</h1>
+    <h1 class="mb-1 text-6xl font-secondary text-blue-900 font-bold">Pricing</h1>
+    <p class="mb-7">Here are the available pricing plans for improved employers' experience.</p>
 
     <div class="body">
       <h2 class="text-3xl font-bold mb-3">Free Tier</h2>

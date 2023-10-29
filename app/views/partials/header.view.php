@@ -61,6 +61,14 @@
               </a>
             </li>
 
+            <?php if ( ! is_jobseeker() ) : ?>
+              <li class="block lg:inline-block align-top lg:align-middle">
+                <a href="/pricing"
+                   class="block text-md font-bold hover:text-gold mx-2 focus:text-blue-500 p-1 rounded-lg <?php echo urlIs('/pricing') ? 'text-gold' : 'text-white'; ?>">
+                  Pricing
+                </a>
+              </li>
+            <?php endif; ?>
             <?php
               if (is_jobseeker()) :
                 $user_type = strtolower($_SESSION['user']['user_type']);
