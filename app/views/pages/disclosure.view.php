@@ -1,7 +1,7 @@
 <?php get_template_part('header'); ?>
 
 <section>
-  <article class="container max-w-xl py-16" role="article">
+  <article class="container max-w-2xl py-16" role="article">
 
     <h1 class="text-4xl font-secondary text-blue-900 font-bold">Phreshskills Full Disclosure</h1>
     <p class="mb-7 text-sm">Last Updated: <?php echo DISCLOSURE_LATEST_UPDATE; ?></p>
