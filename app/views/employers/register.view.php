@@ -8,6 +8,8 @@
 
     <h1 class="font-bold text-3xl lg:text-5xl font-secondary text-gold mb-8">Employer's Sign Up</h1>
 
+    <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
+
     <div class="mb-4">
       <label for="company_name" class="block text-gray-200 font-secondary text-sm">Company or Business Name</label>
       <input type="text" id="company_name" name="company_name" class="border border-solid rounded-sm border-gray-500

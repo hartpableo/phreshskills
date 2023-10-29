@@ -6,8 +6,7 @@ use Core\Session;
 
 class CSRFToken {
     protected string $token;
-//    protected int $token_max_time = 60 * 60 * 24;
-  protected int $token_max_time = 10;
+    protected int $token_max_time = 60 * 60 * 24;
 
     public function generateToken()
     {
