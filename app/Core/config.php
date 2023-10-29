@@ -1,11 +1,12 @@
+
 <?php
 
 if (!isset($_SERVER['IS_DDEV_PROJECT']) || $_SERVER['IS_DDEV_PROJECT'] == 'false') {
   define('DEBUG', false);
-  define('DBNAME', 'db');
-  define('DBHOST', 'db');
-  define('DBUSER', 'db');
-  define('DBPASS', 'db');
+  define('DBNAME', 'ukurtaxdmf');
+  define('DBHOST', '170.64.188.171');
+  define('DBUSER', 'ukurtaxdmf');
+  define('DBPASS', 'FASz2fwNKx');
 } else {
   require 'config.ddev.php';
 };
@@ -16,7 +17,7 @@ define('BASE_PATH', realpath(__DIR__ . '/../../'));
 define('APP_NAME', 'Phreshskills');
 define('APP_DESC', 'Hire Fresh Skills Now From the Talents in the Philippines!');
 define(
-  'SALARY_TYPES', 
+  'SALARY_TYPES',
   [
     'hourly',
     'daily',
