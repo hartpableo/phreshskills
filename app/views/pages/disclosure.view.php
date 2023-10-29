@@ -1,4 +1,6 @@
-<?php get_template_part('header'); ?>
+<?php get_template_part('header', [
+    'pageTitle' => 'Full Disclosure 📜',
+]); ?>
 
 <section class="has-overlay bg-fixed bg-center bg-cover relative isolate py-5 lg:py-10 h-full" style="background-image: url(<?php echo image_uri('hero-bg.webp'); ?>);background-repeat: no-repeat;">
   <article class="container max-w-2xl py-16 text-gray-200" role="article">
