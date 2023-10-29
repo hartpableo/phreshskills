@@ -79,7 +79,7 @@ class Authenticator
 
   public function login($user = []) {
     Session::put('user', $user);
-    session_regenerate_id(true);
+    session_regenerate_id( true );
   }
   
   public function logout() {

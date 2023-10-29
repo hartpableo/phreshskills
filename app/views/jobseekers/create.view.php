@@ -8,6 +8,9 @@
     <h1 class="font-bold text-3xl lg:text-4xl font-secondary text-gold mb-8">Create Jobseeker Profile</h1>
 
     <input type="hidden" name="csrf_token" value="<?php echo $csrf_token; ?>">
+    <div style="display: none;">
+      <input type="text" autocomplete="off" name="ruh">
+    </div>
 
     <div class="mb-4">
       <label for="name" class="block text-gray-200 font-secondary text-sm">Name</label>

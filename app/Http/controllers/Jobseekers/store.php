@@ -11,6 +11,7 @@ $db = App::resolve(Database::class);
 
 $attributes = [
   'csrf_token' => $_POST['csrf_token'],
+  'ruh' => $_POST['ruh'],
   'name' => trim($_POST['name']),
   'email' => trim($_POST['email']),
   'password' => trim($_POST['password']),
@@ -22,6 +23,12 @@ $attributes = [
   'work_background' => $_POST['work_background'],
   'profile_photo' => $_FILES['profile_photo']
 ];
+
+// Check if ruh has a value and redirect to home if it does
+if ( $attributes['ruh'] ) {
+  Session::flash('error-message', 'We have detected spam activity from your IP address. Please try again later or contact me.');
+  redirect();
+}
 
 $token = new CSRFToken();
 $tokenIsValid = $token->validateToken( $attributes['csrf_token'] );

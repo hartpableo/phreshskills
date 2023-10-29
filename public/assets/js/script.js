@@ -21,7 +21,7 @@ window.addEventListener('load', () => {
 function removeAlerts(alerts) {
   if (alerts.length) {
     for (let i = 0; i < alerts.length; i++) {
-      alerts[i].style.animationDelay = `${([i] * 800) + 2500}ms`;
+      alerts[i].style.animationDelay = `${([i] * 800) + 3000}ms`;
       alerts[i].classList.add('fadeout');
       setTimeout(() => {
         alerts[i].remove();
