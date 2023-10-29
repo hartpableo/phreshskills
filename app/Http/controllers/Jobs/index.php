@@ -9,7 +9,7 @@ $db = App::resolve(Database::class);
 /** manage queries */
 if (url_has_no_query_strings()) {
 
-  $jobs = $db->query('select * from jobs join employers on jobs.employer_id = employers.employer_id order by jobs.date_published desc')->findAll();
+  $jobs = $db->query('select * from jobs join employers on jobs.employer_id = employers.employer_id where curdate() <= jobs.date_end order by jobs.date_published desc')->findAll();
 
 } else {
 
@@ -46,8 +46,9 @@ if (url_has_no_query_strings()) {
     $jobs = $db->query('select * from jobs 
     join employers on jobs.employer_id = employers.employer_id 
     where 
-      (lower(title) like :job_title or :job_title is null) 
+      (lower(title) like :job_title or :job_title is null)
       and ((lower(salary_type) = :salary_type) or :salary_type is null)
+      and curdate() <= jobs.date_end
       and ((CAST(salary as decimal) >= CAST(:salary as decimal)) or :salary is null)',
     [
       ':job_title' => $jobTitle,
@@ -68,9 +69,10 @@ if (url_has_no_query_strings()) {
     $jobs = $db->query("select * from jobs 
     join employers on jobs.employer_id = employers.employer_id 
     where 
-      (lower(title) like :job_title or :job_title is null) 
+      (lower(title) like :job_title or :job_title is null)
       and ((lower(salary_type) = :salary_type) or :salary_type is null)
       and ((CAST(salary as decimal) >= CAST(:salary as decimal)) or :salary is null)
+      and curdate() <= jobs.date_end
       and {$query}", $params)->findAll();
 
   }
@@ -79,7 +81,7 @@ if (url_has_no_query_strings()) {
 
 /** get and combine all skills */
 $all_skills = [];
-$skills = $db->query('select skillset from jobs')->findAll();
+$skills = $db->query('select skillset from jobs where curdate() <= date_end')->findAll();
 
 if (!empty($skills)) {
 

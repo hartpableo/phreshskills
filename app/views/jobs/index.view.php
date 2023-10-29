@@ -42,6 +42,7 @@
         class="p-4 bg-[rgba(255,255,255,0.7)] border border-gold border-2 rounded-lg shadow-lg">
           
           <p class="block text-md font-bold text-neutral-900 tracking-wider mb-3">
+            🔥
             <span id="employer--<?php echo $job['id'] . strtotime($job['date_published']); ?>"><?php echo $job['company_name']; ?></span> <span class="font-normal tracking-normal">is hiring!</span>
           </p>
 

@@ -40,7 +40,7 @@
       |
       <?php endif; ?>
       <a 
-      href="mailto:pableoh@gmail.com" 
+      href="mailto:pableoh@gmail.com?subject=Hello%20from%20Phreshskills:"
       class="underline underline-offset-4 font-bold hover:text-red-400 transition-all text-sm"
       >Contact Developer</a>
 

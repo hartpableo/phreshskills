@@ -17,17 +17,26 @@
               <th class="px-6 py-3">Listing ID</th>
               <th class="px-6 py-3">Job Title</th>
               <th class="px-6 py-3">Salary</th>
+              <th class="px-6 py-3">Date Posted</th>
               <th class="px-6 py-3">Open until</th>
+              <th class="px-6 py-3">Status</th>
               <th class="px-6 py-3">Action</th>
             </tr>
           </thead>
           <tbody>
-          <?php foreach ($jobs as $job) : ?>
-          <tr class="bg-gray-200 border-b font-bold text-gray-800">
+          <?php
+            foreach ($jobs as $job) :
+              $savedDate = strtotime($job['date_end']);
+              $dateNow = strtotime(date('Y-m-d'));
+              $jobIsDue = $savedDate < $dateNow;
+          ?>
+          <tr class="border-b font-bold <?php echo $jobIsDue ? 'bg-gray-600 text-gray-200' : 'bg-gray-200 text-gray-800' ?>">
             <td class="px-6 py-4"><?php echo $job['id']; ?></td>
             <td class="px-6 py-4"><?php echo htmlspecialchars($job['title']); ?></td>
             <td class="px-6 py-4"><?php echo job_salary($job['salary'], $job['salary_type']) ?></td>
+            <td class="px-6 py-4"><?php echo date('F d Y', strtotime($job['date_published'])); ?></td>
             <td class="px-6 py-4"><?php echo date('F d Y', strtotime($job['date_end'])); ?></td>
+            <td class="px-6 py-4"><?php echo $jobIsDue ? 'Closed' : 'Open'; ?></td>
             <td class="px-6 py-4">
               <a href="/job/<?php echo $job['id']; ?>" class="inline-flex items-center px-3 py-2 text-md font-medium text-center text-white bg-blue-700 rounded hover:bg-gold hover:text-black border border-solid border-blue-700 hover:border-gold focus:ring-4 focus:outline-none focus:ring-blue-300 transition-all">
                 <span class="font-bold">View</span>

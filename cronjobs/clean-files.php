@@ -1,12 +1,6 @@
 <?php
 
-$base_path = realpath(__DIR__ . '/../');
-$db_config = [
-  'host' => 'db',
-  'name' => 'db',
-  'user' => 'root',
-  'pass' => 'root',
-];
+require_once __DIR__ . '/commons.php';
 
 try {
   $dsn = 'mysql:host=' . $db_config['host'] . ';dbname=' . $db_config['name'] . ';charset=utf8mb4';
