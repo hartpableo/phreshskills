@@ -14,7 +14,7 @@
       <ul class="list-disc list-outside ml-5 mb-8">
         <li class="mb-1"><strong>Job Posts:</strong> Enjoy up to 3 job posts per month. Reach potential candidates and grow your team without any cost.</li>
         <li class="mb-1"><strong>Visibility:</strong> Your job posts will be visible to our active jobseekers.</li>
-        <li class="mb-1"><strong>1 Week Availability:</strong> Each job post remains live for one week, ensuring you find the right candidates.</li>
+        <!--<li class="mb-1"><strong>1 Week Availability:</strong> Each job post remains live for one week, ensuring you find the right candidates.</li>-->
       </ul>
       <p class="text-sm text-gray-900 block pl-3 py-3 border-l-[.5em] border-l-green-500 bg-green-200"><em><strong>Note:</strong> More premium features are in development, so stay tuned for even greater benefits to enhance your recruiting efforts.</em></p>
     </div>
